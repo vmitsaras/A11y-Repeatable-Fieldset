@@ -1,8 +1,7 @@
 /**
  * Stable package metadata for documentation tooling.
  *
- * The runtime is implemented but unpublished. Installation and usage remain
- * null until release evidence exists.
+ * The runtime is published. Installation and usage are stable public metadata.
  */
 
 import {
@@ -73,12 +72,12 @@ export interface PluginDocs {
   readonly packageName: string;
   readonly version: "1.0.0";
   readonly description: string;
-  readonly status: "unpublished";
+  readonly status: "published";
   readonly availabilityNote: string;
   readonly repo: string;
-  readonly npm: null;
-  readonly install: null;
-  readonly usage: null;
+  readonly npm: string;
+  readonly install: string;
+  readonly usage: string;
   readonly selectors: readonly PluginDocsSelector[];
   readonly keyboard: readonly PluginDocsKeyboardEntry[];
   readonly focus: readonly string[];
@@ -100,13 +99,14 @@ export const docs: PluginDocs = Object.freeze({
   version: "1.0.0",
   description:
     "Add, remove, duplicate, and reorder accessible form fieldsets with a dependency-free TypeScript plugin that preserves stable IDs and keyboard focus.",
-  status: "unpublished",
+  status: "published",
   availabilityNote:
-    "Option normalization, error contracts, semantic discovery, transactional existing-item registration, stable-key allocation, disconnected template materialization, visible-position synchronization, duplicate-instance registration, one-item Add/Remove/Duplicate/Move commands, exact-key addon restoration, native constraint-state synchronization, deterministic structural focus behavior, managed polite structural announcements, typed message localization, immutable collection/capability queries, non-destructive core teardown, seven typed lifecycle events, component/per-item addon registration and cleanup, independent single-owner Remove-request and removal-preparation routing, and the separately exported dependency-free Validation Bridge, Legend Sync, Remove Guard, Accessible Reorder, Duplicate Item, Undo Remove, and Form Memory Bridge addons are implemented. The canonical built-artifact repository example, static documentation shell, copied Pages assets, executable core and addon demos, no-JavaScript comparison, deterministic recovery example, and repository-subpath simulation exist; broader manual browser, assistive-technology, reflow, and visual-preference evidence plus Pages deployment remain pending; the package is unpublished.",
+    "Option normalization, error contracts, semantic discovery, transactional existing-item registration, stable-key allocation, disconnected template materialization, visible-position synchronization, duplicate-instance registration, one-item Add/Remove/Duplicate/Move commands, exact-key addon restoration, native constraint-state synchronization, deterministic structural focus behavior, managed polite structural announcements, typed message localization, immutable collection/capability queries, non-destructive core teardown, seven typed lifecycle events, component/per-item addon registration and cleanup, independent single-owner Remove-request and removal-preparation routing, and the separately exported dependency-free Validation Bridge, Legend Sync, Remove Guard, Accessible Reorder, Duplicate Item, Undo Remove, and Form Memory Bridge addons are implemented. The package is publicly available from npm. The canonical built-artifact repository example, static documentation shell, copied Pages assets, executable core and addon demos, no-JavaScript comparison, deterministic recovery example, and repository-subpath simulation exist; broader manual browser, assistive-technology, reflow, and visual-preference evidence plus Pages deployment remain pending.",
   repo: "https://github.com/vmitsaras/A11y-Repeatable-Fieldset",
-  npm: null,
-  install: null,
-  usage: null,
+  npm: "https://www.npmjs.com/package/a11y-repeatable-fieldset",
+  install: "npm install a11y-repeatable-fieldset",
+  usage:
+    'import { createRepeatableFieldset } from "a11y-repeatable-fieldset";',
   selectors: [
     {
       selector: SELECTORS.root,

@@ -142,7 +142,12 @@ function assertSeoMetadata(markup, page) {
     software?.codeRepository !==
       "https://github.com/vmitsaras/A11y-Repeatable-Fieldset" ||
     !Array.isArray(software?.sameAs) ||
-    software.sameAs.some((url) => url.includes("npmjs.com"))
+    !software.sameAs.includes(
+      "https://github.com/vmitsaras/A11y-Repeatable-Fieldset"
+    ) ||
+    !software.sameAs.includes(
+      "https://www.npmjs.com/package/a11y-repeatable-fieldset"
+    )
   ) {
     throw new Error(`${page} contains mismatched or unverifiable JSON-LD.`);
   }

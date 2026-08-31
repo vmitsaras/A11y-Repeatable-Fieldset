@@ -5,7 +5,7 @@
 Undo Remove is an implemented, opt-in addon exported only from
 `a11y-repeatable-fieldset/addons/undo-remove`. It is synchronous,
 dependency-free, disabled by default, and absent from the main runtime bundle.
-The package remains unpublished.
+This contract applies to package version 1.0.0.
 
 Undo is deliberately distinct from persistent Form Memory and native-reset
 structure policy. It keeps one short-lived in-memory record for the latest

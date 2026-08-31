@@ -10,7 +10,7 @@ pass cross-document verification.
 
 The core runtime, test foundation, static documentation shell, copied Pages
 assets, executable demo suite, and repository-subpath simulation are
-implemented locally. Remaining evidence work includes broader manual browser,
+implemented for version 1.0.0. Remaining evidence work includes broader manual browser,
 assistive-technology, reflow, and visual-preference verification plus owner-run
 Pages deployment checks.
 

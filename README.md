@@ -1,13 +1,12 @@
 # A11yRepeatableFieldset
 
-> **Status: implemented, unpublished.** The complete interactive component is
-> implemented locally and is not published. This repository contains the contracts,
+> **Status: published as version 1.0.0.** The complete interactive component is
+> implemented. This repository contains the contracts,
 > package foundation, option normalization, read-only semantic discovery, and
 > transactional existing-item registration, lifetime-stable key allocation,
 > disconnected inert-template materialization, owned visible-position
 > synchronization, duplicate-instance registration, and transactional
-> one-item Add, Remove, Duplicate, and adjacent Move commands with native constraint-state controls for
-> an eventual release. The documented Add and removal focus decision orders are
+> one-item Add, Remove, Duplicate, and adjacent Move commands with native constraint-state controls. The documented Add and removal focus decision orders are
 > implemented together with managed polite structural announcements and
 > typed JavaScript-only message localization.
 > Immutable collection and capability queries are also available, together
@@ -24,11 +23,9 @@ focus, server-rendered data, and clear status updates.
 
 Package name: `a11y-repeatable-fieldset`.
 
-## Installation after publication
+## Installation
 
-The package is still private and unpublished. After the remaining manual
-accessibility evidence is recorded and the owner authorizes the first public
-release, the planned installation commands will be:
+Install the public package from npm:
 
 ```bash
 npm install a11y-repeatable-fieldset
@@ -53,16 +50,14 @@ if (root) {
 }
 ```
 
-The optional behavior-independent stylesheet will be available through its
+The optional behavior-independent stylesheet is available through its
 separate export:
 
 ```ts
 import "a11y-repeatable-fieldset/styles.css";
 ```
 
-These commands document the intended public package contract; they do not
-claim that the package is currently available from npm. For a runnable local
-example using built `dist` files, see the
+For a runnable local example using built `dist` files, see the
 [basic repository example](./examples/basic/index.html) and its
 [setup notes](./examples/basic/README.md).
 
@@ -71,9 +66,9 @@ example using built `dist` files, see the
 - [Basic repository example](./examples/basic/index.html) is the minimal,
   server-rendered package example. It imports the built ESM module and optional
   CSS from `dist`, so build the package before serving it locally.
-- [Static documentation and demos](./docs/index.html) are the separate future
-  GitHub Pages system. They use copied build assets and remain unpublished
-  repository documentation.
+- [Static documentation and demos](./docs/index.html) are the separate GitHub
+  Pages system. They use copied build assets; Pages deployment remains an
+  owner-controlled repository action.
 
 ## What it solves
 
@@ -218,7 +213,7 @@ public; the normalizer, discovery, item registry, allocator, disconnected
 template materializer, and position synchronizer remain internal component
 building blocks.
 
-The current pre-release class supports idempotent `init()`, transactional
+The current class supports idempotent `init()`, transactional
 `add()`, `remove()`, `duplicate()`, and adjacent `move()`, immutable collection queries, and safe core
 `destroy()` cleanup. Destroy removes the root interaction listener, restores
 tracked author/template control states, unregisters the root, releases
@@ -852,14 +847,11 @@ on an individual component root:
 Avoid overriding focus or muted colors with values that make keyboard focus,
 disabled controls, or structural boundaries hard to perceive.
 
-After implementation and publication, the planned optional import will be:
+Import the optional stylesheet with:
 
 ```ts
 import "a11y-repeatable-fieldset/styles.css";
 ```
-
-This import is a future public contract, not a claim that the package is
-currently available.
 
 ## Accessibility goals
 
@@ -919,8 +911,8 @@ absolute canonical, Open Graph, and Twitter/X tags for the expected
 `docs/assets/social-preview.png`, with the repository-upload copy at
 `.github/social-preview.png`. Each page also includes one page-specific
 `WebPage` and `SoftwareSourceCode` JSON-LD graph generated from local page and
-package metadata; the graph omits an npm URL while the package is private and
-unpublished. Configuration and repository-preview upload remain manual
+package metadata; the graph includes the public npm package URL.
+Configuration and repository-preview upload remain manual
 repository-owner actions.
 
 See [`GITHUB_PAGES_PLAN.md`](./GITHUB_PAGES_PLAN.md).
@@ -928,17 +920,14 @@ See [`GITHUB_PAGES_PLAN.md`](./GITHUB_PAGES_PLAN.md).
 ## Structured docs metadata
 
 [`src/docs.ts`](./src/docs.ts) exports typed, side-effect-free metadata for
-documentation aggregation. It deliberately reports `unpublished`
-status and provides no installation or runtime-usage command.
+documentation aggregation. It reports the public package URL and installation
+and runtime-usage commands.
 
-After implementation and publication, the planned package subpath will be:
+The package subpath is:
 
 ```ts
 import { docs } from "a11y-repeatable-fieldset/docs";
 ```
-
-This import is a future public contract, not a claim that the package is
-currently available.
 
 ## MVP exclusions
 

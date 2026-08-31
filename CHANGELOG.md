@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.0.0 - 2026-08-31
 
 - Add the dependency-free, ESM-only repeatable-fieldset runtime with semantic
   discovery, stable identity, trusted-template Add, Remove, Duplicate, adjacent

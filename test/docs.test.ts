@@ -6,14 +6,16 @@ import { describe, expect, it } from "vitest";
 import { docs } from "../src/docs";
 
 describe("structured docs metadata", () => {
-  it("identifies the unpublished package without installation claims", () => {
+  it("identifies the published package with installation metadata", () => {
     expect(docs.name).toBe("A11yRepeatableFieldset");
     expect(docs.packageName).toBe("a11y-repeatable-fieldset");
     expect(docs.version).toBe("1.0.0");
-    expect(docs.status).toBe("unpublished");
-    expect(docs.npm).toBeNull();
-    expect(docs.install).toBeNull();
-    expect(docs.usage).toBeNull();
+    expect(docs.status).toBe("published");
+    expect(docs.npm).toBe(
+      "https://www.npmjs.com/package/a11y-repeatable-fieldset"
+    );
+    expect(docs.install).toBe("npm install a11y-repeatable-fieldset");
+    expect(docs.usage).toContain("createRepeatableFieldset");
     expect(Object.isFrozen(docs)).toBe(true);
   });
 

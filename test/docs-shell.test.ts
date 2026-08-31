@@ -237,7 +237,9 @@ describe("static documentation shell", () => {
         runtimePlatform: "Browser",
         version: "1.0.0"
       });
-      expect(JSON.stringify(jsonLd)).not.toContain("npmjs.com");
+      expect(JSON.stringify(jsonLd)).toContain(
+        "https://www.npmjs.com/package/a11y-repeatable-fieldset"
+      );
     }
   });
 

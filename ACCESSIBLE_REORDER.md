@@ -5,7 +5,7 @@
 Accessible Reorder is implemented as an opt-in addon at
 `a11y-repeatable-fieldset/addons/accessible-reorder`. It is dependency-free,
 has no import-time DOM effects, is absent from the main runtime entry, and is
-never enabled automatically. The package remains unpublished.
+never enabled automatically. This contract applies to package version 1.0.0.
 
 The prerequisite public `move(target, direction)` command and completed
 `item-moved` lifecycle event are core contracts. The addon renders native

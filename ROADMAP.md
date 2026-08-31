@@ -2,7 +2,7 @@
 
 ## Project status
 
-A11yRepeatableFieldset has an implemented, unpublished core runtime. Semantic
+A11yRepeatableFieldset has an implemented version 1.0.0 core runtime. Semantic
 discovery, identity materialization, position synchronization, one-item Add,
 Remove, Duplicate, and adjacent Move commands, native constraint-state synchronization, deterministic
 Add/Remove/Duplicate/Move focus behavior, managed polite structural announcements, typed JavaScript

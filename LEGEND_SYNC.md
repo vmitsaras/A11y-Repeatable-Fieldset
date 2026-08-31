@@ -5,8 +5,8 @@
 Legend Sync is implemented as an opt-in Priority 1 addon at the explicit
 package subpath `a11y-repeatable-fieldset/addons/legend-sync`. It is
 dependency-free, has no import-time DOM effects, is absent from the main
-runtime entry, and is never enabled automatically. The package remains
-unpublished.
+runtime entry, and is never enabled automatically. This contract applies to
+package version 1.0.0.
 
 Legend Sync appends one deliberately selected, committed control value to an
 item's existing generic legend and visible position. It does not replace the

@@ -57,6 +57,10 @@ function createJsonLd(markup, page) {
     page
   );
   const repositoryUrl = normalizeRepositoryUrl(packageJson.repository);
+  const npmUrl =
+    packageJson.private === true
+      ? ""
+      : `https://www.npmjs.com/package/${packageJson.name}`;
   const authorName =
     typeof packageJson.author === "string"
       ? packageJson.author
@@ -104,7 +108,7 @@ function createJsonLd(markup, page) {
           runtimePlatform: "Browser",
           softwareVersion: packageJson.version
         },
-        sameAs: repositoryUrl === "" ? undefined : [repositoryUrl]
+        sameAs: [repositoryUrl, npmUrl].filter((url) => url !== "")
       },
       ...(authorName === "Vasileios Mitsaras"
         ? [

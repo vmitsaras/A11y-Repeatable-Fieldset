@@ -11,7 +11,7 @@ The Add, Remove, Duplicate, addon restoration, and Move commands, native constra
 deterministic focus, managed polite status updates, typed message formatter
 overrides, and immutable collection and capability queries are implemented.
 Lifecycle dispatch uses the locked root target, owner-document realm, flags,
-detail, and ordering; package release remains pending. Safe core teardown
+detail, and ordering for package version 1.0.0. Safe core teardown
 dispatches the final destroy event. Events are
 public API and must not be added, renamed, or reordered casually.
 

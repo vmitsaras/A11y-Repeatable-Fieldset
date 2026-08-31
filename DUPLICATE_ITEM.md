@@ -5,7 +5,7 @@
 Duplicate Item is implemented as an opt-in addon at
 `a11y-repeatable-fieldset/addons/duplicate-item`. It is dependency-free, has
 no import-time DOM effects, is absent from the main runtime entry, and is never
-enabled automatically. The package remains unpublished.
+enabled automatically. This contract applies to package version 1.0.0.
 
 The prerequisite public `duplicate(target, options)` command is a core
 transaction. It materializes the trusted inert template with a fresh key,

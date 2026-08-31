@@ -2,7 +2,7 @@
 
 ## Status and publishing model
 
-The static documentation site exists locally under `/docs` and has not been
+The static documentation site is committed under `/docs` and has not been
 deployed. When authorized, GitHub Pages will publish committed files from:
 
 - branch: `main`
@@ -206,8 +206,8 @@ Checks must fail when:
 - any page is missing a unique title, unique description, planned absolute
   canonical, matching Open Graph URL, or complete large-image social metadata
 - any page is missing its one valid page-specific `WebPage` plus
-  `SoftwareSourceCode` JSON-LD graph, or structured data claims an npm URL for
-  the unpublished private package
+  `SoftwareSourceCode` JSON-LD graph, or its structured data omits the public
+  package URL after publication
 - the shared social image is missing, is not 1280 × 640 PNG, or reaches the
   platform size limit
 - an event in the frozen runtime constants is absent from lifecycle docs or

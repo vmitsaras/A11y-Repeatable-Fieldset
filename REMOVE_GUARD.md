@@ -5,7 +5,7 @@
 The opt-in Remove Guard is implemented at the explicit package subpath
 `a11y-repeatable-fieldset/addons/remove-guard`. It is dependency-free, has no
 import-time DOM effects, is absent from the main runtime entry, and is never
-enabled automatically. The package remains unpublished.
+enabled automatically. This contract applies to package version 1.0.0.
 
 The implementation adds one narrow core command-routing capability. An owned
 Remove-button activation is a request when one addon registers

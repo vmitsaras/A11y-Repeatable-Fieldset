@@ -1,7 +1,7 @@
 {
   "name": "a11y-repeatable-fieldset",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "description": "Add, remove, duplicate, and reorder accessible form fieldsets with a dependency-free TypeScript plugin that preserves stable IDs and keyboard focus.",
   "type": "module",
   "main": "./dist/index.js",
@@ -17,6 +17,10 @@
     "url": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset/issues"
   },
   "homepage": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "keywords": [
     "accessibility",
     "a11y",

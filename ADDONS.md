@@ -14,7 +14,7 @@ implemented. The dependency-free Validation Bridge, Legend Sync, Remove Guard,
 Accessible Reorder, Duplicate Item, Undo Remove, and Form Memory Bridge are
 concrete addons available only from explicit subpaths; all seven
 remain absent from the main runtime bundle.
-The package is not published. No addon is enabled by default. Add, Remove,
+This contract applies to package version 1.0.0. No addon is enabled by default. Add, Remove,
 Duplicate, and Restore results use `addon-error` for rollback-safe addon
 failures. The core destroy boundary owns current item cleanup before component
 cleanup and releases detached item references.

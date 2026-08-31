@@ -2,7 +2,8 @@
 
 ## Status and evidence boundary
 
-This record prepares `A11Y-005 — Verify fieldset and legend output`,
+This record accompanies package version 1.0.0 and prepares
+`A11Y-005 — Verify fieldset and legend output`,
 `A11Y-006 — Verify labels and ID references`, `ADDON-007 — Implement Legend
 Sync`, `ADDON-008 — Implement Remove Guard`, `ADDON-009 — Implement Accessible
 Reorder`, `ADDON-010 — Implement Duplicate Item`, and `A11Y-007 — Verify reduced

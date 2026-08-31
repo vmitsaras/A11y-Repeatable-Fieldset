@@ -5,7 +5,7 @@
 The opt-in Validation Bridge is implemented at the explicit package subpath
 `a11y-repeatable-fieldset/addons/validation-bridge`. It is dependency-free,
 has no import-time DOM effects, is absent from the main runtime entry, and is
-not enabled automatically. The package remains unpublished.
+not enabled automatically. This contract applies to package version 1.0.0.
 
 The bridge coordinates lifecycle only. It does not validate fields, render
 messages, create an error summary, move focus after invalid submission, or

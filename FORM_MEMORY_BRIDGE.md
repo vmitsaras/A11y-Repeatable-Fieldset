@@ -1,6 +1,6 @@
 # Form Memory Bridge contract
 
-Status: implemented as the optional
+Status: implemented for package version 1.0.0 as the optional
 `a11y-repeatable-fieldset/addons/form-memory-bridge` subpath.
 
 The bridge coordinates repeatable structure with

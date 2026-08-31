@@ -16,8 +16,8 @@ typed JavaScript message formatters with frozen English defaults are
 implemented. Lifecycle events, synchronous addon setup/cleanup, and the
 remaining interactive runtime behavior are also implemented.
 Non-destructive core destroy and clean reinitialization are implemented for
-current resources. The package is not published. The requirements are
-normative for the first implementation unless a later documented contract
+current resources. The requirements apply to package version 1.0.0 and are
+normative unless a later documented contract
 change explicitly replaces them.
 
 ## Design basis

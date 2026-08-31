@@ -7,6 +7,10 @@ interface PackageJsonContract {
   readonly name: string;
   readonly version: string;
   readonly private: boolean;
+  readonly publishConfig: {
+    readonly access: string;
+    readonly registry: string;
+  };
   readonly type: string;
   readonly main: string;
   readonly module: string;
@@ -29,11 +33,15 @@ describe("guarded release-candidate package contract", () => {
     expect(packageJson).toMatchObject({
       name: "a11y-repeatable-fieldset",
       version: "1.0.0",
-      private: true,
+      private: false,
       type: "module",
       main: "./dist/index.js",
       module: "./dist/index.js",
       types: "./dist/index.d.ts"
+    });
+    expect(packageJson.publishConfig).toEqual({
+      access: "public",
+      registry: "https://registry.npmjs.org/"
     });
     expect(packageJson.dependencies).toEqual({});
     expect(packageJson.sideEffects).toEqual(["**/*.css"]);
