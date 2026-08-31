@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <title>Complex Form Fields Demo | A11yRepeatableFieldset</title>
+    <meta name="description" content="Test labels, radio groups, descriptions, datalists, header references, file inputs, and tokenized identity across repeatable participant fieldsets.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/complex-fields.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="A11yRepeatableFieldset">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Complex Form Fields Demo | A11yRepeatableFieldset">
+    <meta property="og:description" content="Test labels, radio groups, descriptions, datalists, header references, file inputs, and tokenized identity across repeatable participant fieldsets.">
+    <meta property="og:url" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/complex-fields.html">
+    <meta property="og:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta property="og:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Complex Form Fields Demo | A11yRepeatableFieldset">
+    <meta name="twitter:description" content="Test labels, radio groups, descriptions, datalists, header references, file inputs, and tokenized identity across repeatable participant fieldsets.">
+    <meta name="twitter:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta name="twitter:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/complex-fields.html#webpage",
+          "url": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/complex-fields.html",
+          "name": "Complex Form Fields Demo | A11yRepeatableFieldset",
+          "description": "Test labels, radio groups, descriptions, datalists, header references, file inputs, and tokenized identity across repeatable participant fieldsets.",
+          "mainEntity": {
+            "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/complex-fields.html#software"
+          }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/complex-fields.html#software",
+          "name": "A11yRepeatableFieldset",
+          "alternateName": "a11y-repeatable-fieldset",
+          "description": "Add, remove, duplicate, and reorder accessible form fieldsets with a dependency-free TypeScript plugin that preserves stable IDs and keyboard focus.",
+          "codeRepository": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset",
+          "programmingLanguage": [
+            "TypeScript",
+            "JavaScript"
+          ],
+          "runtimePlatform": "Browser",
+          "version": "1.0.0",
+          "license": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset/blob/main/LICENSE",
+          "keywords": [
+            "accessibility",
+            "a11y",
+            "fieldset",
+            "forms",
+            "progressive-enhancement",
+            "typescript"
+          ],
+          "author": {
+            "@id": "https://github.com/vmitsaras/#person"
+          },
+          "targetProduct": {
+            "@type": "SoftwareApplication",
+            "name": "A11yRepeatableFieldset",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Any",
+            "runtimePlatform": "Browser",
+            "softwareVersion": "1.0.0"
+          },
+          "sameAs": [
+            "https://github.com/vmitsaras/A11y-Repeatable-Fieldset"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://github.com/vmitsaras/#person",
+          "name": "Vasileios Mitsaras",
+          "url": "https://github.com/vmitsaras/",
+          "sameAs": [
+            "https://github.com/vmitsaras/",
+            "https://linkedin.com/in/vasilis-mitsaras"
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="./assets/docs.css">
+    <link rel="stylesheet" href="./assets/a11y-repeatable-fieldset.css">
+  </head>
+  <body class="docs-site">
+    <a class="docs-site__skip-link" href="#main-content">Skip to content</a>
+    <header class="docs-site__header">
+      <a class="docs-site__brand" href="./index.html" aria-label="A11yRepeatableFieldset home">A11yRepeatableFieldset</a>
+      <nav aria-label="Main navigation">
+        <ul class="docs-site__nav-list">
+          <li><a href="./index.html">Overview</a></li>
+          <li><a href="./index.html#examples">Examples</a></li>
+          <li><a href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">Install</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="docs-site__main" id="main-content">
+      <header>
+        <p>Identity and reference coverage demo</p>
+        <h1>Add participant profiles with complex form relationships</h1>
+        <p>This dense example exercises the documented token locations across labels, names, radios, descriptions, datalists, table headers, same-page links, and file inputs.</p>
+      </header>
+
+      <section class="docs-site__panel" aria-labelledby="complex-scenario-heading">
+        <h2 id="complex-scenario-heading">Scenario</h2>
+        <p>A workshop registration form collects several participant profiles. Each profile needs isolated radio choices, reusable suggestions, multiple descriptions, an availability table, notes, and an optional document upload.</p>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="complex-try-heading">
+        <h2 id="complex-try-heading">Try it</h2>
+        <ul>
+          <li>Add two profiles and choose different contact methods; selecting a radio in one profile must not clear the other profile’s choice.</li>
+          <li>Inspect the generated labels, <code>list</code>, <code>aria-describedby</code>, <code>headers</code>, and hash-link targets.</li>
+          <li>Remove the first profile and confirm the remaining names keep their original stable keys.</li>
+          <li>Choose a file, add another profile, and confirm the new file input starts empty.</li>
+        </ul>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="complex-example-heading">
+        <h2 id="complex-example-heading">Example</h2>
+        <p id="profile-shared-hint" class="docs-site__hint">Profile details are used only for this local demonstration. File selections are never copied by the plugin.</p>
+        <form action="./complex-fields.html" method="get">
+          <section
+            class="a11y-repeatable-fieldset"
+            data-a11y-repeatable-fieldset
+            data-min-items="0"
+            data-max-items="4"
+            data-item-label="Participant profile"
+            aria-describedby="profile-shared-hint profile-limit"
+          >
+            <p id="profile-limit" class="a11y-repeatable-fieldset__limit">Add up to four participant profiles. Zero profiles is allowed in this demonstration.</p>
+            <div class="a11y-repeatable-fieldset__items" data-a11y-repeatable-fieldset-items>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="participant-robin">
+                <legend class="a11y-repeatable-fieldset__legend">Participant profile <span class="a11y-repeatable-fieldset__position" data-a11y-repeatable-fieldset-position>1</span></legend>
+
+                <p class="docs-site__form-row">
+                  <label for="participant-robin-name">Display name</label>
+                  <input id="participant-robin-name" name="participants[participant-robin][name]" value="Robin Chen" autocomplete="name" aria-describedby="profile-shared-hint participant-robin-name-hint">
+                  <span id="participant-robin-name-hint">Use the name that should appear on the workshop badge.</span>
+                </p>
+
+                <fieldset>
+                  <legend>Preferred contact method</legend>
+                  <label><input type="radio" name="participants[participant-robin][contactMethod]" value="email" checked> Email</label>
+                  <label><input type="radio" name="participants[participant-robin][contactMethod]" value="telephone"> Telephone</label>
+                </fieldset>
+
+                <p>
+                  <label><input type="checkbox" id="participant-robin-accommodations" name="participants[participant-robin][needsAccommodations]" value="yes" aria-describedby="profile-shared-hint participant-robin-accommodations-hint"> Request accessibility accommodations</label>
+                  <span id="participant-robin-accommodations-hint">Add non-sensitive coordination details in the notes field.</span>
+                </p>
+
+                <p class="docs-site__form-row">
+                  <label for="participant-robin-role">Workshop role</label>
+                  <input id="participant-robin-role" name="participants[participant-robin][role]" value="Facilitator" list="participant-robin-role-options">
+                  <datalist id="participant-robin-role-options">
+                    <option value="Attendee"></option>
+                    <option value="Facilitator"></option>
+                    <option value="Observer"></option>
+                  </datalist>
+                </p>
+
+                <p class="docs-site__form-row">
+                  <label for="participant-robin-track">Learning track</label>
+                  <select id="participant-robin-track" name="participants[participant-robin][track]">
+                    <option value="foundations">Foundations</option>
+                    <option value="testing" selected>Testing practice</option>
+                    <option value="leadership">Accessibility leadership</option>
+                  </select>
+                </p>
+
+                <table class="docs-site__table">
+                  <caption>Availability for this participant</caption>
+                  <thead>
+                    <tr>
+                      <th id="participant-robin-session-heading" scope="col">Session</th>
+                      <th id="participant-robin-availability-heading" scope="col">Availability</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th id="participant-robin-morning-heading" scope="row">Morning</th>
+                      <td headers="participant-robin-session-heading participant-robin-morning-heading participant-robin-availability-heading">
+                        <label for="participant-robin-morning" class="docs-site__hint">Morning availability</label>
+                        <select id="participant-robin-morning" name="participants[participant-robin][morning]">
+                          <option value="available" selected>Available</option>
+                          <option value="unavailable">Unavailable</option>
+                        </select>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <p class="docs-site__form-row">
+                  <label for="participant-robin-notes">Coordination notes</label>
+                  <textarea id="participant-robin-notes" name="participants[participant-robin][notes]" rows="3">Please provide captions.</textarea>
+                </p>
+                <p><a href="#participant-robin-notes">Jump to this participant’s notes</a></p>
+
+                <p class="docs-site__form-row">
+                  <label for="participant-robin-document">Optional supporting document</label>
+                  <input id="participant-robin-document" name="participants[participant-robin][document]" type="file" aria-describedby="participant-robin-document-hint">
+                  <span id="participant-robin-document-hint">File selections stay local to this field and cannot be copied or restored.</span>
+                </p>
+
+                <div class="a11y-repeatable-fieldset__controls">
+                  <button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove participant profile</button>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="a11y-repeatable-fieldset__controls">
+              <button class="a11y-repeatable-fieldset__add" type="button" hidden data-a11y-repeatable-fieldset-add aria-describedby="profile-limit">Add participant profile</button>
+            </div>
+            <div class="a11y-repeatable-fieldset__status" data-a11y-repeatable-fieldset-status></div>
+
+            <template data-a11y-repeatable-fieldset-template>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="__A11Y_REPEATABLE_KEY__">
+                <legend class="a11y-repeatable-fieldset__legend">Participant profile <span class="a11y-repeatable-fieldset__position" data-a11y-repeatable-fieldset-position></span></legend>
+
+                <p class="docs-site__form-row">
+                  <label for="participant-__A11Y_REPEATABLE_KEY__-name">Display name</label>
+                  <input id="participant-__A11Y_REPEATABLE_KEY__-name" name="participants[__A11Y_REPEATABLE_KEY__][name]" autocomplete="name" aria-describedby="profile-shared-hint participant-__A11Y_REPEATABLE_KEY__-name-hint" data-a11y-repeatable-fieldset-focus>
+                  <span id="participant-__A11Y_REPEATABLE_KEY__-name-hint">Use the name that should appear on the workshop badge.</span>
+                </p>
+
+                <fieldset>
+                  <legend>Preferred contact method</legend>
+                  <label><input type="radio" name="participants[__A11Y_REPEATABLE_KEY__][contactMethod]" value="email" checked> Email</label>
+                  <label><input type="radio" name="participants[__A11Y_REPEATABLE_KEY__][contactMethod]" value="telephone"> Telephone</label>
+                </fieldset>
+
+                <p>
+                  <label><input type="checkbox" id="participant-__A11Y_REPEATABLE_KEY__-accommodations" name="participants[__A11Y_REPEATABLE_KEY__][needsAccommodations]" value="yes" aria-describedby="profile-shared-hint participant-__A11Y_REPEATABLE_KEY__-accommodations-hint"> Request accessibility accommodations</label>
+                  <span id="participant-__A11Y_REPEATABLE_KEY__-accommodations-hint">Add non-sensitive coordination details in the notes field.</span>
+                </p>
+
+                <p class="docs-site__form-row">
+                  <label for="participant-__A11Y_REPEATABLE_KEY__-role">Workshop role</label>
+                  <input id="participant-__A11Y_REPEATABLE_KEY__-role" name="participants[__A11Y_REPEATABLE_KEY__][role]" list="participant-__A11Y_REPEATABLE_KEY__-role-options">
+                  <datalist id="participant-__A11Y_REPEATABLE_KEY__-role-options">
+                    <option value="Attendee"></option>
+                    <option value="Facilitator"></option>
+                    <option value="Observer"></option>
+                  </datalist>
+                </p>
+
+                <p class="docs-site__form-row">
+                  <label for="participant-__A11Y_REPEATABLE_KEY__-track">Learning track</label>
+                  <select id="participant-__A11Y_REPEATABLE_KEY__-track" name="participants[__A11Y_REPEATABLE_KEY__][track]">
+                    <option value="foundations" selected>Foundations</option>
+                    <option value="testing">Testing practice</option>
+                    <option value="leadership">Accessibility leadership</option>
+                  </select>
+                </p>
+
+                <table class="docs-site__table">
+                  <caption>Availability for this participant</caption>
+                  <thead>
+                    <tr>
+                      <th id="participant-__A11Y_REPEATABLE_KEY__-session-heading" scope="col">Session</th>
+                      <th id="participant-__A11Y_REPEATABLE_KEY__-availability-heading" scope="col">Availability</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th id="participant-__A11Y_REPEATABLE_KEY__-morning-heading" scope="row">Morning</th>
+                      <td headers="participant-__A11Y_REPEATABLE_KEY__-session-heading participant-__A11Y_REPEATABLE_KEY__-morning-heading participant-__A11Y_REPEATABLE_KEY__-availability-heading">
+                        <label for="participant-__A11Y_REPEATABLE_KEY__-morning" class="docs-site__hint">Morning availability</label>
+                        <select id="participant-__A11Y_REPEATABLE_KEY__-morning" name="participants[__A11Y_REPEATABLE_KEY__][morning]">
+                          <option value="available" selected>Available</option>
+                          <option value="unavailable">Unavailable</option>
+                        </select>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <p class="docs-site__form-row">
+                  <label for="participant-__A11Y_REPEATABLE_KEY__-notes">Coordination notes</label>
+                  <textarea id="participant-__A11Y_REPEATABLE_KEY__-notes" name="participants[__A11Y_REPEATABLE_KEY__][notes]" rows="3"></textarea>
+                </p>
+                <p><a href="#participant-__A11Y_REPEATABLE_KEY__-notes">Jump to this participant’s notes</a></p>
+
+                <p class="docs-site__form-row">
+                  <label for="participant-__A11Y_REPEATABLE_KEY__-document">Optional supporting document</label>
+                  <input id="participant-__A11Y_REPEATABLE_KEY__-document" name="participants[__A11Y_REPEATABLE_KEY__][document]" type="file" aria-describedby="participant-__A11Y_REPEATABLE_KEY__-document-hint">
+                  <span id="participant-__A11Y_REPEATABLE_KEY__-document-hint">File selections stay local to this field and cannot be copied or restored.</span>
+                </p>
+
+                <div class="a11y-repeatable-fieldset__controls">
+                  <button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove participant profile</button>
+                </div>
+              </fieldset>
+            </template>
+          </section>
+          <p><button type="submit">Preview participant data</button></p>
+        </form>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="complex-accessibility-heading">
+        <h2 id="complex-accessibility-heading">Accessibility notes</h2>
+        <ul>
+          <li>Each repeated item is the outer participant <code>fieldset</code>; the contact method uses a nested fieldset only because it is a genuine radio group.</li>
+          <li>Radio names contain the stable key, so each participant has an independent browser group.</li>
+          <li>Tokenized local references resolve inside each clone while the shared untokenized description remains external.</li>
+          <li>Table headers describe the availability cell without using table structure as the repeated-item grouping.</li>
+          <li>File inputs always begin empty in generated items and are never assigned, copied, or restored.</li>
+        </ul>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="complex-developer-heading">
+        <h2 id="complex-developer-heading">Developer notes</h2>
+        <p>The template uses the single literal token only in approved <code>id</code>, <code>name</code>, <code>for</code>, <code>list</code>, ID-reference, hash-link, and item-key attributes. The plugin does not replace visible text or arbitrary data attributes.</p>
+      </section>
+    </main>
+    <footer class="demo-footer" data-demo-footer>
+      <div class="demo-footer__inner">
+        <div class="demo-footer__brand">
+          <p class="demo-footer__eyebrow">Accessibility plugin demo</p>
+          <p class="demo-footer__credit"><span class="demo-footer__plugin">A11yRepeatableFieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span>Built by <a class="demo-footer__link" href="https://github.com/vmitsaras/">Vasileios Mitsaras</a><span class="demo-footer__separator" aria-hidden="true">&middot;</span><a class="demo-footer__link" href="https://linkedin.com/in/vasilis-mitsaras">LinkedIn profile</a></p>
+          <p class="demo-footer__meta"><span>a11y-repeatable-fieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span><span>MIT License</span></p>
+        </div>
+        <nav class="demo-footer__nav" aria-label="Project links">
+          <ul class="demo-footer__links">
+            <li class="demo-footer__item"><a class="demo-footer__link" href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">GitHub repository</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <script type="module">
+      import { createRepeatableFieldset } from "./assets/a11y-repeatable-fieldset.js";
+
+      const root = document.querySelector("[data-a11y-repeatable-fieldset]");
+
+      if (root instanceof HTMLElement) {
+        createRepeatableFieldset(root);
+      }
+    </script>
+  </body>
+</html>

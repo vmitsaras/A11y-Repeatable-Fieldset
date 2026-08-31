@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <title>Form Memory Integration | A11yRepeatableFieldset</title>
+    <meta name="description" content="Try the implemented Form Memory Bridge and learn the two-phase, privacy-aware integration with A11yFormDraftPersistence 1.0.0.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/form-memory-integration.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="A11yRepeatableFieldset">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Form Memory Integration | A11yRepeatableFieldset">
+    <meta property="og:description" content="Try the implemented Form Memory Bridge and learn the two-phase, privacy-aware integration with A11yFormDraftPersistence 1.0.0.">
+    <meta property="og:url" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/form-memory-integration.html">
+    <meta property="og:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta property="og:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Form Memory Integration | A11yRepeatableFieldset">
+    <meta name="twitter:description" content="Try the implemented Form Memory Bridge and learn the two-phase, privacy-aware integration with A11yFormDraftPersistence 1.0.0.">
+    <meta name="twitter:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta name="twitter:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/form-memory-integration.html#webpage",
+          "url": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/form-memory-integration.html",
+          "name": "Form Memory Integration | A11yRepeatableFieldset",
+          "description": "Try the implemented Form Memory Bridge and learn the two-phase, privacy-aware integration with A11yFormDraftPersistence 1.0.0.",
+          "mainEntity": {
+            "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/form-memory-integration.html#software"
+          }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/form-memory-integration.html#software",
+          "name": "A11yRepeatableFieldset",
+          "alternateName": "a11y-repeatable-fieldset",
+          "description": "Add, remove, duplicate, and reorder accessible form fieldsets with a dependency-free TypeScript plugin that preserves stable IDs and keyboard focus.",
+          "codeRepository": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset",
+          "programmingLanguage": [
+            "TypeScript",
+            "JavaScript"
+          ],
+          "runtimePlatform": "Browser",
+          "version": "1.0.0",
+          "license": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset/blob/main/LICENSE",
+          "keywords": [
+            "accessibility",
+            "a11y",
+            "fieldset",
+            "forms",
+            "progressive-enhancement",
+            "typescript"
+          ],
+          "author": {
+            "@id": "https://github.com/vmitsaras/#person"
+          },
+          "targetProduct": {
+            "@type": "SoftwareApplication",
+            "name": "A11yRepeatableFieldset",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Any",
+            "runtimePlatform": "Browser",
+            "softwareVersion": "1.0.0"
+          },
+          "sameAs": [
+            "https://github.com/vmitsaras/A11y-Repeatable-Fieldset"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://github.com/vmitsaras/#person",
+          "name": "Vasileios Mitsaras",
+          "url": "https://github.com/vmitsaras/",
+          "sameAs": [
+            "https://github.com/vmitsaras/",
+            "https://linkedin.com/in/vasilis-mitsaras"
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="./assets/docs.css">
+  </head>
+  <body class="docs-site">
+    <a class="docs-site__skip-link" href="#main-content">Skip to content</a>
+    <header class="docs-site__header">
+      <a class="docs-site__brand" href="./index.html" aria-label="A11yRepeatableFieldset home">A11yRepeatableFieldset</a>
+      <nav aria-label="Main navigation">
+        <ul class="docs-site__nav-list">
+          <li><a href="./index.html">Overview</a></li>
+          <li><a href="./index.html#examples">Examples</a></li>
+          <li><a href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">Install</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="docs-site__main" id="main-content">
+      <header>
+        <p>Implemented optional integration</p>
+        <h1>Form Memory Bridge</h1>
+        <p>The bridge restores repeatable structure before an application-owned draft service restores values. It stores stable keys and order only; storage, consent, expiry, sensitive-field policy, and clearing remain application responsibilities.</p>
+      </header>
+
+      <aside class="docs-site__panel docs-site__notice">
+        <p><strong>The addon is implemented at <code>a11y-repeatable-fieldset/addons/form-memory-bridge</code>.</strong> It has no runtime dependency, is absent from the main entry, creates no UI, and never writes to browser storage by itself.</p>
+      </aside>
+
+      <section class="docs-site__panel" aria-labelledby="demo-heading">
+        <h2 id="demo-heading">Executable two-phase structure demo</h2>
+        <p>This page uses the real bridge and core build with a page-local in-memory sample record. Choose whether to restore a missing saved fieldset before enhancement. The production integration with <code>A11yFormDraftPersistence</code> follows below.</p>
+
+        <div id="form-memory-demo-setup">
+          <p id="form-memory-demo-unavailable">JavaScript is unavailable, so the server-rendered contact remains usable and enhancement controls stay hidden.</p>
+          <div id="form-memory-demo-actions" class="docs-site__actions" hidden>
+            <button id="form-memory-demo-restore" type="button">Restore sample draft</button>
+            <button id="form-memory-demo-current" type="button">Keep current form</button>
+          </div>
+        </div>
+
+        <form id="form-memory-demo-form" action="./form-memory-integration.html" method="post">
+          <section id="form-memory-demo-root" class="a11y-repeatable-fieldset" data-a11y-repeatable-fieldset data-min-items="0" data-max-items="4" data-item-label="Contact" aria-labelledby="form-memory-demo-form-heading">
+            <h3 id="form-memory-demo-form-heading">Application contacts</h3>
+            <p id="form-memory-demo-instructions">The sample draft contains two stable keys. One matching server item already exists and one must be created from the trusted template.</p>
+            <div class="a11y-repeatable-fieldset__items" data-a11y-repeatable-fieldset-items>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="server-42">
+                <legend class="a11y-repeatable-fieldset__legend">Contact <span data-a11y-repeatable-fieldset-position>1</span></legend>
+                <div class="docs-site__form-row">
+                  <label for="memory-contact-server-42-name">Name</label>
+                  <input id="memory-contact-server-42-name" name="contacts[server-42][name]" value="Current server value">
+                </div>
+                <button class="a11y-repeatable-fieldset__remove" type="button" data-a11y-repeatable-fieldset-remove hidden>Remove contact</button>
+              </fieldset>
+            </div>
+            <button class="a11y-repeatable-fieldset__add" type="button" data-a11y-repeatable-fieldset-add aria-describedby="form-memory-demo-instructions" hidden>Add another contact</button>
+            <div class="a11y-repeatable-fieldset__status" data-a11y-repeatable-fieldset-status role="status" aria-live="polite" aria-atomic="true"></div>
+            <template data-a11y-repeatable-fieldset-template>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="__A11Y_REPEATABLE_KEY__">
+                <legend class="a11y-repeatable-fieldset__legend">Contact <span data-a11y-repeatable-fieldset-position></span></legend>
+                <div class="docs-site__form-row">
+                  <label for="memory-contact-__A11Y_REPEATABLE_KEY__-name">Name</label>
+                  <input id="memory-contact-__A11Y_REPEATABLE_KEY__-name" name="contacts[__A11Y_REPEATABLE_KEY__][name]" data-a11y-repeatable-fieldset-focus>
+                </div>
+                <button class="a11y-repeatable-fieldset__remove" type="button" data-a11y-repeatable-fieldset-remove hidden>Remove contact</button>
+              </fieldset>
+            </template>
+          </section>
+          <div class="docs-site__actions">
+            <button type="submit">Submit current contacts</button>
+            <button id="form-memory-demo-clear" type="button" hidden>Clear in-memory sample draft</button>
+          </div>
+        </form>
+
+        <p id="form-memory-demo-outcome" role="status" aria-live="polite" aria-atomic="true"></p>
+        <h3>Current structural snapshot</h3>
+        <pre id="form-memory-demo-snapshot"><code>Loading sample…</code></pre>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="restore-heading">
+        <h2 id="restore-heading">Restore structure before values</h2>
+        <ol>
+          <li>Create the bridge with the repeatable root, a stable draft field key, the public core factory, and a save callback.</li>
+          <li>Pass <code>bridge.draftControlAdapter</code> to <code>createDraftPersistence()</code> on a containing form.</li>
+          <li>Pause autosave, call <code>drafts.check()</code>, and obtain the user’s restore decision.</li>
+          <li>Pass the approved record to <code>bridge.initialize()</code>. It validates versioned keys, adds only missing trusted-template items, preserves current server items, and initializes core once.</li>
+          <li>Call <code>drafts.restore({ force: true })</code> so native values resolve against the now-complete field names and IDs.</li>
+          <li>Resume autosave and synchronize validation only after structure and values are stable.</li>
+        </ol>
+        <p>The draft package’s generic restore-prompt addon calls <code>restore()</code> directly and cannot insert this required structural phase. A structure-persisting application must own or wrap the restore-decision UI.</p>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="code-heading">
+        <h2 id="code-heading">Integration outline</h2>
+        <pre><code>import {
+  createDraftPersistence,
+  type DraftPersistenceInstance
+} from &quot;a11y-form-draft-persistence&quot;;
+import { createRepeatableFieldset } from &quot;a11y-repeatable-fieldset&quot;;
+import { createFormMemoryBridge } from
+  &quot;a11y-repeatable-fieldset/addons/form-memory-bridge&quot;;
+
+let drafts: DraftPersistenceInstance | undefined;
+
+const memory = createFormMemoryBridge({
+  root,
+  fieldKey: "application:contacts:structure",
+  createInstance: createRepeatableFieldset,
+  save: () =&gt; drafts?.save()
+});
+
+drafts = createDraftPersistence(form, {
+  formVersion: 1,
+  key: "application:123:v1",
+  expiresAfter: 604_800_000,
+  restoreStrategy: "prompt",
+  customControlAdapters: [memory.draftControlAdapter]
+});
+
+drafts.pause("repeatable-structure-setup");
+const checked = await drafts.check();
+const record = checked.status === "available" &amp;&amp; userApproved
+  ? checked.record
+  : undefined;
+const initialized = memory.initialize({
+  ...(record === undefined ? {} : { record }),
+  repeatableFieldsetOptions: { minimum: 1, maximum: 8 }
+});
+
+if (initialized.ok &amp;&amp; record !== undefined) {
+  await drafts.restore({ force: true });
+}
+
+drafts.resume("repeatable-structure-ready");</code></pre>
+        <p>The containing form—not the repeatable root—must be the draft-persistence root because custom-control discovery scans descendants. See <code>FORM_MEMORY_BRIDGE.md</code> for failure handling, cleanup, and typed outcomes.</p>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="merge-heading">
+        <h2 id="merge-heading">Conservative merge and failure policy</h2>
+        <ul>
+          <li>Saved keys and order are restored, but current server or author items absent from the draft are preserved after them.</li>
+          <li>No current fieldset is deleted and no live fieldset is cloned.</li>
+          <li>Over-maximum, duplicate-key, unknown-version, malformed, template, or ID failures do not leave partial prepared structure.</li>
+          <li>If core initialization fails after preparation, original item-container children are restored before the error is rethrown.</li>
+          <li>A missing structure field initializes current markup normally, which supports older drafts for controls already present.</li>
+        </ul>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="privacy-heading">
+        <h2 id="privacy-heading">Privacy and data exclusions</h2>
+        <ul>
+          <li>Require explicit application opt-in, a clear retention period, and an accessible way to clear saved data.</li>
+          <li>Exclude passwords, payment details, authentication secrets, and other sensitive fields by default.</li>
+          <li>Never read, serialize, assign, or claim to restore file-input values.</li>
+          <li>The bridge snapshot contains keys and order only—not values, server errors, focus, live-region text, or HTML.</li>
+          <li>Scope storage and field keys to the application, form, account/session policy, and schema version; browser storage can disclose data on shared devices.</li>
+        </ul>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="cleanup-heading">
+        <h2 id="cleanup-heading">Lifecycle and evidence limits</h2>
+        <p>The addon coalesces only completed structural events into the supplied save callback. It creates no second announcement, focus move, event, timer, or UI. Parent cleanup makes queued callbacks inert and never destroys the application-owned draft instance.</p>
+        <p>Cross-tab structural updates are not applied to an active repeater. A containing application must choose a reload or safe reinitialization policy instead of mutating live structure from a storage event.</p>
+        <p>Automated coverage verifies structure, rollback, cleanup, package isolation, and Pages wiring. Real-browser review remains required for storage denial, autofill, page lifecycle, cross-tab behavior, keyboard flow, screen-reader output, zoom/reflow, and shared-device privacy copy.</p>
+      </section>
+    </main>
+    <footer class="demo-footer" data-demo-footer>
+      <div class="demo-footer__inner">
+        <div class="demo-footer__brand">
+          <p class="demo-footer__eyebrow">Accessibility plugin demo</p>
+          <p class="demo-footer__credit"><span class="demo-footer__plugin">A11yRepeatableFieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span>Built by <a class="demo-footer__link" href="https://github.com/vmitsaras/">Vasileios Mitsaras</a><span class="demo-footer__separator" aria-hidden="true">&middot;</span><a class="demo-footer__link" href="https://linkedin.com/in/vasilis-mitsaras">LinkedIn profile</a></p>
+          <p class="demo-footer__meta"><span>a11y-repeatable-fieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span><span>MIT License</span></p>
+        </div>
+        <nav class="demo-footer__nav" aria-label="Project links">
+          <ul class="demo-footer__links">
+            <li class="demo-footer__item"><a class="demo-footer__link" href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">GitHub repository</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <script type="module" src="./assets/form-memory-bridge-demo.js"></script>
+  </body>
+</html>

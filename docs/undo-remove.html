@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <title>Undo Remove Demo | A11yRepeatableFieldset</title>
+    <meta name="description" content="Try short-lived, reserved-key item restoration with an accessible Undo button, explicit safe-state markers, expiry, and file-value exclusion.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/undo-remove.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="A11yRepeatableFieldset">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Undo Remove Demo | A11yRepeatableFieldset">
+    <meta property="og:description" content="Try short-lived, reserved-key item restoration with an accessible Undo button, explicit safe-state markers, expiry, and file-value exclusion.">
+    <meta property="og:url" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/undo-remove.html">
+    <meta property="og:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta property="og:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Undo Remove Demo | A11yRepeatableFieldset">
+    <meta name="twitter:description" content="Try short-lived, reserved-key item restoration with an accessible Undo button, explicit safe-state markers, expiry, and file-value exclusion.">
+    <meta name="twitter:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta name="twitter:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/undo-remove.html#webpage",
+          "url": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/undo-remove.html",
+          "name": "Undo Remove Demo | A11yRepeatableFieldset",
+          "description": "Try short-lived, reserved-key item restoration with an accessible Undo button, explicit safe-state markers, expiry, and file-value exclusion.",
+          "mainEntity": {
+            "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/undo-remove.html#software"
+          }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/undo-remove.html#software",
+          "name": "A11yRepeatableFieldset",
+          "alternateName": "a11y-repeatable-fieldset",
+          "description": "Add, remove, duplicate, and reorder accessible form fieldsets with a dependency-free TypeScript plugin that preserves stable IDs and keyboard focus.",
+          "codeRepository": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset",
+          "programmingLanguage": [
+            "TypeScript",
+            "JavaScript"
+          ],
+          "runtimePlatform": "Browser",
+          "version": "1.0.0",
+          "license": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset/blob/main/LICENSE",
+          "keywords": [
+            "accessibility",
+            "a11y",
+            "fieldset",
+            "forms",
+            "progressive-enhancement",
+            "typescript"
+          ],
+          "author": {
+            "@id": "https://github.com/vmitsaras/#person"
+          },
+          "targetProduct": {
+            "@type": "SoftwareApplication",
+            "name": "A11yRepeatableFieldset",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Any",
+            "runtimePlatform": "Browser",
+            "softwareVersion": "1.0.0"
+          },
+          "sameAs": [
+            "https://github.com/vmitsaras/A11y-Repeatable-Fieldset"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://github.com/vmitsaras/#person",
+          "name": "Vasileios Mitsaras",
+          "url": "https://github.com/vmitsaras/",
+          "sameAs": [
+            "https://github.com/vmitsaras/",
+            "https://linkedin.com/in/vasilis-mitsaras"
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="./assets/docs.css">
+    <link rel="stylesheet" href="./assets/a11y-repeatable-fieldset.css">
+  </head>
+  <body class="docs-site">
+    <a class="docs-site__skip-link" href="#main-content">Skip to content</a>
+    <header class="docs-site__header">
+      <a class="docs-site__brand" href="./index.html" aria-label="A11yRepeatableFieldset home">A11yRepeatableFieldset</a>
+      <nav aria-label="Main navigation">
+        <ul class="docs-site__nav-list">
+          <li><a href="./index.html">Overview</a></li>
+          <li><a href="./index.html#examples">Examples</a></li>
+          <li><a href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">Install</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="docs-site__main" id="main-content">
+      <header>
+        <p>Opt-in addon demo</p>
+        <h1>Undo the latest removal without retaining its fieldset</h1>
+        <p>Remove either saved contact, then use the temporary Undo button. Core recreates the item from the trusted template with its reserved key; the addon restores only deliberately marked current state.</p>
+      </header>
+
+      <aside class="docs-site__panel docs-site__notice">
+        <p><strong>Temporary retention:</strong> Name, email, and Updates are retained in memory for 30 seconds. Expiry pauses while the Undo button has focus. Passwords, hidden server IDs, validation state, and files are not retained. A restored file input is empty.</p>
+      </aside>
+
+      <section class="docs-site__panel" aria-labelledby="demo-heading">
+        <h2 id="demo-heading">Executable contact example</h2>
+        <p id="undo-instructions">Edit a marked value, remove a contact, then choose <strong>Undo last removal</strong>. Only the latest successful removal can be restored.</p>
+
+        <form id="undo-remove-demo-form" action="./undo-remove.html" method="post">
+          <section class="a11y-repeatable-fieldset" data-a11y-repeatable-fieldset data-min-items="0" data-max-items="4" data-item-label="Contact" aria-labelledby="undo-list-heading" aria-describedby="undo-instructions">
+            <h3 id="undo-list-heading">Saved contacts</h3>
+
+            <div class="a11y-repeatable-fieldset__items" data-a11y-repeatable-fieldset-items>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="server-42">
+                <legend class="a11y-repeatable-fieldset__legend">Contact <span data-a11y-repeatable-fieldset-position>1</span></legend>
+                <input type="hidden" name="contacts[server-42][id]" value="42">
+                <div class="docs-site__form-row">
+                  <label for="undo-contact-server-42-name">Name <span>(retained briefly for Undo)</span></label>
+                  <input id="undo-contact-server-42-name" name="contacts[server-42][name]" value="Ada Lovelace" autocomplete="name" data-a11y-repeatable-fieldset-undo-state="name">
+                </div>
+                <div class="docs-site__form-row">
+                  <label for="undo-contact-server-42-email">Email <span>(retained briefly for Undo)</span></label>
+                  <input id="undo-contact-server-42-email" name="contacts[server-42][email]" type="email" value="ada@example.com" autocomplete="email" data-a11y-repeatable-fieldset-undo-state="email">
+                </div>
+                <div class="docs-site__form-row">
+                  <label><input type="checkbox" name="contacts[server-42][updates]" checked data-a11y-repeatable-fieldset-undo-state="updates"> Send updates <span>(retained briefly for Undo)</span></label>
+                </div>
+                <div class="docs-site__form-row">
+                  <label for="undo-contact-server-42-password">Portal password <span>(not retained)</span></label>
+                  <input id="undo-contact-server-42-password" name="contacts[server-42][password]" type="password" autocomplete="current-password">
+                </div>
+                <div class="docs-site__form-row">
+                  <label for="undo-contact-server-42-file">Reference file <span>(never retained)</span></label>
+                  <input id="undo-contact-server-42-file" name="contacts[server-42][file]" type="file">
+                </div>
+                <button class="a11y-repeatable-fieldset__remove" type="button" data-a11y-repeatable-fieldset-remove hidden>Remove contact <span data-a11y-repeatable-fieldset-position>1</span></button>
+              </fieldset>
+
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="server-77">
+                <legend class="a11y-repeatable-fieldset__legend">Contact <span data-a11y-repeatable-fieldset-position>2</span></legend>
+                <input type="hidden" name="contacts[server-77][id]" value="77">
+                <div class="docs-site__form-row">
+                  <label for="undo-contact-server-77-name">Name <span>(retained briefly for Undo)</span></label>
+                  <input id="undo-contact-server-77-name" name="contacts[server-77][name]" value="Grace Hopper" autocomplete="name" data-a11y-repeatable-fieldset-undo-state="name">
+                </div>
+                <div class="docs-site__form-row">
+                  <label for="undo-contact-server-77-email">Email <span>(retained briefly for Undo)</span></label>
+                  <input id="undo-contact-server-77-email" name="contacts[server-77][email]" type="email" value="grace@example.com" autocomplete="email" data-a11y-repeatable-fieldset-undo-state="email">
+                </div>
+                <div class="docs-site__form-row">
+                  <label><input type="checkbox" name="contacts[server-77][updates]" data-a11y-repeatable-fieldset-undo-state="updates"> Send updates <span>(retained briefly for Undo)</span></label>
+                </div>
+                <div class="docs-site__form-row">
+                  <label for="undo-contact-server-77-password">Portal password <span>(not retained)</span></label>
+                  <input id="undo-contact-server-77-password" name="contacts[server-77][password]" type="password" autocomplete="current-password">
+                </div>
+                <div class="docs-site__form-row">
+                  <label for="undo-contact-server-77-file">Reference file <span>(never retained)</span></label>
+                  <input id="undo-contact-server-77-file" name="contacts[server-77][file]" type="file">
+                </div>
+                <button class="a11y-repeatable-fieldset__remove" type="button" data-a11y-repeatable-fieldset-remove hidden>Remove contact <span data-a11y-repeatable-fieldset-position>2</span></button>
+              </fieldset>
+            </div>
+
+            <div class="a11y-repeatable-fieldset__controls">
+              <button class="a11y-repeatable-fieldset__add" type="button" data-a11y-repeatable-fieldset-add hidden>Add blank contact</button>
+              <div data-a11y-repeatable-fieldset-undo-controls></div>
+            </div>
+            <div class="a11y-repeatable-fieldset__status" data-a11y-repeatable-fieldset-status role="status" aria-live="polite" aria-atomic="true"></div>
+
+            <template data-a11y-repeatable-fieldset-template>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="__A11Y_REPEATABLE_KEY__">
+                <legend class="a11y-repeatable-fieldset__legend">Contact <span data-a11y-repeatable-fieldset-position></span></legend>
+                <input type="hidden" name="contacts[__A11Y_REPEATABLE_KEY__][id]" value="">
+                <div class="docs-site__form-row">
+                  <label for="undo-contact-__A11Y_REPEATABLE_KEY__-name">Name <span>(retained briefly for Undo)</span></label>
+                  <input id="undo-contact-__A11Y_REPEATABLE_KEY__-name" name="contacts[__A11Y_REPEATABLE_KEY__][name]" autocomplete="name" data-a11y-repeatable-fieldset-undo-state="name" data-a11y-repeatable-fieldset-focus>
+                </div>
+                <div class="docs-site__form-row">
+                  <label for="undo-contact-__A11Y_REPEATABLE_KEY__-email">Email <span>(retained briefly for Undo)</span></label>
+                  <input id="undo-contact-__A11Y_REPEATABLE_KEY__-email" name="contacts[__A11Y_REPEATABLE_KEY__][email]" type="email" autocomplete="email" data-a11y-repeatable-fieldset-undo-state="email">
+                </div>
+                <div class="docs-site__form-row">
+                  <label><input type="checkbox" name="contacts[__A11Y_REPEATABLE_KEY__][updates]" data-a11y-repeatable-fieldset-undo-state="updates"> Send updates <span>(retained briefly for Undo)</span></label>
+                </div>
+                <div class="docs-site__form-row">
+                  <label for="undo-contact-__A11Y_REPEATABLE_KEY__-password">Portal password <span>(not retained)</span></label>
+                  <input id="undo-contact-__A11Y_REPEATABLE_KEY__-password" name="contacts[__A11Y_REPEATABLE_KEY__][password]" type="password" autocomplete="current-password">
+                </div>
+                <div class="docs-site__form-row">
+                  <label for="undo-contact-__A11Y_REPEATABLE_KEY__-file">Reference file <span>(never retained)</span></label>
+                  <input id="undo-contact-__A11Y_REPEATABLE_KEY__-file" name="contacts[__A11Y_REPEATABLE_KEY__][file]" type="file">
+                </div>
+                <button class="a11y-repeatable-fieldset__remove" type="button" data-a11y-repeatable-fieldset-remove hidden>Remove contact <span data-a11y-repeatable-fieldset-position></span></button>
+              </fieldset>
+            </template>
+          </section>
+
+        </form>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="event-heading">
+        <h2 id="event-heading">Completed restoration event</h2>
+        <p>The ordinary, non-live output below shows structural fields from the latest <code>item-restored</code> event. Retained form values are never placed in event detail.</p>
+        <pre id="undo-remove-event-output" aria-live="off">No item has been restored.</pre>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="boundaries-heading">
+        <h2 id="boundaries-heading">Boundaries demonstrated here</h2>
+        <ul>
+          <li>The removed fieldset itself is discarded; restoration uses trusted template DOM.</li>
+          <li>The reserved key restores stable tokenized names, IDs, labels, and references.</li>
+          <li>Unmarked hidden IDs and passwords return to template defaults rather than old values.</li>
+          <li>File values are never read or assigned and restored file controls are empty.</li>
+          <li>One polite core message announces removal and one announces successful restoration.</li>
+        </ul>
+        <p>Read the complete <a href="./addons.html">addon boundary</a>, <a href="./lifecycle-events.html">event contract</a>, and repository <code>UNDO_REMOVE.md</code> contract.</p>
+      </section>
+    </main>
+
+    <footer class="demo-footer" data-demo-footer>
+      <div class="demo-footer__inner">
+        <div class="demo-footer__brand">
+          <p class="demo-footer__eyebrow">Accessibility plugin demo</p>
+          <p class="demo-footer__credit"><span class="demo-footer__plugin">A11yRepeatableFieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span>Built by <a class="demo-footer__link" href="https://github.com/vmitsaras/">Vasileios Mitsaras</a><span class="demo-footer__separator" aria-hidden="true">&middot;</span><a class="demo-footer__link" href="https://linkedin.com/in/vasilis-mitsaras">LinkedIn profile</a></p>
+          <p class="demo-footer__meta"><span>a11y-repeatable-fieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span><span>MIT License</span></p>
+        </div>
+        <nav class="demo-footer__nav" aria-label="Project links">
+          <ul class="demo-footer__links">
+            <li class="demo-footer__item"><a class="demo-footer__link" href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">GitHub repository</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <script type="module" src="./assets/undo-remove-demo.js"></script>
+  </body>
+</html>

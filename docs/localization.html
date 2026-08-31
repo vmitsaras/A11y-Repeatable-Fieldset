@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <title>Localize Labels and Status Messages | A11yRepeatableFieldset</title>
+    <meta name="description" content="Customize item labels and structural status messages with frozen English defaults, typed formatter contexts, and safe per-concept fallback behavior.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/localization.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="A11yRepeatableFieldset">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Localize Labels and Status Messages | A11yRepeatableFieldset">
+    <meta property="og:description" content="Customize item labels and structural status messages with frozen English defaults, typed formatter contexts, and safe per-concept fallback behavior.">
+    <meta property="og:url" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/localization.html">
+    <meta property="og:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta property="og:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Localize Labels and Status Messages | A11yRepeatableFieldset">
+    <meta name="twitter:description" content="Customize item labels and structural status messages with frozen English defaults, typed formatter contexts, and safe per-concept fallback behavior.">
+    <meta name="twitter:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta name="twitter:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/localization.html#webpage",
+          "url": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/localization.html",
+          "name": "Localize Labels and Status Messages | A11yRepeatableFieldset",
+          "description": "Customize item labels and structural status messages with frozen English defaults, typed formatter contexts, and safe per-concept fallback behavior.",
+          "mainEntity": {
+            "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/localization.html#software"
+          }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/localization.html#software",
+          "name": "A11yRepeatableFieldset",
+          "alternateName": "a11y-repeatable-fieldset",
+          "description": "Add, remove, duplicate, and reorder accessible form fieldsets with a dependency-free TypeScript plugin that preserves stable IDs and keyboard focus.",
+          "codeRepository": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset",
+          "programmingLanguage": [
+            "TypeScript",
+            "JavaScript"
+          ],
+          "runtimePlatform": "Browser",
+          "version": "1.0.0",
+          "license": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset/blob/main/LICENSE",
+          "keywords": [
+            "accessibility",
+            "a11y",
+            "fieldset",
+            "forms",
+            "progressive-enhancement",
+            "typescript"
+          ],
+          "author": {
+            "@id": "https://github.com/vmitsaras/#person"
+          },
+          "targetProduct": {
+            "@type": "SoftwareApplication",
+            "name": "A11yRepeatableFieldset",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Any",
+            "runtimePlatform": "Browser",
+            "softwareVersion": "1.0.0"
+          },
+          "sameAs": [
+            "https://github.com/vmitsaras/A11y-Repeatable-Fieldset"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://github.com/vmitsaras/#person",
+          "name": "Vasileios Mitsaras",
+          "url": "https://github.com/vmitsaras/",
+          "sameAs": [
+            "https://github.com/vmitsaras/",
+            "https://linkedin.com/in/vasilis-mitsaras"
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="./assets/docs.css">
+  </head>
+  <body class="docs-site">
+    <a class="docs-site__skip-link" href="#main-content">Skip to content</a>
+    <header class="docs-site__header">
+      <a class="docs-site__brand" href="./index.html" aria-label="A11yRepeatableFieldset home">A11yRepeatableFieldset</a>
+      <nav aria-label="Main navigation">
+        <ul class="docs-site__nav-list">
+          <li><a href="./index.html">Overview</a></li>
+          <li><a href="./index.html#examples">Examples</a></li>
+          <li><a href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">Install</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="docs-site__main" id="main-content">
+      <header>
+        <p>JavaScript-only structural copy</p>
+        <h1>Item labels and status messages</h1>
+        <p>Authors own visible Add, Remove, field-label, and legend text. Core owns structural status messages; the opt-in Accessible Reorder addon separately owns its configurable visible Move-button labels.</p>
+      </header>
+
+      <section class="docs-site__panel" aria-labelledby="item-label-heading">
+        <h2 id="item-label-heading">Item label</h2>
+        <p>The default label is <q>Item</q>. Set a domain-appropriate value through <code>itemLabel</code> or <code>data-item-label</code>, such as <q>Contact</q>, <q>Address</q>, or <q>Participant profile</q>.</p>
+        <p>The label appears in status messages; it does not rewrite author legends or button labels.</p>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="formatter-heading">
+        <h2 id="formatter-heading">Formatter concepts</h2>
+        <table class="docs-site__table">
+          <thead><tr><th scope="col">Formatter</th><th scope="col">Default shape</th><th scope="col">Context</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><code>added</code></th><td><q>Contact 2 added. 2 items total.</q></td><td>Label, key, current position, resulting count, minimum, maximum.</td></tr>
+            <tr><th scope="row"><code>removed</code></th><td><q>Contact 2 removed. 1 item remaining.</q></td><td>Label, key, previous position, resulting count, minimum, maximum.</td></tr>
+            <tr><th scope="row"><code>restored</code></th><td><q>Contact restored at position 2. 2 items total.</q></td><td>Label, key, current position, resulting count, minimum, maximum.</td></tr>
+            <tr><th scope="row"><code>duplicated</code></th><td><q>Contact 1 duplicated as position 2. 2 items total.</q></td><td>Source and new structural identity, resulting count, minimum, maximum.</td></tr>
+            <tr><th scope="row"><code>moved</code></th><td><q>Contact moved to position 2 of 3.</q></td><td>Label, key, previous/current position, direction, count, minimum, maximum.</td></tr>
+            <tr><th scope="row"><code>moveBoundary</code></th><td><q>Contact 1 is already first.</q></td><td>Current identity/position, direction, and start/end boundary.</td></tr>
+            <tr><th scope="row"><code>maximum</code></th><td><q>Maximum of 3 items reached.</q></td><td>Structural boundary context; blocked Add has null key and position.</td></tr>
+            <tr><th scope="row"><code>minimum</code></th><td><q>Minimum of 1 item reached.</q></td><td>Structural boundary context for reached or blocked removal.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="formatter-example-heading">
+        <h2 id="formatter-example-heading">Partial override</h2>
+        <pre class="docs-site__code"><code>createRepeatableFieldset(root, {
+  itemLabel: "Address",
+  messageFormatters: {
+    added: ({ position, count }) =&gt;
+      `Address ${position} is ready. ${count} addresses total.`
+  }
+});</code></pre>
+        <p>Each callback receives a fresh frozen object containing structural metadata only. No input values, validation content, passwords, file objects, or server errors are exposed.</p>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="fallback-heading">
+        <h2 id="fallback-heading">Fallback and announcement behavior</h2>
+        <ul>
+          <li>Thrown, non-string, empty, or whitespace-only formatter output falls back for that concept to the English default.</li>
+          <li>A formatter failure cannot roll back a completed Add, Remove, Duplicate, Restore, or Move operation.</li>
+          <li>When an operation reaches a boundary, the item and boundary concepts are combined into one polite status update.</li>
+          <li>Routine structural changes never use an assertive alert.</li>
+          <li>The package does not include locale packs or pluralization libraries; core never generates Add/Remove labels, while Accessible Reorder accepts explicit Move-button label options.</li>
+        </ul>
+      </section>
+    </main>
+    <footer class="demo-footer" data-demo-footer>
+      <div class="demo-footer__inner">
+        <div class="demo-footer__brand">
+          <p class="demo-footer__eyebrow">Accessibility plugin demo</p>
+          <p class="demo-footer__credit"><span class="demo-footer__plugin">A11yRepeatableFieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span>Built by <a class="demo-footer__link" href="https://github.com/vmitsaras/">Vasileios Mitsaras</a><span class="demo-footer__separator" aria-hidden="true">&middot;</span><a class="demo-footer__link" href="https://linkedin.com/in/vasilis-mitsaras">LinkedIn profile</a></p>
+          <p class="demo-footer__meta"><span>a11y-repeatable-fieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span><span>MIT License</span></p>
+        </div>
+        <nav class="demo-footer__nav" aria-label="Project links">
+          <ul class="demo-footer__links">
+            <li class="demo-footer__item"><a class="demo-footer__link" href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">GitHub repository</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

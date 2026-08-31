@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <title>Addon Architecture | A11yRepeatableFieldset</title>
+    <meta name="description" content="Explore opt-in addon hooks, cleanup, and package isolation through seven implemented, separately exported accessibility-focused integrations.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/addons.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="A11yRepeatableFieldset">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Addon Architecture | A11yRepeatableFieldset">
+    <meta property="og:description" content="Explore opt-in addon hooks, cleanup, and package isolation through seven implemented, separately exported accessibility-focused integrations.">
+    <meta property="og:url" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/addons.html">
+    <meta property="og:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta property="og:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Addon Architecture | A11yRepeatableFieldset">
+    <meta name="twitter:description" content="Explore opt-in addon hooks, cleanup, and package isolation through seven implemented, separately exported accessibility-focused integrations.">
+    <meta name="twitter:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta name="twitter:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/addons.html#webpage",
+          "url": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/addons.html",
+          "name": "Addon Architecture | A11yRepeatableFieldset",
+          "description": "Explore opt-in addon hooks, cleanup, and package isolation through seven implemented, separately exported accessibility-focused integrations.",
+          "mainEntity": {
+            "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/addons.html#software"
+          }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/addons.html#software",
+          "name": "A11yRepeatableFieldset",
+          "alternateName": "a11y-repeatable-fieldset",
+          "description": "Add, remove, duplicate, and reorder accessible form fieldsets with a dependency-free TypeScript plugin that preserves stable IDs and keyboard focus.",
+          "codeRepository": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset",
+          "programmingLanguage": [
+            "TypeScript",
+            "JavaScript"
+          ],
+          "runtimePlatform": "Browser",
+          "version": "1.0.0",
+          "license": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset/blob/main/LICENSE",
+          "keywords": [
+            "accessibility",
+            "a11y",
+            "fieldset",
+            "forms",
+            "progressive-enhancement",
+            "typescript"
+          ],
+          "author": {
+            "@id": "https://github.com/vmitsaras/#person"
+          },
+          "targetProduct": {
+            "@type": "SoftwareApplication",
+            "name": "A11yRepeatableFieldset",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Any",
+            "runtimePlatform": "Browser",
+            "softwareVersion": "1.0.0"
+          },
+          "sameAs": [
+            "https://github.com/vmitsaras/A11y-Repeatable-Fieldset"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://github.com/vmitsaras/#person",
+          "name": "Vasileios Mitsaras",
+          "url": "https://github.com/vmitsaras/",
+          "sameAs": [
+            "https://github.com/vmitsaras/",
+            "https://linkedin.com/in/vasilis-mitsaras"
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="./assets/docs.css">
+    <link rel="stylesheet" href="./assets/a11y-repeatable-fieldset.css">
+  </head>
+  <body class="docs-site">
+    <a class="docs-site__skip-link" href="#main-content">Skip to content</a>
+    <header class="docs-site__header">
+      <a class="docs-site__brand" href="./index.html" aria-label="A11yRepeatableFieldset home">A11yRepeatableFieldset</a>
+      <nav aria-label="Main navigation">
+        <ul class="docs-site__nav-list">
+          <li><a href="./index.html">Overview</a></li>
+          <li><a href="./index.html#examples">Examples</a></li>
+          <li><a href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">Install</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="docs-site__main" id="main-content">
+      <header>
+        <p>Opt-in extension contract</p>
+        <h1>Addons and integrations</h1>
+        <p>Addons are explicit, synchronous hooks supplied through the core <code>addons</code> option. Core behavior does not depend on an addon, and importing the package never registers one automatically.</p>
+      </header>
+
+      <aside class="docs-site__panel docs-site__notice">
+        <p><strong>Validation Bridge, Legend Sync, Remove Guard, Accessible Reorder, Duplicate Item, Undo Remove, and Form Memory Bridge are implemented concrete addons.</strong> Each is separately exported, never enabled by default, and absent from the main runtime entry. Reset Structure policy remains explicitly planned.</p>
+      </aside>
+
+      <section class="docs-site__panel" aria-labelledby="validation-bridge-heading">
+        <h2 id="validation-bridge-heading">Validation Bridge</h2>
+        <p>Import <code>createValidationBridge</code> from <code>a11y-repeatable-fieldset/addons/validation-bridge</code>. Its synchronous <code>registerItem</code> adapter runs once for each existing or added item and may return cleanup that unregisters controls and removes adapter-owned errors and summary links before detachment.</p>
+        <p>The subpath imports no validator, creates no structural live region, and leaves Add/Remove focus to core. See the <a href="./validation-integration.html">live-validation, error-summary, and no-submit error-review demo</a> plus compatibility guidance.</p>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="form-memory-bridge-heading">
+        <h2 id="form-memory-bridge-heading">Form Memory Bridge</h2>
+        <p>Import <code>createFormMemoryBridge</code> from <code>a11y-repeatable-fieldset/addons/form-memory-bridge</code>. Its custom draft-control adapter stores stable keys and order only, while its explicit initializer prepares missing trusted-template fieldsets before core discovery.</p>
+        <p>The application supplies the public <code>createRepeatableFieldset</code> factory so the addon bundle does not embed a second core registry. Storage, values, restore consent, expiry, sensitive-field rules, clear UI, and the draft instance remain application-owned. Try the <a href="./form-memory-integration.html">executable two-phase structure demo and A11yFormDraftPersistence integration outline</a>.</p>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="accessible-reorder-heading">
+        <h2 id="accessible-reorder-heading">Accessible Reorder</h2>
+        <p>Import <code>createAccessibleReorder</code> from <code>a11y-repeatable-fieldset/addons/accessible-reorder</code>. The addon renders native Move up and Move down buttons in one empty owned target per item, then delegates every structural change to public <code>instance.move()</code>.</p>
+        <p>Core owns DOM and registry order, positions, snapshots, focus, announcements, rollback, typed boundaries, and the completed <code>item-moved</code> event. Stable keys, names, IDs, values, and addon registration never change. Boundary buttons remain enabled so activation can keep focus valid and provide one polite already-first or already-last message.</p>
+
+        <h3>Executable adjacent movement</h3>
+        <p>Move either address one position. Focus remains on the activated native button; the fieldset’s stable key and input name remain unchanged.</p>
+
+        <form id="accessible-reorder-demo-form" action="./addons.html" method="post">
+          <section class="a11y-repeatable-fieldset" data-a11y-repeatable-fieldset data-min-items="1" data-max-items="3" data-item-label="Address" aria-labelledby="accessible-reorder-demo-heading">
+            <h4 id="accessible-reorder-demo-heading">Delivery addresses</h4>
+            <p id="accessible-reorder-demo-instructions">Use Move up or Move down to change submission order one position at a time.</p>
+            <div class="a11y-repeatable-fieldset__items" data-a11y-repeatable-fieldset-items>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="address-home">
+                <legend class="a11y-repeatable-fieldset__legend">Address <span data-a11y-repeatable-fieldset-position>1</span></legend>
+                <div class="docs-site__form-row"><label for="reorder-address-home-line">Address line</label><input id="reorder-address-home-line" name="addresses[address-home][line]" value="12 Home Street"></div>
+                <div class="a11y-repeatable-fieldset__controls" data-a11y-repeatable-fieldset-reorder-controls></div>
+                <button class="a11y-repeatable-fieldset__remove" type="button" data-a11y-repeatable-fieldset-remove hidden>Remove address</button>
+              </fieldset>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="address-work">
+                <legend class="a11y-repeatable-fieldset__legend">Address <span data-a11y-repeatable-fieldset-position>2</span></legend>
+                <div class="docs-site__form-row"><label for="reorder-address-work-line">Address line</label><input id="reorder-address-work-line" name="addresses[address-work][line]" value="84 Work Avenue"></div>
+                <div class="a11y-repeatable-fieldset__controls" data-a11y-repeatable-fieldset-reorder-controls></div>
+                <button class="a11y-repeatable-fieldset__remove" type="button" data-a11y-repeatable-fieldset-remove hidden>Remove address</button>
+              </fieldset>
+            </div>
+            <button class="a11y-repeatable-fieldset__add" type="button" data-a11y-repeatable-fieldset-add aria-describedby="accessible-reorder-demo-instructions" hidden>Add another address</button>
+            <div class="a11y-repeatable-fieldset__status" data-a11y-repeatable-fieldset-status role="status" aria-live="polite" aria-atomic="true"></div>
+            <template data-a11y-repeatable-fieldset-template>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="__A11Y_REPEATABLE_KEY__">
+                <legend class="a11y-repeatable-fieldset__legend">Address <span data-a11y-repeatable-fieldset-position></span></legend>
+                <div class="docs-site__form-row"><label for="reorder-address-__A11Y_REPEATABLE_KEY__-line">Address line</label><input id="reorder-address-__A11Y_REPEATABLE_KEY__-line" name="addresses[__A11Y_REPEATABLE_KEY__][line]" data-a11y-repeatable-fieldset-focus></div>
+                <div class="a11y-repeatable-fieldset__controls" data-a11y-repeatable-fieldset-reorder-controls></div>
+                <button class="a11y-repeatable-fieldset__remove" type="button" data-a11y-repeatable-fieldset-remove hidden>Remove address</button>
+              </fieldset>
+            </template>
+          </section>
+          <p><button type="submit">Submit address order</button></p>
+        </form>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="legend-sync-heading">
+        <h2 id="legend-sync-heading">Legend Sync</h2>
+        <p>Import <code>createLegendSyncAddon</code> from <code>a11y-repeatable-fieldset/addons/legend-sync</code>. It appends one deliberately marked, committed control value to a dedicated text-only suffix inside each item's existing legend while preserving the generic label and visible position.</p>
+        <p>The addon updates only on <code>change</code>, creates no live region or focus move, and rejects hidden, password, file, authentication-code, and payment sources. Every supported value can still be sensitive; applying the source marker is an explicit privacy decision. See the <a href="./realistic-multi-person.html">executable multi-person example</a> and <code>LEGEND_SYNC.md</code> for the complete contract and manual-test limitations.</p>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="duplicate-item-heading">
+        <h2 id="duplicate-item-heading">Duplicate Item</h2>
+        <p>Import <code>createDuplicateItem</code> from <code>a11y-repeatable-fieldset/addons/duplicate-item</code>. It creates one native Duplicate button per item and delegates template materialization, fresh identity, insertion, registry order, rollback, focus, status, and the completed <code>item-duplicated</code> event to public <code>instance.duplicate()</code>.</p>
+        <p>Only explicitly marked supported native-control current state is copied, while the trusted-template candidate remains disconnected and before any new-item addon setup. Files, hidden/server state, credentials, payments, errors, validity, disabled/readonly controls, and custom controls are excluded. Try the <a href="./duplicate-item.html">executable Duplicate Item demo</a>.</p>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="undo-remove-heading">
+        <h2 id="undo-remove-heading">Undo Remove</h2>
+        <p>Import <code>createUndoRemove</code> from <code>a11y-repeatable-fieldset/addons/undo-remove</code>. It creates one short-lived native Undo button per root. Core recreates structure from the trusted template with the removed reserved key; the addon retains only current state from explicitly marked supported native controls.</p>
+        <p>Only the latest committed removal is retained. Expiry pauses while the Undo button has focus. Files are never read, retained, or assigned; hidden server state, passwords, credentials, payments, errors, validity, defaults, disabled/readonly controls, and custom controls are excluded. Try the <a href="./undo-remove.html">executable Undo Remove demo</a>.</p>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="remove-guard-heading">
+        <h2 id="remove-guard-heading">Remove Guard</h2>
+        <p>Import <code>createRemoveGuard</code> from <code>a11y-repeatable-fieldset/addons/remove-guard</code>. The addon owns the single control-driven Remove-request route. Explicit application policy decides whether to remove immediately or request synchronous or asynchronous confirmation.</p>
+        <p>Lifecycle events remain completed, non-cancelable observations. Public <code>instance.remove()</code> calls remain immediate approved API commands. The addon itself reads no form values; sensitive-state classification is explicit application policy.</p>
+
+        <h3>Executable asynchronous confirmation</h3>
+        <p>The saved contact below requests confirmation because its deliberately marked Name field has a value. A newly added blank contact removes immediately. Repeated activation while the dialog is open is coalesced.</p>
+
+        <form id="remove-guard-demo-form" action="./addons.html" method="post">
+          <section class="a11y-repeatable-fieldset" data-a11y-repeatable-fieldset data-min-items="0" data-max-items="3" data-item-label="Contact" aria-labelledby="remove-guard-demo-heading">
+            <h4 id="remove-guard-demo-heading">Contacts</h4>
+            <p id="remove-guard-demo-instructions">Saved names require confirmation before removal. Blank contacts remove immediately.</p>
+            <div class="a11y-repeatable-fieldset__items" data-a11y-repeatable-fieldset-items>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="server-42">
+                <legend class="a11y-repeatable-fieldset__legend">Contact <span data-a11y-repeatable-fieldset-position>1</span></legend>
+                <div class="docs-site__form-row">
+                  <label for="remove-guard-contact-server-42-name">Name</label>
+                  <input id="remove-guard-contact-server-42-name" name="contacts[server-42][name]" value="Ada Lovelace" data-remove-guard-meaningful>
+                </div>
+                <button class="a11y-repeatable-fieldset__remove" type="button" data-a11y-repeatable-fieldset-remove hidden>Remove contact <span data-a11y-repeatable-fieldset-position>1</span></button>
+              </fieldset>
+            </div>
+            <button class="a11y-repeatable-fieldset__add" type="button" data-a11y-repeatable-fieldset-add aria-describedby="remove-guard-demo-instructions" hidden>Add another contact</button>
+            <div class="a11y-repeatable-fieldset__status" data-a11y-repeatable-fieldset-status role="status" aria-live="polite" aria-atomic="true"></div>
+            <template data-a11y-repeatable-fieldset-template>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="__A11Y_REPEATABLE_KEY__">
+                <legend class="a11y-repeatable-fieldset__legend">Contact <span data-a11y-repeatable-fieldset-position></span></legend>
+                <div class="docs-site__form-row">
+                  <label for="remove-guard-contact-__A11Y_REPEATABLE_KEY__-name">Name</label>
+                  <input id="remove-guard-contact-__A11Y_REPEATABLE_KEY__-name" name="contacts[__A11Y_REPEATABLE_KEY__][name]" data-remove-guard-meaningful data-a11y-repeatable-fieldset-focus>
+                </div>
+                <button class="a11y-repeatable-fieldset__remove" type="button" data-a11y-repeatable-fieldset-remove hidden>Remove contact <span data-a11y-repeatable-fieldset-position></span></button>
+              </fieldset>
+            </template>
+          </section>
+          <p><button type="submit">Submit contacts</button></p>
+        </form>
+
+        <p id="remove-guard-demo-error" class="docs-site__error" hidden></p>
+
+        <dialog id="remove-guard-dialog" aria-labelledby="remove-guard-dialog-title" aria-describedby="remove-guard-dialog-description">
+          <form method="dialog">
+            <h4 id="remove-guard-dialog-title">Remove saved contact?</h4>
+            <p id="remove-guard-dialog-description">This contact contains a deliberately selected meaningful value. Removing it cannot be undone in this demo.</p>
+            <div class="docs-site__actions">
+              <button id="remove-guard-cancel" value="cancel">Keep contact</button>
+              <button value="remove">Remove contact</button>
+            </div>
+          </form>
+        </dialog>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="contract-heading">
+        <h2 id="contract-heading">Public hook contract</h2>
+        <table class="docs-site__table">
+          <thead><tr><th scope="col">Member</th><th scope="col">Responsibility</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><code>id</code></th><td>A stable, non-empty identifier. Duplicate IDs are rejected during transactional initialization.</td></tr>
+            <tr><th scope="row"><code>setup(context)</code></th><td>Optional component setup. It may return one synchronous cleanup callback.</td></tr>
+            <tr><th scope="row"><code>setupItem(context)</code></th><td>Optional setup for every discovered or newly added item. It may return one synchronous cleanup callback per item.</td></tr>
+            <tr><th scope="row"><code>context.on(type, listener)</code></th><td>Subscribes through the parent instance and returns idempotent cleanup. The parent also tracks the subscription for teardown.</td></tr>
+            <tr><th scope="row"><code>context.onRemoveRequest(handler)</code></th><td>Registers the instance’s single control-request owner. It receives a frozen, single-use approved command; no DOM event is added.</td></tr>
+            <tr><th scope="row"><code>context.onRemovePreparation(handler)</code></th><td>Registers the independent single removal-snapshot owner. Its commit/rollback object receives a one-shot exact-key restoration command without retaining detached DOM.</td></tr>
+          </tbody>
+        </table>
+        <p>Contexts expose structural metadata and core methods, not private implementation hooks or field values. The parent owns every cleanup callback and releases detached item references.</p>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="order-heading">
+        <h2 id="order-heading">Setup, rollback, and cleanup order</h2>
+        <ol>
+          <li>Component setup runs in addon registration order.</li>
+          <li>Existing-item setup runs in item order, then addon registration order.</li>
+          <li>New-item setup completes before the public item-added event.</li>
+          <li>If setup fails, completed work rolls back in reverse order and the command reports <code>addon-error</code>.</li>
+          <li>Item cleanup runs in reverse registration order before that item is detached.</li>
+          <li>A removal snapshot commits only after detachment and synchronization stabilize; failed removal rolls it back.</li>
+          <li>Destroy cleans every current item, then component registrations, all in reverse order.</li>
+        </ol>
+        <p>Cleanup must be idempotent. The parent continues through remaining cleanup callbacks if one callback throws.</p>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="boundaries-heading">
+        <h2 id="boundaries-heading">Boundaries addons must respect</h2>
+        <ul>
+          <li>Do not patch private methods, fake core lifecycle events, bypass minimum/maximum rules, or mutate frozen defaults.</li>
+          <li>Do not duplicate core structural announcements or retain detached fieldsets and their values.</li>
+          <li>Do not initialize on import, silently include another addon, or make core accessibility depend on optional code.</li>
+          <li>Use the root’s owner document and realm when creating DOM or events.</li>
+          <li>Keep addon-specific data and cleanup scoped to the owning root and item.</li>
+        </ul>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="packaging-heading">
+        <h2 id="packaging-heading">Packaging gate</h2>
+        <p>The Validation Bridge, Legend Sync, Remove Guard, Accessible Reorder, Duplicate Item, Undo Remove, and Form Memory Bridge subpaths passed the implementation, test, documentation, demo, and package-export gate. Any later addon receives a subpath only after passing the same checks. Placeholder exports are intentionally excluded.</p>
+        <ul>
+          <li><a href="./validation-integration.html">Validation bridge constraints</a></li>
+          <li><a href="#remove-guard-heading">Remove Guard confirmation demo</a></li>
+          <li><a href="#accessible-reorder-heading">Accessible Reorder demo</a></li>
+          <li><a href="./duplicate-item.html">Duplicate Item demo</a></li>
+          <li><a href="./undo-remove.html">Undo Remove demo</a></li>
+          <li><a href="./form-memory-integration.html">Form Memory Bridge demo and integration</a></li>
+          <li><a href="./realistic-multi-person.html">Legend Sync example</a></li>
+          <li><a href="./transactional-failure-lab.html">Addon rollback failure lab</a></li>
+          <li><a href="./lifecycle-events.html">Core lifecycle-event contract</a></li>
+        </ul>
+        <p>The intentionally failing lab addons remain documentation code only. They are not package subpaths or runtime commitments.</p>
+      </section>
+    </main>
+    <footer class="demo-footer" data-demo-footer>
+      <div class="demo-footer__inner">
+        <div class="demo-footer__brand">
+          <p class="demo-footer__eyebrow">Accessibility plugin demo</p>
+          <p class="demo-footer__credit"><span class="demo-footer__plugin">A11yRepeatableFieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span>Built by <a class="demo-footer__link" href="https://github.com/vmitsaras/">Vasileios Mitsaras</a><span class="demo-footer__separator" aria-hidden="true">&middot;</span><a class="demo-footer__link" href="https://linkedin.com/in/vasilis-mitsaras">LinkedIn profile</a></p>
+          <p class="demo-footer__meta"><span>a11y-repeatable-fieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span><span>MIT License</span></p>
+        </div>
+        <nav class="demo-footer__nav" aria-label="Project links">
+          <ul class="demo-footer__links">
+            <li class="demo-footer__item"><a class="demo-footer__link" href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">GitHub repository</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <script type="module" src="./assets/remove-guard-demo.js"></script>
+    <script type="module" src="./assets/accessible-reorder-demo.js"></script>
+  </body>
+</html>

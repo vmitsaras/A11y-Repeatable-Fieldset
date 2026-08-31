@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <title>Lifecycle Events Reference | A11yRepeatableFieldset</title>
+    <meta name="description" content="Reference seven typed lifecycle events, immutable detail, dispatch flags, operation ordering, and rules for blocked or rolled-back structural changes.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/lifecycle-events.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="A11yRepeatableFieldset">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Lifecycle Events Reference | A11yRepeatableFieldset">
+    <meta property="og:description" content="Reference seven typed lifecycle events, immutable detail, dispatch flags, operation ordering, and rules for blocked or rolled-back structural changes.">
+    <meta property="og:url" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/lifecycle-events.html">
+    <meta property="og:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta property="og:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lifecycle Events Reference | A11yRepeatableFieldset">
+    <meta name="twitter:description" content="Reference seven typed lifecycle events, immutable detail, dispatch flags, operation ordering, and rules for blocked or rolled-back structural changes.">
+    <meta name="twitter:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta name="twitter:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/lifecycle-events.html#webpage",
+          "url": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/lifecycle-events.html",
+          "name": "Lifecycle Events Reference | A11yRepeatableFieldset",
+          "description": "Reference seven typed lifecycle events, immutable detail, dispatch flags, operation ordering, and rules for blocked or rolled-back structural changes.",
+          "mainEntity": {
+            "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/lifecycle-events.html#software"
+          }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/lifecycle-events.html#software",
+          "name": "A11yRepeatableFieldset",
+          "alternateName": "a11y-repeatable-fieldset",
+          "description": "Add, remove, duplicate, and reorder accessible form fieldsets with a dependency-free TypeScript plugin that preserves stable IDs and keyboard focus.",
+          "codeRepository": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset",
+          "programmingLanguage": [
+            "TypeScript",
+            "JavaScript"
+          ],
+          "runtimePlatform": "Browser",
+          "version": "1.0.0",
+          "license": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset/blob/main/LICENSE",
+          "keywords": [
+            "accessibility",
+            "a11y",
+            "fieldset",
+            "forms",
+            "progressive-enhancement",
+            "typescript"
+          ],
+          "author": {
+            "@id": "https://github.com/vmitsaras/#person"
+          },
+          "targetProduct": {
+            "@type": "SoftwareApplication",
+            "name": "A11yRepeatableFieldset",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Any",
+            "runtimePlatform": "Browser",
+            "softwareVersion": "1.0.0"
+          },
+          "sameAs": [
+            "https://github.com/vmitsaras/A11y-Repeatable-Fieldset"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://github.com/vmitsaras/#person",
+          "name": "Vasileios Mitsaras",
+          "url": "https://github.com/vmitsaras/",
+          "sameAs": [
+            "https://github.com/vmitsaras/",
+            "https://linkedin.com/in/vasilis-mitsaras"
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="./assets/docs.css">
+  </head>
+  <body class="docs-site">
+    <a class="docs-site__skip-link" href="#main-content">Skip to content</a>
+    <header class="docs-site__header">
+      <a class="docs-site__brand" href="./index.html" aria-label="A11yRepeatableFieldset home">A11yRepeatableFieldset</a>
+      <nav aria-label="Main navigation">
+        <ul class="docs-site__nav-list">
+          <li><a href="./index.html">Overview</a></li>
+          <li><a href="./index.html#examples">Examples</a></li>
+          <li><a href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">Install</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="docs-site__main" id="main-content">
+      <header>
+        <p>Completed-operation observations</p>
+        <h1>Lifecycle events</h1>
+        <p>The frozen <code>EVENTS</code> export contains exactly seven names. Events observe completed work; they are not commands and cannot cancel an operation.</p>
+      </header>
+
+      <section class="docs-site__panel" aria-labelledby="event-table-heading">
+        <h2 id="event-table-heading">Event set</h2>
+        <table class="docs-site__table">
+          <thead><tr><th scope="col">Constant</th><th scope="col">DOM name</th><th scope="col">Completed state</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><code>EVENTS.init</code></th><td><code>a11y-repeatable-fieldset:init</code></td><td>Existing items, addons, positions, controls, status mechanism, and active registration are ready.</td></tr>
+            <tr><th scope="row"><code>EVENTS.itemAdded</code></th><td><code>a11y-repeatable-fieldset:item-added</code></td><td>The new item is attached and registered; addons, positions, controls, focus, and status text are stable.</td></tr>
+            <tr><th scope="row"><code>EVENTS.itemDuplicated</code></th><td><code>a11y-repeatable-fieldset:item-duplicated</code></td><td>The trusted-template item has copied approved state, is attached immediately after its source, and addon setup, positions, controls, focus, and status are stable.</td></tr>
+            <tr><th scope="row"><code>EVENTS.itemRemoved</code></th><td><code>a11y-repeatable-fieldset:item-removed</code></td><td>Cleanup completed, the item is detached, positions and controls are stable, and required focus recovery finished.</td></tr>
+            <tr><th scope="row"><code>EVENTS.itemRestored</code></th><td><code>a11y-repeatable-fieldset:item-restored</code></td><td>A trusted-template fieldset with the removed reserved key is attached; addon setup, positions, controls, requested focus, and restored status are stable.</td></tr>
+            <tr><th scope="row"><code>EVENTS.itemMoved</code></th><td><code>a11y-repeatable-fieldset:item-moved</code></td><td>The same attached fieldset has a new adjacent registry and DOM position; snapshots, focus, and status text are stable.</td></tr>
+            <tr><th scope="row"><code>EVENTS.destroy</code></th><td><code>a11y-repeatable-fieldset:destroy</code></td><td>Plugin-owned resources are gone and current author fieldsets and values remain. This is the instance’s final event.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="event-flags-heading">
+        <h2 id="event-flags-heading">Shared flags and detail</h2>
+        <ul>
+          <li>Target: the component root.</li>
+          <li><code>bubbles: true</code>, <code>composed: false</code>, <code>cancelable: false</code>.</li>
+          <li>Created with the root document’s <code>CustomEvent</code> realm.</li>
+          <li>Every detail contains <code>instance</code> and <code>root</code>.</li>
+          <li>Item events identify stable keys and structural positions/counts without including field values. Add/Remove expose core source and trigger; Duplicate exposes source/new identity and nullable focus; Restore exposes prior/current coordinates and nullable focus; Move exposes direction, prior/current position, and nullable preserved focus.</li>
+        </ul>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="event-absence-heading">
+        <h2 id="event-absence-heading">When events do not fire</h2>
+        <ul>
+          <li>Saved items discovered during initialization do not emit <code>item-added</code>.</li>
+          <li>Minimum/maximum/Move boundaries, unknown targets, invalid templates/keys, copy failures, and rolled-back operations emit no item success event.</li>
+          <li>Failed initialization emits no lifecycle event.</li>
+          <li>Repeated <code>destroy()</code> calls are silent, and no delayed event may follow destroy.</li>
+        </ul>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="event-consumption-heading">
+        <h2 id="event-consumption-heading">Consumption guidance</h2>
+        <p>Subscribe to the narrowest event needed and remove application listeners during teardown. Addons should use their parent-provided typed subscription utility so cleanup is registered automatically.</p>
+        <p>The removed item’s fieldset is detached when listeners receive <code>item-removed</code>. Use it synchronously when necessary and do not retain it or its form data.</p>
+        <p>The restored item is new trusted-template DOM with the exact reserved removed key. <code>previousPosition</code> describes its pre-removal location and <code>position</code> accounts for intervening structural work. Event detail never contains retained values.</p>
+        <p>The moved item remains attached with the same key, names, IDs, values, and addon registration. Use <code>previousPosition</code>, <code>position</code>, and <code>direction</code> rather than comparing form values.</p>
+        <p>A duplicated item is a fresh trusted-template fieldset with a fresh key. <code>item-duplicated</code> is distinct from ordinary <code>item-added</code> so consumers can recognize that explicitly selected current state may have been copied without placing those values in event detail.</p>
+        <p><a href="./event-inspector.html">Open the lifecycle-event inspector</a> to observe the exact public event set and blocked-operation silence.</p>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="event-exclusions-heading">
+        <h2 id="event-exclusions-heading">Intentionally excluded</h2>
+        <p>The MVP has no before/request DOM events, generic change/count, validation, dirty-state, reset, generic/batch reorder, announcement, or batch events. The narrow completed <code>item-moved</code>, <code>item-duplicated</code>, and <code>item-restored</code> observations exist only for their transactional commands. Remove Guard uses the separate typed <code>context.onRemoveRequest()</code> route; Undo Remove uses the independent <code>context.onRemovePreparation()</code> route. Neither route is a DOM event.</p>
+      </section>
+    </main>
+    <footer class="demo-footer" data-demo-footer>
+      <div class="demo-footer__inner">
+        <div class="demo-footer__brand">
+          <p class="demo-footer__eyebrow">Accessibility plugin demo</p>
+          <p class="demo-footer__credit"><span class="demo-footer__plugin">A11yRepeatableFieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span>Built by <a class="demo-footer__link" href="https://github.com/vmitsaras/">Vasileios Mitsaras</a><span class="demo-footer__separator" aria-hidden="true">&middot;</span><a class="demo-footer__link" href="https://linkedin.com/in/vasilis-mitsaras">LinkedIn profile</a></p>
+          <p class="demo-footer__meta"><span>a11y-repeatable-fieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span><span>MIT License</span></p>
+        </div>
+        <nav class="demo-footer__nav" aria-label="Project links">
+          <ul class="demo-footer__links">
+            <li class="demo-footer__item"><a class="demo-footer__link" href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">GitHub repository</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

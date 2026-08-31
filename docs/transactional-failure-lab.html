@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <title>Transactional Failure Lab | A11yRepeatableFieldset</title>
+    <meta name="description" content="Test malformed-template blocking and addon rollback through public results, stable DOM counts, and lifecycle events without exposing private internals.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/transactional-failure-lab.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="A11yRepeatableFieldset">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Transactional Failure Lab | A11yRepeatableFieldset">
+    <meta property="og:description" content="Test malformed-template blocking and addon rollback through public results, stable DOM counts, and lifecycle events without exposing private internals.">
+    <meta property="og:url" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/transactional-failure-lab.html">
+    <meta property="og:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta property="og:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Transactional Failure Lab | A11yRepeatableFieldset">
+    <meta name="twitter:description" content="Test malformed-template blocking and addon rollback through public results, stable DOM counts, and lifecycle events without exposing private internals.">
+    <meta name="twitter:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta name="twitter:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/transactional-failure-lab.html#webpage",
+          "url": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/transactional-failure-lab.html",
+          "name": "Transactional Failure Lab | A11yRepeatableFieldset",
+          "description": "Test malformed-template blocking and addon rollback through public results, stable DOM counts, and lifecycle events without exposing private internals.",
+          "mainEntity": {
+            "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/transactional-failure-lab.html#software"
+          }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/transactional-failure-lab.html#software",
+          "name": "A11yRepeatableFieldset",
+          "alternateName": "a11y-repeatable-fieldset",
+          "description": "Add, remove, duplicate, and reorder accessible form fieldsets with a dependency-free TypeScript plugin that preserves stable IDs and keyboard focus.",
+          "codeRepository": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset",
+          "programmingLanguage": [
+            "TypeScript",
+            "JavaScript"
+          ],
+          "runtimePlatform": "Browser",
+          "version": "1.0.0",
+          "license": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset/blob/main/LICENSE",
+          "keywords": [
+            "accessibility",
+            "a11y",
+            "fieldset",
+            "forms",
+            "progressive-enhancement",
+            "typescript"
+          ],
+          "author": {
+            "@id": "https://github.com/vmitsaras/#person"
+          },
+          "targetProduct": {
+            "@type": "SoftwareApplication",
+            "name": "A11yRepeatableFieldset",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Any",
+            "runtimePlatform": "Browser",
+            "softwareVersion": "1.0.0"
+          },
+          "sameAs": [
+            "https://github.com/vmitsaras/A11y-Repeatable-Fieldset"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://github.com/vmitsaras/#person",
+          "name": "Vasileios Mitsaras",
+          "url": "https://github.com/vmitsaras/",
+          "sameAs": [
+            "https://github.com/vmitsaras/",
+            "https://linkedin.com/in/vasilis-mitsaras"
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="./assets/docs.css">
+    <link rel="stylesheet" href="./assets/a11y-repeatable-fieldset.css">
+  </head>
+  <body class="docs-site">
+    <a class="docs-site__skip-link" href="#main-content">Skip to content</a>
+    <header class="docs-site__header">
+      <a class="docs-site__brand" href="./index.html" aria-label="A11yRepeatableFieldset home">A11yRepeatableFieldset</a>
+      <nav aria-label="Main navigation">
+        <ul class="docs-site__nav-list">
+          <li><a href="./index.html">Overview</a></li>
+          <li><a href="./index.html#examples">Examples</a></li>
+          <li><a href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">Install</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="docs-site__main" id="main-content">
+      <header>
+        <p>Public-contract developer lab</p>
+        <h1>Watch failed additions leave no incomplete fieldset behind</h1>
+        <p>Two controlled failures expose only public result reasons, public lifecycle events, and author-visible DOM. Neither lab reads a registry, calls a private method, or serializes form values.</p>
+      </header>
+
+      <section class="docs-site__panel" aria-labelledby="failure-scenario-heading">
+        <h2 id="failure-scenario-heading">Scenario and user goal</h2>
+        <p>An integration author needs confidence that a bad template or a failing addon cannot leak a half-configured form group. The goal is to compare item counts and success events before and after each attempt.</p>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="failure-try-heading">
+        <h2 id="failure-try-heading">Try it</h2>
+        <ul>
+          <li>Attempt the malformed-template addition and confirm the result is <code>invalid-template</code>.</li>
+          <li>Confirm its item count remains one and its <code>item-added</code> count remains zero.</li>
+          <li>Attempt addon setup with intentional failure enabled and confirm the result is <code>addon-error</code>.</li>
+          <li>Disable intentional failure, retry, and confirm one complete item plus one success event appears.</li>
+        </ul>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="template-lab-heading">
+        <h2 id="template-lab-heading">Lab 1: malformed tokenized reference</h2>
+        <p>The trusted template deliberately gives its label and input different tokenized IDs. Materialization must reject the unresolved local reference before insertion.</p>
+        <p id="template-result" class="docs-site__result" role="status" aria-live="polite" aria-atomic="true">No malformed-template addition attempted.</p>
+        <dl class="docs-site__metrics">
+          <div><dt>Current items</dt><dd id="template-item-count">1</dd></div>
+          <div><dt>Successful item-added events</dt><dd id="template-event-count">0</dd></div>
+        </dl>
+
+        <form action="./transactional-failure-lab.html" method="get">
+          <section
+            id="template-failure-root"
+            class="a11y-repeatable-fieldset"
+            data-a11y-repeatable-fieldset
+            data-min-items="1"
+            data-max-items="2"
+            data-item-label="Contact"
+            data-announce-changes="false"
+          >
+            <div class="a11y-repeatable-fieldset__items" data-a11y-repeatable-fieldset-items>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="contact-saved">
+                <legend class="a11y-repeatable-fieldset__legend">Contact <span class="a11y-repeatable-fieldset__position" data-a11y-repeatable-fieldset-position>1</span></legend>
+                <p class="docs-site__form-row">
+                  <label for="contact-saved-email">Email</label>
+                  <input id="contact-saved-email" name="contacts[contact-saved][email]" type="email" value="saved@example.com">
+                </p>
+                <div class="a11y-repeatable-fieldset__controls">
+                  <button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove contact</button>
+                </div>
+              </fieldset>
+            </div>
+            <div class="a11y-repeatable-fieldset__controls">
+              <button id="template-attempt" class="a11y-repeatable-fieldset__add" type="button" hidden data-a11y-repeatable-fieldset-add>Attempt malformed addition</button>
+            </div>
+            <div class="a11y-repeatable-fieldset__status" data-a11y-repeatable-fieldset-status></div>
+            <template data-a11y-repeatable-fieldset-template>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="__A11Y_REPEATABLE_KEY__">
+                <legend class="a11y-repeatable-fieldset__legend">Contact <span data-a11y-repeatable-fieldset-position></span></legend>
+                <p class="docs-site__form-row">
+                  <label for="contact-__A11Y_REPEATABLE_KEY__-email">Email</label>
+                  <input id="contact-__A11Y_REPEATABLE_KEY__-address" name="contacts[__A11Y_REPEATABLE_KEY__][email]" type="email">
+                </p>
+                <div class="a11y-repeatable-fieldset__controls">
+                  <button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove contact</button>
+                </div>
+              </fieldset>
+            </template>
+          </section>
+        </form>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="addon-lab-heading">
+        <h2 id="addon-lab-heading">Lab 2: addon setup rollback</h2>
+        <p>A first demo addon appends an owned audit marker and returns cleanup. A second demo addon can throw during added-item setup; core then runs completed cleanup and removes the incomplete fieldset.</p>
+        <p class="docs-site__form-row">
+          <label><input id="addon-should-fail" type="checkbox" checked> Intentionally fail added-item setup</label>
+        </p>
+        <p id="addon-result" class="docs-site__result" role="status" aria-live="polite" aria-atomic="true">No addon addition attempted.</p>
+        <dl class="docs-site__metrics">
+          <div><dt>Current items</dt><dd id="addon-item-count">1</dd></div>
+          <div><dt>Current audit markers</dt><dd id="addon-marker-count">1</dd></div>
+          <div><dt>Successful item-added events</dt><dd id="addon-event-count">0</dd></div>
+        </dl>
+
+        <form action="./transactional-failure-lab.html" method="get">
+          <section
+            id="addon-failure-root"
+            class="a11y-repeatable-fieldset"
+            data-a11y-repeatable-fieldset
+            data-min-items="1"
+            data-max-items="3"
+            data-item-label="Reviewer"
+            data-announce-changes="false"
+          >
+            <div class="a11y-repeatable-fieldset__items" data-a11y-repeatable-fieldset-items>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="reviewer-saved">
+                <legend class="a11y-repeatable-fieldset__legend">Reviewer <span class="a11y-repeatable-fieldset__position" data-a11y-repeatable-fieldset-position>1</span></legend>
+                <p class="docs-site__form-row">
+                  <label for="reviewer-saved-name">Name</label>
+                  <input id="reviewer-saved-name" name="reviewers[reviewer-saved][name]" value="Morgan Lee">
+                </p>
+                <div class="a11y-repeatable-fieldset__controls">
+                  <button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove reviewer</button>
+                </div>
+              </fieldset>
+            </div>
+            <div class="a11y-repeatable-fieldset__controls">
+              <button id="addon-attempt" class="a11y-repeatable-fieldset__add" type="button" hidden data-a11y-repeatable-fieldset-add>Attempt addon-integrated addition</button>
+            </div>
+            <div class="a11y-repeatable-fieldset__status" data-a11y-repeatable-fieldset-status></div>
+            <template data-a11y-repeatable-fieldset-template>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="__A11Y_REPEATABLE_KEY__">
+                <legend class="a11y-repeatable-fieldset__legend">Reviewer <span data-a11y-repeatable-fieldset-position></span></legend>
+                <p class="docs-site__form-row">
+                  <label for="reviewer-__A11Y_REPEATABLE_KEY__-name">Name</label>
+                  <input id="reviewer-__A11Y_REPEATABLE_KEY__-name" name="reviewers[__A11Y_REPEATABLE_KEY__][name]" data-a11y-repeatable-fieldset-focus>
+                </p>
+                <div class="a11y-repeatable-fieldset__controls">
+                  <button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove reviewer</button>
+                </div>
+              </fieldset>
+            </template>
+          </section>
+        </form>
+      </section>
+
+      <div class="docs-site__grid">
+        <section class="docs-site__panel" aria-labelledby="failure-accessibility-heading">
+          <h2 id="failure-accessibility-heading">Accessibility notes</h2>
+          <ul>
+            <li>Both baseline forms remain semantic and editable before JavaScript initializes.</li>
+            <li>The diagnostic buttons retain focus because the public API Add calls do not request focus.</li>
+            <li>Each lab uses one dedicated polite result region while core structural announcements are disabled for that root.</li>
+            <li>Failure is communicated with text and counts, not color or animation.</li>
+            <li>The page does not predict screen-reader speech; test status timing in target environments.</li>
+          </ul>
+        </section>
+
+        <section class="docs-site__panel" aria-labelledby="failure-developer-heading">
+          <h2 id="failure-developer-heading">Developer notes</h2>
+          <ul>
+            <li>The script imports only <code>EVENTS</code> and <code>createRepeatableFieldset</code> from the copied public ESM asset.</li>
+            <li>Operation results expose only <code>ok</code>, <code>reason</code>, and success snapshots; the demo never renders error objects.</li>
+            <li>Lifecycle listeners subscribe through the frozen exported event constants.</li>
+            <li>The audit-marker addon creates DOM through <code>ownerDocument</code> and returns idempotent cleanup.</li>
+            <li>The intentionally failing addon mutates nothing before throwing.</li>
+          </ul>
+        </section>
+      </div>
+
+      <section class="docs-site__panel" aria-labelledby="failure-limitations-heading">
+        <h2 id="failure-limitations-heading">Lab limits</h2>
+        <p>This page demonstrates deterministic synchronous failures only. It does not expose private rollback registries, simulate asynchronous hooks, validate third-party cleanup, or prove assistive-technology interoperability.</p>
+      </section>
+    </main>
+    <footer class="demo-footer" data-demo-footer>
+      <div class="demo-footer__inner">
+        <div class="demo-footer__brand">
+          <p class="demo-footer__eyebrow">Accessibility plugin demo</p>
+          <p class="demo-footer__credit"><span class="demo-footer__plugin">A11yRepeatableFieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span>Built by <a class="demo-footer__link" href="https://github.com/vmitsaras/">Vasileios Mitsaras</a><span class="demo-footer__separator" aria-hidden="true">&middot;</span><a class="demo-footer__link" href="https://linkedin.com/in/vasilis-mitsaras">LinkedIn profile</a></p>
+          <p class="demo-footer__meta"><span>a11y-repeatable-fieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span><span>MIT License</span></p>
+        </div>
+        <nav class="demo-footer__nav" aria-label="Project links">
+          <ul class="demo-footer__links">
+            <li class="demo-footer__item"><a class="demo-footer__link" href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">GitHub repository</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <script type="module" src="./assets/transactional-failure-lab.js"></script>
+  </body>
+</html>

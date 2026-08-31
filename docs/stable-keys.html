@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <title>Stable Keys and Server Naming | A11yRepeatableFieldset</title>
+    <meta name="description" content="Keep persistent item keys separate from visible position so names, IDs, labels, radio groups, and server records remain stable after removal.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/stable-keys.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="A11yRepeatableFieldset">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Stable Keys and Server Naming | A11yRepeatableFieldset">
+    <meta property="og:description" content="Keep persistent item keys separate from visible position so names, IDs, labels, radio groups, and server records remain stable after removal.">
+    <meta property="og:url" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/stable-keys.html">
+    <meta property="og:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta property="og:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Stable Keys and Server Naming | A11yRepeatableFieldset">
+    <meta name="twitter:description" content="Keep persistent item keys separate from visible position so names, IDs, labels, radio groups, and server records remain stable after removal.">
+    <meta name="twitter:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta name="twitter:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/stable-keys.html#webpage",
+          "url": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/stable-keys.html",
+          "name": "Stable Keys and Server Naming | A11yRepeatableFieldset",
+          "description": "Keep persistent item keys separate from visible position so names, IDs, labels, radio groups, and server records remain stable after removal.",
+          "mainEntity": {
+            "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/stable-keys.html#software"
+          }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/stable-keys.html#software",
+          "name": "A11yRepeatableFieldset",
+          "alternateName": "a11y-repeatable-fieldset",
+          "description": "Add, remove, duplicate, and reorder accessible form fieldsets with a dependency-free TypeScript plugin that preserves stable IDs and keyboard focus.",
+          "codeRepository": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset",
+          "programmingLanguage": [
+            "TypeScript",
+            "JavaScript"
+          ],
+          "runtimePlatform": "Browser",
+          "version": "1.0.0",
+          "license": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset/blob/main/LICENSE",
+          "keywords": [
+            "accessibility",
+            "a11y",
+            "fieldset",
+            "forms",
+            "progressive-enhancement",
+            "typescript"
+          ],
+          "author": {
+            "@id": "https://github.com/vmitsaras/#person"
+          },
+          "targetProduct": {
+            "@type": "SoftwareApplication",
+            "name": "A11yRepeatableFieldset",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Any",
+            "runtimePlatform": "Browser",
+            "softwareVersion": "1.0.0"
+          },
+          "sameAs": [
+            "https://github.com/vmitsaras/A11y-Repeatable-Fieldset"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://github.com/vmitsaras/#person",
+          "name": "Vasileios Mitsaras",
+          "url": "https://github.com/vmitsaras/",
+          "sameAs": [
+            "https://github.com/vmitsaras/",
+            "https://linkedin.com/in/vasilis-mitsaras"
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="./assets/docs.css">
+  </head>
+  <body class="docs-site">
+    <a class="docs-site__skip-link" href="#main-content">Skip to content</a>
+    <header class="docs-site__header">
+      <a class="docs-site__brand" href="./index.html" aria-label="A11yRepeatableFieldset home">A11yRepeatableFieldset</a>
+      <nav aria-label="Main navigation">
+        <ul class="docs-site__nav-list">
+          <li><a href="./index.html">Overview</a></li>
+          <li><a href="./index.html#examples">Examples</a></li>
+          <li><a href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">Install</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="docs-site__main" id="main-content">
+      <header>
+        <p>Identity contract</p>
+        <h1>Keep stable identity separate from visible position</h1>
+        <p>A position answers “where is this item now?” A stable key answers “which item is this?” Removing or reordering an earlier fieldset may change the first answer but never the second.</p>
+      </header>
+
+      <section class="docs-site__panel" aria-labelledby="identity-comparison-heading">
+        <h2 id="identity-comparison-heading">Key, position, and backend name</h2>
+        <table class="docs-site__table">
+          <thead>
+            <tr>
+              <th scope="col">Concept</th>
+              <th scope="col">Example</th>
+              <th scope="col">May change after removal?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Stable key</th>
+              <td><code>contact-2088</code></td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <th scope="row">Visible position</th>
+              <td><code>Contact 2</code></td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <th scope="row">Author-controlled name</th>
+              <td><code>contacts[contact-2088][phone]</code></td>
+              <td>No</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="saved-name-heading">
+        <h2 id="saved-name-heading">Saved items keep server names</h2>
+        <p>Initialization preserves an existing server key and its control name exactly:</p>
+        <pre class="docs-site__code"><code>&lt;fieldset
+  data-a11y-repeatable-fieldset-item
+  data-a11y-repeatable-fieldset-key="contact-2088"
+&gt;
+  &lt;label for="contact-2088-phone"&gt;Telephone&lt;/label&gt;
+  &lt;input
+    id="contact-2088-phone"
+    name="contacts[contact-2088][phone]"
+  &gt;
+&lt;/fieldset&gt;</code></pre>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="template-name-heading">
+        <h2 id="template-name-heading">Templates opt into generated identity</h2>
+        <p>The only template token is <code>__A11Y_REPEATABLE_KEY__</code>. The author chooses the surrounding backend-compatible shape:</p>
+        <pre class="docs-site__code"><code>&lt;label for="contact-__A11Y_REPEATABLE_KEY__-phone"&gt;
+  Telephone
+&lt;/label&gt;
+&lt;input
+  id="contact-__A11Y_REPEATABLE_KEY__-phone"
+  name="contacts[__A11Y_REPEATABLE_KEY__][phone]"
+&gt;</code></pre>
+        <p>A generated key such as <code>item-1</code> produces <code>contacts[item-1][phone]</code>. The bracketed convention is an example, not a required server parser.</p>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="removal-payload-heading">
+        <h2 id="removal-payload-heading">Removal does not compress names</h2>
+        <p>Suppose a form submits these fields:</p>
+        <pre class="docs-site__code"><code>contacts[contact-1042][name]=Ada
+contacts[contact-2088][name]=Grace
+contacts[item-1][name]=Lin</code></pre>
+        <p>After removing <code>contact-1042</code>, Grace becomes visible Contact 1 and Lin becomes visible Contact 2. Their submitted names remain:</p>
+        <pre class="docs-site__code"><code>contacts[contact-2088][name]=Grace
+contacts[item-1][name]=Lin</code></pre>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="radio-name-heading">
+        <h2 id="radio-name-heading">Radio groups use the stable key</h2>
+        <p>Radios inside one template item share a tokenized name. Each generated item therefore becomes an independent browser radio group:</p>
+        <pre class="docs-site__code"><code>&lt;input
+  type="radio"
+  name="contacts[__A11Y_REPEATABLE_KEY__][method]"
+  value="email"
+&gt;
+&lt;input
+  type="radio"
+  name="contacts[__A11Y_REPEATABLE_KEY__][method]"
+  value="telephone"
+&gt;</code></pre>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="identity-accessibility-heading">
+        <h2 id="identity-accessibility-heading">Accessibility connection</h2>
+        <ul>
+          <li>Stable tokenized IDs keep each generated label and description associated with its own control.</li>
+          <li>Visible position markers may update so legends remain understandable after structural changes.</li>
+          <li>Names and IDs never use current position as persistent identity.</li>
+          <li>Removed keys remain reserved for the active instance lifetime and are not silently reused.</li>
+          <li>See the <a href="./existing-items.html">saved-items demo</a> and <a href="./complex-fields.html">complex-fields demo</a> for executable examples.</li>
+        </ul>
+      </section>
+    </main>
+    <footer class="demo-footer" data-demo-footer>
+      <div class="demo-footer__inner">
+        <div class="demo-footer__brand">
+          <p class="demo-footer__eyebrow">Accessibility plugin demo</p>
+          <p class="demo-footer__credit"><span class="demo-footer__plugin">A11yRepeatableFieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span>Built by <a class="demo-footer__link" href="https://github.com/vmitsaras/">Vasileios Mitsaras</a><span class="demo-footer__separator" aria-hidden="true">&middot;</span><a class="demo-footer__link" href="https://linkedin.com/in/vasilis-mitsaras">LinkedIn profile</a></p>
+          <p class="demo-footer__meta"><span>a11y-repeatable-fieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span><span>MIT License</span></p>
+        </div>
+        <nav class="demo-footer__nav" aria-label="Project links">
+          <ul class="demo-footer__links">
+            <li class="demo-footer__item"><a class="demo-footer__link" href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">GitHub repository</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

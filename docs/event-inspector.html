@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <title>Lifecycle Event Inspector | A11yRepeatableFieldset</title>
+    <meta name="description" content="Inspect seven completed lifecycle events after DOM, focus, addon, and status state stabilize, using structural detail that excludes form values.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/event-inspector.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="A11yRepeatableFieldset">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Lifecycle Event Inspector | A11yRepeatableFieldset">
+    <meta property="og:description" content="Inspect seven completed lifecycle events after DOM, focus, addon, and status state stabilize, using structural detail that excludes form values.">
+    <meta property="og:url" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/event-inspector.html">
+    <meta property="og:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta property="og:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lifecycle Event Inspector | A11yRepeatableFieldset">
+    <meta name="twitter:description" content="Inspect seven completed lifecycle events after DOM, focus, addon, and status state stabilize, using structural detail that excludes form values.">
+    <meta name="twitter:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta name="twitter:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/event-inspector.html#webpage",
+          "url": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/event-inspector.html",
+          "name": "Lifecycle Event Inspector | A11yRepeatableFieldset",
+          "description": "Inspect seven completed lifecycle events after DOM, focus, addon, and status state stabilize, using structural detail that excludes form values.",
+          "mainEntity": {
+            "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/event-inspector.html#software"
+          }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/event-inspector.html#software",
+          "name": "A11yRepeatableFieldset",
+          "alternateName": "a11y-repeatable-fieldset",
+          "description": "Add, remove, duplicate, and reorder accessible form fieldsets with a dependency-free TypeScript plugin that preserves stable IDs and keyboard focus.",
+          "codeRepository": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset",
+          "programmingLanguage": [
+            "TypeScript",
+            "JavaScript"
+          ],
+          "runtimePlatform": "Browser",
+          "version": "1.0.0",
+          "license": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset/blob/main/LICENSE",
+          "keywords": [
+            "accessibility",
+            "a11y",
+            "fieldset",
+            "forms",
+            "progressive-enhancement",
+            "typescript"
+          ],
+          "author": {
+            "@id": "https://github.com/vmitsaras/#person"
+          },
+          "targetProduct": {
+            "@type": "SoftwareApplication",
+            "name": "A11yRepeatableFieldset",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Any",
+            "runtimePlatform": "Browser",
+            "softwareVersion": "1.0.0"
+          },
+          "sameAs": [
+            "https://github.com/vmitsaras/A11y-Repeatable-Fieldset"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://github.com/vmitsaras/#person",
+          "name": "Vasileios Mitsaras",
+          "url": "https://github.com/vmitsaras/",
+          "sameAs": [
+            "https://github.com/vmitsaras/",
+            "https://linkedin.com/in/vasilis-mitsaras"
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="./assets/docs.css">
+    <link rel="stylesheet" href="./assets/a11y-repeatable-fieldset.css">
+  </head>
+  <body class="docs-site">
+    <a class="docs-site__skip-link" href="#main-content">Skip to content</a>
+    <header class="docs-site__header">
+      <a class="docs-site__brand" href="./index.html" aria-label="A11yRepeatableFieldset home">A11yRepeatableFieldset</a>
+      <nav aria-label="Main navigation">
+        <ul class="docs-site__nav-list">
+          <li><a href="./index.html">Overview</a></li>
+          <li><a href="./index.html#examples">Examples</a></li>
+          <li><a href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">Install</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="docs-site__main" id="main-content">
+      <header>
+        <p>Public lifecycle developer lab</p>
+        <h1>Inspect completed structural events without exposing form values</h1>
+        <p>The inspector subscribes to the seven exported <code>EVENTS</code> values before initialization and renders a bounded log containing structural metadata only.</p>
+      </header>
+
+      <section class="docs-site__panel" aria-labelledby="events-scenario-heading">
+        <h2 id="events-scenario-heading">Scenario</h2>
+        <p>An integrator wants to understand when initialization, addition, duplication, removal, restoration, adjacent movement, and teardown observations occur. The logger must not become a second live region, retain detached fieldsets, or treat events as cancelable commands.</p>
+      </section>
+
+      <aside class="docs-site__panel docs-site__notice" aria-labelledby="inspector-boundary-heading">
+        <h2 id="inspector-boundary-heading">Inspector boundary</h2>
+        <p><strong>This inspector is ordinary, demo-only document content.</strong> It is not an addon, is not exported by the package, and is not required for runtime behavior. The log keeps only the newest 20 entries.</p>
+      </aside>
+
+      <section class="docs-site__panel" aria-labelledby="events-try-heading">
+        <h2 id="events-try-heading">Try it</h2>
+        <ul>
+          <li>Read the first log entry: one <code>init</code> event reports the server-rendered item without an <code>item-added</code> event.</li>
+          <li>Use the component buttons to add and remove an address; observe <code>source: "control"</code>.</li>
+          <li>Use <strong>Call add()</strong>; observe <code>source: "api"</code> when it succeeds and no success event when the maximum blocks it.</li>
+          <li>Use <strong>Call duplicate()</strong>; observe new and source structural identity without any form value in the payload.</li>
+          <li>Use <strong>Call move()</strong> after adding an address; observe stable identity with prior and current positions. A one-item boundary emits no success event.</li>
+          <li>Use the <a href="./undo-remove.html">Undo Remove demo</a> to trigger <code>item-restored</code>; this inspector still subscribes to its exported constant and safely formats its structural detail.</li>
+          <li>Choose <strong>Destroy instance</strong>; the final event is logged and all enhancement controls return to their authored hidden state.</li>
+        </ul>
+      </section>
+
+      <div class="docs-site__grid">
+        <section class="docs-site__panel" aria-labelledby="events-example-heading">
+          <h2 id="events-example-heading">Interactive component</h2>
+          <form action="./event-inspector.html" method="get">
+            <section
+              id="event-demo-root"
+              class="a11y-repeatable-fieldset"
+              data-a11y-repeatable-fieldset
+              data-min-items="1"
+              data-max-items="2"
+              data-item-label="Address"
+              aria-describedby="event-demo-limit"
+            >
+              <p id="event-demo-limit" class="a11y-repeatable-fieldset__limit">Keep one or two addresses. A blocked operation produces no item success event.</p>
+              <div class="a11y-repeatable-fieldset__items" data-a11y-repeatable-fieldset-items>
+                <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="address-home">
+                  <legend class="a11y-repeatable-fieldset__legend">Address <span class="a11y-repeatable-fieldset__position" data-a11y-repeatable-fieldset-position>1</span></legend>
+                  <p class="docs-site__form-row">
+                    <label for="address-home-line">Address line</label>
+                    <input id="address-home-line" name="addresses[address-home][line]" value="12 Example Street" autocomplete="street-address">
+                  </p>
+                  <div class="a11y-repeatable-fieldset__controls">
+                    <button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove address</button>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="a11y-repeatable-fieldset__controls">
+                <button class="a11y-repeatable-fieldset__add" type="button" hidden data-a11y-repeatable-fieldset-add>Add another address</button>
+              </div>
+              <div class="a11y-repeatable-fieldset__status" data-a11y-repeatable-fieldset-status></div>
+              <template data-a11y-repeatable-fieldset-template>
+                <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="__A11Y_REPEATABLE_KEY__">
+                  <legend class="a11y-repeatable-fieldset__legend">Address <span class="a11y-repeatable-fieldset__position" data-a11y-repeatable-fieldset-position></span></legend>
+                  <p class="docs-site__form-row">
+                    <label for="address-__A11Y_REPEATABLE_KEY__-line">Address line</label>
+                    <input id="address-__A11Y_REPEATABLE_KEY__-line" name="addresses[__A11Y_REPEATABLE_KEY__][line]" autocomplete="street-address" data-a11y-repeatable-fieldset-focus>
+                  </p>
+                  <div class="a11y-repeatable-fieldset__controls">
+                    <button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove address</button>
+                  </div>
+                </fieldset>
+              </template>
+            </section>
+          </form>
+          <div class="docs-site__actions">
+            <button id="event-api-add" type="button">Call add()</button>
+            <button id="event-api-duplicate" type="button">Call duplicate()</button>
+            <button id="event-api-move" type="button">Call move()</button>
+            <button id="event-destroy" type="button">Destroy instance</button>
+          </div>
+          <p id="event-command-result" class="docs-site__result">No API command has been called.</p>
+        </section>
+
+        <section class="docs-site__panel" aria-labelledby="event-log-heading">
+          <h2 id="event-log-heading">Structural event log</h2>
+          <p id="event-log-description">This bounded list is ordinary document content, not a live region. New entries do not move focus; review it when you choose.</p>
+          <ol id="event-log" class="docs-site__event-log" aria-describedby="event-log-description"></ol>
+          <p><button id="event-clear-log" type="button">Clear event log</button></p>
+        </section>
+      </div>
+
+      <section class="docs-site__panel" aria-labelledby="events-accessibility-heading">
+        <h2 id="events-accessibility-heading">Accessibility notes</h2>
+        <ul>
+          <li>The component’s own polite status region remains the only live region for Add, Remove, Duplicate, Restore, and Move operations.</li>
+          <li>The inspector does not steal focus or announce every diagnostic update.</li>
+          <li>Form values, server errors, private registries, and addon state are excluded from rendered payloads.</li>
+          <li>Removed-item payloads are converted immediately to primitives; the logger does not retain detached fieldsets.</li>
+          <li>The Destroy event is final for this instance; delayed work must not append later entries.</li>
+        </ul>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="events-developer-heading">
+        <h2 id="events-developer-heading">Developer notes</h2>
+        <p><code>event-inspector.js</code> imports <code>EVENTS</code> and <code>createRepeatableFieldset</code> from the copied ESM asset. It subscribes using exact exported constants, builds log entries with DOM methods and <code>textContent</code>, caps retained entries, and never imports private source.</p>
+      </section>
+    </main>
+    <footer class="demo-footer" data-demo-footer>
+      <div class="demo-footer__inner">
+        <div class="demo-footer__brand">
+          <p class="demo-footer__eyebrow">Accessibility plugin demo</p>
+          <p class="demo-footer__credit"><span class="demo-footer__plugin">A11yRepeatableFieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span>Built by <a class="demo-footer__link" href="https://github.com/vmitsaras/">Vasileios Mitsaras</a><span class="demo-footer__separator" aria-hidden="true">&middot;</span><a class="demo-footer__link" href="https://linkedin.com/in/vasilis-mitsaras">LinkedIn profile</a></p>
+          <p class="demo-footer__meta"><span>a11y-repeatable-fieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span><span>MIT License</span></p>
+        </div>
+        <nav class="demo-footer__nav" aria-label="Project links">
+          <ul class="demo-footer__links">
+            <li class="demo-footer__item"><a class="demo-footer__link" href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">GitHub repository</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <script type="module" src="./assets/event-inspector.js"></script>
+  </body>
+</html>

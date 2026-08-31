@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <title>Validation Bridge Demo | A11yRepeatableFieldset</title>
+    <meta name="description" content="Try live item-scoped validation, a synchronized error summary, server-error preservation, and cleanup before a repeated fieldset is removed.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/validation-integration.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="A11yRepeatableFieldset">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Validation Bridge Demo | A11yRepeatableFieldset">
+    <meta property="og:description" content="Try live item-scoped validation, a synchronized error summary, server-error preservation, and cleanup before a repeated fieldset is removed.">
+    <meta property="og:url" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/validation-integration.html">
+    <meta property="og:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta property="og:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Validation Bridge Demo | A11yRepeatableFieldset">
+    <meta name="twitter:description" content="Try live item-scoped validation, a synchronized error summary, server-error preservation, and cleanup before a repeated fieldset is removed.">
+    <meta name="twitter:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta name="twitter:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/validation-integration.html#webpage",
+          "url": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/validation-integration.html",
+          "name": "Validation Bridge Demo | A11yRepeatableFieldset",
+          "description": "Try live item-scoped validation, a synchronized error summary, server-error preservation, and cleanup before a repeated fieldset is removed.",
+          "mainEntity": {
+            "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/validation-integration.html#software"
+          }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/validation-integration.html#software",
+          "name": "A11yRepeatableFieldset",
+          "alternateName": "a11y-repeatable-fieldset",
+          "description": "Add, remove, duplicate, and reorder accessible form fieldsets with a dependency-free TypeScript plugin that preserves stable IDs and keyboard focus.",
+          "codeRepository": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset",
+          "programmingLanguage": [
+            "TypeScript",
+            "JavaScript"
+          ],
+          "runtimePlatform": "Browser",
+          "version": "1.0.0",
+          "license": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset/blob/main/LICENSE",
+          "keywords": [
+            "accessibility",
+            "a11y",
+            "fieldset",
+            "forms",
+            "progressive-enhancement",
+            "typescript"
+          ],
+          "author": {
+            "@id": "https://github.com/vmitsaras/#person"
+          },
+          "targetProduct": {
+            "@type": "SoftwareApplication",
+            "name": "A11yRepeatableFieldset",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Any",
+            "runtimePlatform": "Browser",
+            "softwareVersion": "1.0.0"
+          },
+          "sameAs": [
+            "https://github.com/vmitsaras/A11y-Repeatable-Fieldset"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://github.com/vmitsaras/#person",
+          "name": "Vasileios Mitsaras",
+          "url": "https://github.com/vmitsaras/",
+          "sameAs": [
+            "https://github.com/vmitsaras/",
+            "https://linkedin.com/in/vasilis-mitsaras"
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="./assets/docs.css">
+    <link rel="stylesheet" href="./assets/a11y-repeatable-fieldset.css">
+  </head>
+  <body class="docs-site">
+    <a class="docs-site__skip-link" href="#main-content">Skip to content</a>
+    <header class="docs-site__header">
+      <a class="docs-site__brand" href="./index.html" aria-label="A11yRepeatableFieldset home">A11yRepeatableFieldset</a>
+      <nav aria-label="Main navigation">
+        <ul class="docs-site__nav-list">
+          <li><a href="./index.html">Overview</a></li>
+          <li><a href="./index.html#examples">Examples</a></li>
+          <li><a href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">Install</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="docs-site__main" id="main-content">
+      <header>
+        <p>Implemented addon, live validation, and error-summary demo</p>
+        <h1>Register repeated controls once and clean them before removal</h1>
+        <p>The Validation Bridge maps each existing or added fieldset to an application-owned validator. Core owns structural focus and announcements; the adapter owns validation errors, summary links, and their cleanup.</p>
+      </header>
+
+      <aside class="docs-site__panel docs-site__notice">
+        <p><strong>Validation Bridge is implemented and opt-in.</strong> Import it from <code>a11y-repeatable-fieldset/addons/validation-bridge</code>. It is absent from the main runtime entry and does not import a validator.</p>
+      </aside>
+
+      <section class="docs-site__panel" aria-labelledby="try-heading">
+        <h2 id="try-heading">Try live validation and review errors</h2>
+        <ol>
+          <li>Confirm the saved email and its server message remain present after initialization.</li>
+          <li>Add Contact 2, leave Name empty, and move focus to Email. The inline error and matching summary link appear without moving focus.</li>
+          <li>Return to Name and enter a value. After a short pause, its inline error and summary link disappear together.</li>
+          <li>Leave Email empty and choose <strong>Review validation errors</strong>. Focus moves to the validation summary, whose link focuses Email.</li>
+          <li>Remove Contact 2 and confirm its inline errors and summary links disappear before the fieldset is detached. The saved Contact 1 server message remains untouched.</li>
+        </ol>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="example-heading">
+        <h2 id="example-heading">Example</h2>
+        <p id="validation-registration-report" class="docs-site__result">Waiting for validation registration.</p>
+        <form id="validation-demo-form">
+          <section
+            id="validation-summary"
+            class="docs-site__panel"
+            aria-labelledby="validation-summary-title"
+            tabindex="-1"
+            hidden
+          >
+            <h2 id="validation-summary-title">Correct the following fields</h2>
+            <ul id="validation-summary-list"></ul>
+          </section>
+
+          <section
+            class="a11y-repeatable-fieldset"
+            data-a11y-repeatable-fieldset
+            data-min-items="1"
+            data-max-items="3"
+            aria-describedby="validation-contact-hint"
+          >
+            <p id="validation-contact-hint" class="a11y-repeatable-fieldset__limit">Add up to three contacts. Required fields validate after focus leaves them, then revalidate as you type. Validation messages are separate from structural Add and Remove messages.</p>
+            <div class="a11y-repeatable-fieldset__items" data-a11y-repeatable-fieldset-items>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="server-42">
+                <legend class="a11y-repeatable-fieldset__legend">Contact <span class="a11y-repeatable-fieldset__position" data-a11y-repeatable-fieldset-position>1</span></legend>
+                <p class="docs-site__form-row">
+                  <label for="validation-contact-server-42-name">Name</label>
+                  <input id="validation-contact-server-42-name" name="contacts[server-42][name]" value="Ada Lovelace" autocomplete="name" required>
+                </p>
+                <p class="docs-site__form-row">
+                  <label for="validation-contact-server-42-email">Email</label>
+                  <input id="validation-contact-server-42-email" name="contacts[server-42][email]" value="ada@example.com" autocomplete="email" type="email" required aria-invalid="true" aria-describedby="validation-contact-server-42-email-hint validation-contact-server-42-email-server-error">
+                  <span id="validation-contact-server-42-email-hint">Use an address monitored during working hours.</span>
+                  <span id="validation-contact-server-42-email-server-error" class="docs-site__error">Server message: this address is already assigned to another account.</span>
+                </p>
+                <div class="a11y-repeatable-fieldset__controls"><button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove contact</button></div>
+              </fieldset>
+            </div>
+
+            <div class="a11y-repeatable-fieldset__controls"><button class="a11y-repeatable-fieldset__add" type="button" hidden data-a11y-repeatable-fieldset-add>Add another contact</button></div>
+            <div class="a11y-repeatable-fieldset__status" data-a11y-repeatable-fieldset-status></div>
+
+            <template data-a11y-repeatable-fieldset-template>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="__A11Y_REPEATABLE_KEY__">
+                <legend class="a11y-repeatable-fieldset__legend">Contact <span class="a11y-repeatable-fieldset__position" data-a11y-repeatable-fieldset-position></span></legend>
+                <p class="docs-site__form-row">
+                  <label for="validation-contact-__A11Y_REPEATABLE_KEY__-name">Name</label>
+                  <input id="validation-contact-__A11Y_REPEATABLE_KEY__-name" name="contacts[__A11Y_REPEATABLE_KEY__][name]" autocomplete="name" required data-a11y-repeatable-fieldset-focus>
+                </p>
+                <p class="docs-site__form-row">
+                  <label for="validation-contact-__A11Y_REPEATABLE_KEY__-email">Email</label>
+                  <input id="validation-contact-__A11Y_REPEATABLE_KEY__-email" name="contacts[__A11Y_REPEATABLE_KEY__][email]" autocomplete="email" type="email" required aria-describedby="validation-contact-__A11Y_REPEATABLE_KEY__-email-hint">
+                  <span id="validation-contact-__A11Y_REPEATABLE_KEY__-email-hint">Use an address monitored during working hours.</span>
+                </p>
+                <div class="a11y-repeatable-fieldset__controls"><button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove contact</button></div>
+              </fieldset>
+            </template>
+          </section>
+          <p><button id="validation-review" type="button">Review validation errors</button></p>
+        </form>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="adapter-heading">
+        <h2 id="adapter-heading">Adapter contract</h2>
+        <pre><code>createValidationBridge({
+  id: "application.validation",
+  registerItem({ item, phase }) {
+    return applicationValidator.registerGroup(item.element, { phase });
+  }
+})</code></pre>
+        <p><code>registerGroup</code> is an application façade in this example. Registration must preserve author/server errors for the <code>existing</code> phase. It installs item-scoped blur and input listeners; its returned cleanup must synchronously unregister target controls, remove those listeners, cancel pending work, restore author attributes, remove generated inline errors, remove error-summary links, and release descendant references.</p>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="focus-heading">
+        <h2 id="focus-heading">Focus and announcement ownership</h2>
+        <ul>
+          <li>Core alone handles focus after Add and recovery during Remove.</li>
+          <li>The application validator may focus the summary or first invalid field only after an explicit validation review.</li>
+          <li>The bridge creates no structural live region. This demo keeps the synchronized summary silent during live validation and never moves focus to it.</li>
+          <li>A new or changed inline error is the single polite live validation message. Repeated identical errors are not reinserted.</li>
+          <li>During error review, inline errors become non-live before the summary receives focus, avoiding competing validation announcements.</li>
+          <li>This documentation example never submits the form or presents a simulated successful save.</li>
+          <li>Manual screen-reader verification is still needed for the combined validator and structural flow.</li>
+        </ul>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="failure-heading">
+        <h2 id="failure-heading">Failure behavior</h2>
+        <ul>
+          <li>A registration failure during initialization rolls back prior completed registrations and leaves author markup usable.</li>
+          <li>A registration failure during Add removes the incomplete item, returns <code>addon-error</code>, and emits no successful item event.</li>
+          <li>A cleanup failure aborts removal, keeps the item attached, returns <code>addon-error</code>, and emits no successful removal event.</li>
+          <li>Adapters must make partial setup and cleanup internally transactional because core cannot reconstruct an opaque validator registration.</li>
+        </ul>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="a11y-form-validator-heading">
+        <h2 id="a11y-form-validator-heading">A11y Form Validator compatibility</h2>
+        <p>A11y Form Validator 1.0.19 was reviewed for this integration. Its public instance currently provides whole-form <code>refresh()</code>, <code>clearErrors()</code>, and <code>getErrors()</code>, but not item-scoped <code>registerGroup()</code> cleanup.</p>
+        <p><code>refresh()</code> alone cannot clean target errors before detachment, and whole-form <code>clearErrors()</code> can erase unrelated or server errors. The Validation Bridge therefore does not reach into private validator state or claim a zero-configuration direct adapter. Use an application façade only when it can provide the target-only synchronous cleanup contract.</p>
+      </section>
+    </main>
+    <footer class="demo-footer" data-demo-footer>
+      <div class="demo-footer__inner">
+        <div class="demo-footer__brand">
+          <p class="demo-footer__eyebrow">Accessibility plugin demo</p>
+          <p class="demo-footer__credit"><span class="demo-footer__plugin">A11yRepeatableFieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span>Built by <a class="demo-footer__link" href="https://github.com/vmitsaras/">Vasileios Mitsaras</a><span class="demo-footer__separator" aria-hidden="true">&middot;</span><a class="demo-footer__link" href="https://linkedin.com/in/vasilis-mitsaras">LinkedIn profile</a></p>
+          <p class="demo-footer__meta"><span>a11y-repeatable-fieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span><span>MIT License</span></p>
+        </div>
+        <nav class="demo-footer__nav" aria-label="Project links">
+          <ul class="demo-footer__links">
+            <li class="demo-footer__item"><a class="demo-footer__link" href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">GitHub repository</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <script type="module">
+      import { createRepeatableFieldset } from "./assets/a11y-repeatable-fieldset.js";
+      import { createValidationBridge } from "./assets/validation-bridge.js";
+
+      const form = document.querySelector("#validation-demo-form");
+      const root = document.querySelector("[data-a11y-repeatable-fieldset]");
+      const summary = document.querySelector("#validation-summary");
+      const summaryList = document.querySelector("#validation-summary-list");
+      const registrationReport = document.querySelector("#validation-registration-report");
+      const reviewButton = document.querySelector("#validation-review");
+
+      if (
+        form instanceof HTMLFormElement &&
+        root instanceof HTMLElement &&
+        summary instanceof HTMLElement &&
+        summaryList instanceof HTMLUListElement &&
+        registrationReport instanceof HTMLElement &&
+        reviewButton instanceof HTMLButtonElement
+      ) {
+        form.noValidate = true;
+        const LIVE_VALIDATION_DELAY = 180;
+        const groups = new Map();
+        let hasReviewed = false;
+        let isReviewing = false;
+
+        const restoreControl = (record) => {
+          record.error?.remove();
+          record.error = null;
+
+          if (record.initialInvalid === null) {
+            record.control.removeAttribute("aria-invalid");
+          } else {
+            record.control.setAttribute("aria-invalid", record.initialInvalid);
+          }
+
+          if (record.initialDescribedBy === null) {
+            record.control.removeAttribute("aria-describedby");
+          } else {
+            record.control.setAttribute("aria-describedby", record.initialDescribedBy);
+          }
+
+          if (record.initialErrorMessage === null) {
+            record.control.removeAttribute("aria-errormessage");
+          } else {
+            record.control.setAttribute("aria-errormessage", record.initialErrorMessage);
+          }
+        };
+
+        const renderSummary = () => {
+          summaryList.replaceChildren();
+          const invalidRecords = [...groups.values()]
+            .flatMap((group) => group.records)
+            .filter((record) => record.error !== null);
+
+          for (const record of invalidRecords) {
+            const item = document.createElement("li");
+            const link = document.createElement("a");
+            const label = record.control.labels?.item(0)?.textContent?.trim() || record.control.name;
+            link.href = `#${record.control.id}`;
+            link.textContent = `${label}: ${record.error.textContent}`;
+            link.addEventListener("click", (event) => {
+              event.preventDefault();
+              record.control.focus();
+            });
+            item.append(link);
+            summaryList.append(item);
+          }
+
+          summary.hidden = invalidRecords.length === 0;
+        };
+
+        const setLiveMessageMode = (error, mode) => {
+          if (mode === "live") {
+            error.setAttribute("role", "status");
+            error.setAttribute("aria-live", "polite");
+            error.setAttribute("aria-atomic", "true");
+            return;
+          }
+
+          error.removeAttribute("role");
+          error.removeAttribute("aria-live");
+          error.removeAttribute("aria-atomic");
+        };
+
+        const showValidationError = (record, message, mode) => {
+          if (record.error === null || record.error.textContent !== message) {
+            record.error?.remove();
+            const error = document.createElement("span");
+            error.id = `${record.control.id}-validation-error`;
+            error.className = "docs-site__error";
+            error.textContent = message;
+            setLiveMessageMode(error, mode);
+            record.control.insertAdjacentElement("afterend", error);
+            record.error = error;
+          } else {
+            setLiveMessageMode(record.error, mode);
+          }
+
+          record.control.setAttribute("aria-invalid", "true");
+          record.control.setAttribute("aria-errormessage", record.error.id);
+          record.control.setAttribute(
+            "aria-describedby",
+            [record.initialDescribedBy, record.error.id].filter(Boolean).join(" ")
+          );
+        };
+
+        const validateRecord = (record, mode) => {
+          record.hasValidated = true;
+
+          if (record.control.checkValidity()) {
+            restoreControl(record);
+            return true;
+          }
+
+          showValidationError(
+            record,
+            record.control.validity.valueMissing
+              ? "Complete this field."
+              : "Enter a value in the expected format.",
+            mode
+          );
+          return false;
+        };
+
+        const cancelPendingValidation = (record) => {
+          if (record.validationTimer === null) {
+            return;
+          }
+
+          window.clearTimeout(record.validationTimer);
+          record.validationTimer = null;
+        };
+
+        const applicationValidator = {
+          registerGroup(element, { phase }) {
+            if (groups.has(element)) {
+              throw new Error("A validation group was registered twice.");
+            }
+
+            const records = [...element.querySelectorAll("input, select, textarea")]
+              .filter((control) => control instanceof HTMLInputElement || control instanceof HTMLSelectElement || control instanceof HTMLTextAreaElement)
+              .map((control) => ({
+                control,
+                error: null,
+                initialInvalid: control.getAttribute("aria-invalid"),
+                initialDescribedBy: control.getAttribute("aria-describedby"),
+                initialErrorMessage: control.getAttribute("aria-errormessage"),
+                hasValidated: false,
+                validationTimer: null,
+                onBlur: null,
+                onInput: null
+              }));
+
+            for (const record of records) {
+              record.onBlur = () => {
+                cancelPendingValidation(record);
+
+                if (isReviewing) {
+                  return;
+                }
+
+                validateRecord(record, "live");
+                renderSummary();
+              };
+              record.onInput = () => {
+                if (!record.hasValidated && !hasReviewed) {
+                  return;
+                }
+
+                cancelPendingValidation(record);
+                record.validationTimer = window.setTimeout(() => {
+                  record.validationTimer = null;
+                  validateRecord(record, "live");
+                  renderSummary();
+                }, LIVE_VALIDATION_DELAY);
+              };
+              record.control.addEventListener("blur", record.onBlur);
+              record.control.addEventListener("input", record.onInput);
+            }
+
+            groups.set(element, { phase, records });
+            registrationReport.textContent = `${groups.size} validation group${groups.size === 1 ? "" : "s"} registered. Latest phase: ${phase}.`;
+
+            return () => {
+              const group = groups.get(element);
+
+              if (!group) {
+                return;
+              }
+
+              for (const record of group.records) {
+                cancelPendingValidation(record);
+                record.control.removeEventListener("blur", record.onBlur);
+                record.control.removeEventListener("input", record.onInput);
+                restoreControl(record);
+              }
+
+              groups.delete(element);
+              renderSummary();
+              registrationReport.textContent = `${groups.size} validation group${groups.size === 1 ? "" : "s"} registered after cleanup.`;
+            };
+          },
+          review() {
+            let valid = true;
+
+            for (const group of groups.values()) {
+              for (const record of group.records) {
+                cancelPendingValidation(record);
+                valid = validateRecord(record, "review") && valid;
+              }
+            }
+
+            renderSummary();
+            return valid;
+          }
+        };
+
+        reviewButton.addEventListener("click", () => {
+          hasReviewed = true;
+          isReviewing = true;
+
+          try {
+            if (applicationValidator.review()) {
+              return;
+            }
+
+            summary.focus();
+          } finally {
+            isReviewing = false;
+          }
+        });
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+        });
+
+        createRepeatableFieldset(root, {
+          itemLabel: "Contact",
+          addons: [
+            createValidationBridge({
+              id: "application.validation",
+              registerItem({ item, phase }) {
+                return applicationValidator.registerGroup(item.element, { phase });
+              }
+            })
+          ]
+        });
+      }
+    </script>
+  </body>
+</html>

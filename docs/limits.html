@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <title>Minimum and Maximum Limits | A11yRepeatableFieldset</title>
+    <meta name="description" content="Exercise one-to-three delivery contacts with visible limits, native disabled button states, deterministic removal focus, and concise status messages.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/limits.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="A11yRepeatableFieldset">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Minimum and Maximum Limits | A11yRepeatableFieldset">
+    <meta property="og:description" content="Exercise one-to-three delivery contacts with visible limits, native disabled button states, deterministic removal focus, and concise status messages.">
+    <meta property="og:url" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/limits.html">
+    <meta property="og:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta property="og:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Minimum and Maximum Limits | A11yRepeatableFieldset">
+    <meta name="twitter:description" content="Exercise one-to-three delivery contacts with visible limits, native disabled button states, deterministic removal focus, and concise status messages.">
+    <meta name="twitter:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta name="twitter:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/limits.html#webpage",
+          "url": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/limits.html",
+          "name": "Minimum and Maximum Limits | A11yRepeatableFieldset",
+          "description": "Exercise one-to-three delivery contacts with visible limits, native disabled button states, deterministic removal focus, and concise status messages.",
+          "mainEntity": {
+            "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/limits.html#software"
+          }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/limits.html#software",
+          "name": "A11yRepeatableFieldset",
+          "alternateName": "a11y-repeatable-fieldset",
+          "description": "Add, remove, duplicate, and reorder accessible form fieldsets with a dependency-free TypeScript plugin that preserves stable IDs and keyboard focus.",
+          "codeRepository": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset",
+          "programmingLanguage": [
+            "TypeScript",
+            "JavaScript"
+          ],
+          "runtimePlatform": "Browser",
+          "version": "1.0.0",
+          "license": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset/blob/main/LICENSE",
+          "keywords": [
+            "accessibility",
+            "a11y",
+            "fieldset",
+            "forms",
+            "progressive-enhancement",
+            "typescript"
+          ],
+          "author": {
+            "@id": "https://github.com/vmitsaras/#person"
+          },
+          "targetProduct": {
+            "@type": "SoftwareApplication",
+            "name": "A11yRepeatableFieldset",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Any",
+            "runtimePlatform": "Browser",
+            "softwareVersion": "1.0.0"
+          },
+          "sameAs": [
+            "https://github.com/vmitsaras/A11y-Repeatable-Fieldset"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://github.com/vmitsaras/#person",
+          "name": "Vasileios Mitsaras",
+          "url": "https://github.com/vmitsaras/",
+          "sameAs": [
+            "https://github.com/vmitsaras/",
+            "https://linkedin.com/in/vasilis-mitsaras"
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="./assets/docs.css">
+    <link rel="stylesheet" href="./assets/a11y-repeatable-fieldset.css">
+  </head>
+  <body class="docs-site">
+    <a class="docs-site__skip-link" href="#main-content">Skip to content</a>
+    <header class="docs-site__header">
+      <a class="docs-site__brand" href="./index.html" aria-label="A11yRepeatableFieldset home">A11yRepeatableFieldset</a>
+      <nav aria-label="Main navigation">
+        <ul class="docs-site__nav-list">
+          <li><a href="./index.html">Overview</a></li>
+          <li><a href="./index.html#examples">Examples</a></li>
+          <li><a href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">Install</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="docs-site__main" id="main-content">
+      <header>
+        <p>Configuration and boundary demo</p>
+        <h1>Keep between one and three delivery contacts</h1>
+        <p>The allowed range is explained before the controls. Native disabled buttons and concise status text expose the current boundary without relying on color.</p>
+      </header>
+
+      <section class="docs-site__panel" aria-labelledby="limits-scenario-heading">
+        <h2 id="limits-scenario-heading">Scenario</h2>
+        <p>A delivery team requires one primary contact and permits at most three contacts. Users can add optional backups and remove them again, but cannot leave the list empty.</p>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="limits-try-heading">
+        <h2 id="limits-try-heading">Try it</h2>
+        <ul>
+          <li>Notice that the only Remove button starts disabled because one contact is required.</li>
+          <li>Add two contacts. Focus moves to each new Name field and the third addition reaches the maximum.</li>
+          <li>Confirm <strong>Add another delivery contact</strong> becomes natively disabled at three.</li>
+          <li>Remove contacts until one remains; focus avoids a Remove button that becomes disabled at the minimum.</li>
+          <li>Choose <strong>Preview delivery contacts</strong> to review the current names and telephone numbers without leaving the page.</li>
+        </ul>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="limits-example-heading">
+        <h2 id="limits-example-heading">Example</h2>
+        <form id="delivery-contact-form" action="./limits.html" method="get">
+          <section
+            class="a11y-repeatable-fieldset"
+            data-a11y-repeatable-fieldset
+            data-min-items="1"
+            data-max-items="3"
+            data-item-label="Delivery contact"
+            aria-describedby="delivery-contact-limit"
+          >
+            <p id="delivery-contact-limit" class="a11y-repeatable-fieldset__limit"><strong>Limit:</strong> keep at least one and no more than three delivery contacts.</p>
+            <div class="a11y-repeatable-fieldset__items" data-a11y-repeatable-fieldset-items>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="dispatch-primary">
+                <legend class="a11y-repeatable-fieldset__legend">Delivery contact <span class="a11y-repeatable-fieldset__position" data-a11y-repeatable-fieldset-position>1</span></legend>
+                <p class="docs-site__form-row">
+                  <label for="dispatch-primary-name">Name</label>
+                  <input id="dispatch-primary-name" name="deliveryContacts[dispatch-primary][name]" value="Morgan Lee" autocomplete="name">
+                </p>
+                <p class="docs-site__form-row">
+                  <label for="dispatch-primary-phone">Telephone</label>
+                  <input id="dispatch-primary-phone" name="deliveryContacts[dispatch-primary][phone]" value="+1 555 0100" autocomplete="tel" inputmode="tel">
+                </p>
+                <div class="a11y-repeatable-fieldset__controls">
+                  <button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove delivery contact</button>
+                </div>
+              </fieldset>
+            </div>
+            <div class="a11y-repeatable-fieldset__controls">
+              <button class="a11y-repeatable-fieldset__add" type="button" hidden data-a11y-repeatable-fieldset-add aria-describedby="delivery-contact-limit">Add another delivery contact</button>
+            </div>
+            <div class="a11y-repeatable-fieldset__status" data-a11y-repeatable-fieldset-status></div>
+            <template data-a11y-repeatable-fieldset-template>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="__A11Y_REPEATABLE_KEY__">
+                <legend class="a11y-repeatable-fieldset__legend">Delivery contact <span class="a11y-repeatable-fieldset__position" data-a11y-repeatable-fieldset-position></span></legend>
+                <p class="docs-site__form-row">
+                  <label for="delivery-contact-__A11Y_REPEATABLE_KEY__-name">Name</label>
+                  <input id="delivery-contact-__A11Y_REPEATABLE_KEY__-name" name="deliveryContacts[__A11Y_REPEATABLE_KEY__][name]" autocomplete="name" data-a11y-repeatable-fieldset-focus>
+                </p>
+                <p class="docs-site__form-row">
+                  <label for="delivery-contact-__A11Y_REPEATABLE_KEY__-phone">Telephone</label>
+                  <input id="delivery-contact-__A11Y_REPEATABLE_KEY__-phone" name="deliveryContacts[__A11Y_REPEATABLE_KEY__][phone]" autocomplete="tel" inputmode="tel">
+                </p>
+                <div class="a11y-repeatable-fieldset__controls">
+                  <button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove delivery contact</button>
+                </div>
+              </fieldset>
+            </template>
+          </section>
+          <p><button type="submit">Preview delivery contacts</button></p>
+          <p class="docs-site__result"><strong>Preview:</strong> <output id="delivery-contact-preview" form="delivery-contact-form">No preview generated yet.</output></p>
+        </form>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="limits-accessibility-heading">
+        <h2 id="limits-accessibility-heading">Accessibility notes</h2>
+        <ul>
+          <li>The visible range instruction is associated with both the component and Add button.</li>
+          <li>Unavailable native buttons use <code>disabled</code>; the plugin does not add redundant <code>aria-disabled</code>.</li>
+          <li>Successful boundary operations produce one combined polite status message rather than separate competing updates.</li>
+          <li>The preview uses the native <code>output</code> element and inserts form values as text, never as HTML.</li>
+          <li>Source order remains keyboard order, and no structural animation is used.</li>
+          <li>Announcement timing, 400% reflow, and forced-colors presentation still need manual browser verification.</li>
+        </ul>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="limits-developer-heading">
+        <h2 id="limits-developer-heading">Developer notes</h2>
+        <p>This demo configures <code>data-min-items="1"</code>, <code>data-max-items="3"</code>, and <code>data-item-label="Delivery contact"</code>. The component derives command availability and native button state from the same normalized limits. With JavaScript available, the form’s submit handler updates the preview in place; without JavaScript, the form retains its normal GET submission.</p>
+      </section>
+    </main>
+    <footer class="demo-footer" data-demo-footer>
+      <div class="demo-footer__inner">
+        <div class="demo-footer__brand">
+          <p class="demo-footer__eyebrow">Accessibility plugin demo</p>
+          <p class="demo-footer__credit"><span class="demo-footer__plugin">A11yRepeatableFieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span>Built by <a class="demo-footer__link" href="https://github.com/vmitsaras/">Vasileios Mitsaras</a><span class="demo-footer__separator" aria-hidden="true">&middot;</span><a class="demo-footer__link" href="https://linkedin.com/in/vasilis-mitsaras">LinkedIn profile</a></p>
+          <p class="demo-footer__meta"><span>a11y-repeatable-fieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span><span>MIT License</span></p>
+        </div>
+        <nav class="demo-footer__nav" aria-label="Project links">
+          <ul class="demo-footer__links">
+            <li class="demo-footer__item"><a class="demo-footer__link" href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">GitHub repository</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <script type="module">
+      import { createRepeatableFieldset } from "./assets/a11y-repeatable-fieldset.js";
+
+      const root = document.querySelector("[data-a11y-repeatable-fieldset]");
+
+      const form = document.querySelector("#delivery-contact-form");
+      const preview = document.querySelector("#delivery-contact-preview");
+
+      if (
+        root instanceof HTMLElement &&
+        form instanceof HTMLFormElement &&
+        preview instanceof HTMLOutputElement
+      ) {
+        const instance = createRepeatableFieldset(root);
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          const contacts = instance.getItems().map(({ element, position }) => {
+            const nameControl = element.querySelector('input[autocomplete="name"]');
+            const telephoneControl = element.querySelector('input[autocomplete="tel"]');
+            const name = nameControl instanceof HTMLInputElement
+              ? nameControl.value.trim()
+              : "";
+            const telephone = telephoneControl instanceof HTMLInputElement
+              ? telephoneControl.value.trim()
+              : "";
+
+            return `Delivery contact ${position}: ${name || "name not provided"}; ${telephone ? `telephone ${telephone}` : "telephone not provided"}.`;
+          });
+
+          preview.value = contacts.join(" ");
+        });
+      }
+    </script>
+  </body>
+</html>

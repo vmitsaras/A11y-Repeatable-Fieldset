@@ -1,0 +1,112 @@
+{
+  "name": "a11y-repeatable-fieldset",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Add, remove, duplicate, and reorder accessible form fieldsets with a dependency-free TypeScript plugin that preserves stable IDs and keyboard focus.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "license": "MIT",
+  "author": "Vasileios Mitsaras",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vmitsaras/A11y-Repeatable-Fieldset.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset/issues"
+  },
+  "homepage": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset#readme",
+  "keywords": [
+    "accessibility",
+    "a11y",
+    "fieldset",
+    "forms",
+    "progressive-enhancement",
+    "typescript"
+  ],
+  "files": [
+    "dist",
+    "README.md",
+    "ACCESSIBLE_REORDER.md",
+    "DUPLICATE_ITEM.md",
+    "LEGEND_SYNC.md",
+    "REMOVE_GUARD.md",
+    "UNDO_REMOVE.md",
+    "FORM_MEMORY_BRIDGE.md",
+    "VALIDATION_BRIDGE.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./min": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.min.js"
+    },
+    "./docs": {
+      "types": "./dist/docs.d.ts",
+      "import": "./dist/docs.js"
+    },
+    "./addons/validation-bridge": {
+      "types": "./dist/addons/validation-bridge.d.ts",
+      "import": "./dist/addons/validation-bridge.js"
+    },
+    "./addons/legend-sync": {
+      "types": "./dist/addons/legend-sync.d.ts",
+      "import": "./dist/addons/legend-sync.js"
+    },
+    "./addons/remove-guard": {
+      "types": "./dist/addons/remove-guard.d.ts",
+      "import": "./dist/addons/remove-guard.js"
+    },
+    "./addons/accessible-reorder": {
+      "types": "./dist/addons/accessible-reorder.d.ts",
+      "import": "./dist/addons/accessible-reorder.js"
+    },
+    "./addons/duplicate-item": {
+      "types": "./dist/addons/duplicate-item.d.ts",
+      "import": "./dist/addons/duplicate-item.js"
+    },
+    "./addons/undo-remove": {
+      "types": "./dist/addons/undo-remove.d.ts",
+      "import": "./dist/addons/undo-remove.js"
+    },
+    "./addons/form-memory-bridge": {
+      "types": "./dist/addons/form-memory-bridge.d.ts",
+      "import": "./dist/addons/form-memory-bridge.js"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "clean": "node --input-type=module --eval \"import { rmSync } from 'node:fs'; rmSync('dist', { recursive: true, force: true });\"",
+    "build": "tsdown --config tsdown.config.ts && tsdown --config tsdown.min.config.ts",
+    "build:dist": "npm run build",
+    "docs:jsonld": "node scripts/generate-jsonld.mjs",
+    "pages:sync": "npm run build:dist && node scripts/sync-pages-assets.mjs",
+    "pages:check": "npm run build:dist && node scripts/check-pages.mjs && node scripts/check-pages-subpath.mjs",
+    "pages:build": "npm run pages:sync && node scripts/check-pages.mjs && node scripts/check-pages-subpath.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "pack:check": "npm pack --dry-run --cache ./.npm",
+    "prepack": "npm run build",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@changesets/cli": "^2.31.0",
+    "jsdom": "^29.1.1",
+    "tsdown": "^0.22.12",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
+  }
+}

@@ -1,0 +1,168 @@
+.a11y-repeatable-fieldset {
+  /* The MVP intentionally declares no animation or transition properties. */
+  /* Public overrides are normalized into private, block-scoped values below. */
+  --a11y-repeatable-fieldset-item-gap: 1rem;
+  --a11y-repeatable-fieldset-item-padding: 1rem;
+  --a11y-repeatable-fieldset-item-border-color: currentColor;
+  --a11y-repeatable-fieldset-item-border-width: 0.125rem;
+  --a11y-repeatable-fieldset-item-border-radius: 0;
+  --a11y-repeatable-fieldset-control-gap: 0.75rem;
+  --a11y-repeatable-fieldset-action-color: LinkText;
+  --a11y-repeatable-fieldset-muted-color: GrayText;
+  --a11y-repeatable-fieldset-focus-ring-color: Highlight;
+  --a11y-repeatable-fieldset-focus-ring-width: 0.1875rem;
+  --a11y-repeatable-fieldset-focus-ring-offset: 0.1875rem;
+
+  /* Private values are implementation details and must not be documented. */
+  --_item-gap: var(--a11y-repeatable-fieldset-item-gap);
+  --_item-padding: var(--a11y-repeatable-fieldset-item-padding);
+  --_item-border-color:
+    var(--a11y-repeatable-fieldset-item-border-color);
+  --_item-border-width:
+    var(--a11y-repeatable-fieldset-item-border-width);
+  --_item-border-radius:
+    var(--a11y-repeatable-fieldset-item-border-radius);
+  --_control-gap: var(--a11y-repeatable-fieldset-control-gap);
+  --_action-color: var(--a11y-repeatable-fieldset-action-color);
+  --_muted-color: var(--a11y-repeatable-fieldset-muted-color);
+  --_focus-ring-color:
+    var(--a11y-repeatable-fieldset-focus-ring-color);
+  --_focus-ring-width:
+    var(--a11y-repeatable-fieldset-focus-ring-width);
+  --_focus-ring-offset:
+    var(--a11y-repeatable-fieldset-focus-ring-offset);
+}
+
+.a11y-repeatable-fieldset__items {
+  display: grid;
+  gap: var(--_item-gap);
+}
+
+.a11y-repeatable-fieldset__item {
+  min-inline-size: 0;
+  margin: 0;
+  padding: var(--_item-padding);
+  border:
+    var(--_item-border-width)
+    solid
+    var(--_item-border-color);
+  border-block-start-width: calc(var(--_item-border-width) * 3);
+  border-radius: var(--_item-border-radius);
+}
+
+.a11y-repeatable-fieldset__legend {
+  max-inline-size: calc(100% - 1rem);
+  padding-inline: 0.35em;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.a11y-repeatable-fieldset__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--_control-gap);
+}
+
+.a11y-repeatable-fieldset__add,
+.a11y-repeatable-fieldset__remove,
+.a11y-repeatable-fieldset__move,
+.a11y-repeatable-fieldset__duplicate,
+.a11y-repeatable-fieldset__undo {
+  min-block-size: 2.75rem;
+  max-inline-size: 100%;
+  padding-block: 0.5rem;
+  padding-inline: 0.75rem;
+  border: 0.125rem solid currentColor;
+  border-radius: 0;
+  color: var(--_action-color);
+  background-color: Canvas;
+  font: inherit;
+  font-weight: 700;
+  text-align: start;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.a11y-repeatable-fieldset__add:focus-visible,
+.a11y-repeatable-fieldset__remove:focus-visible,
+.a11y-repeatable-fieldset__move:focus-visible,
+.a11y-repeatable-fieldset__duplicate:focus-visible,
+.a11y-repeatable-fieldset__undo:focus-visible {
+  outline:
+    var(--_focus-ring-width)
+    solid
+    var(--_focus-ring-color);
+  outline-offset: var(--_focus-ring-offset);
+}
+
+.a11y-repeatable-fieldset__add:disabled,
+.a11y-repeatable-fieldset__remove:disabled,
+.a11y-repeatable-fieldset__duplicate:disabled,
+.a11y-repeatable-fieldset__undo:disabled {
+  border-style: dashed;
+  color: var(--_muted-color);
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.a11y-repeatable-fieldset__position {
+  display: inline-grid;
+  min-inline-size: 1.65em;
+  min-block-size: 1.65em;
+  place-items: center;
+  padding-inline: 0.25em;
+  border: 0.0625rem solid currentColor;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.a11y-repeatable-fieldset__limit {
+  max-inline-size: 65ch;
+  color: var(--_muted-color);
+}
+
+.a11y-repeatable-fieldset__status {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (forced-colors: active) {
+  .a11y-repeatable-fieldset__item {
+    border-color: CanvasText;
+  }
+
+  .a11y-repeatable-fieldset__add,
+  .a11y-repeatable-fieldset__remove,
+  .a11y-repeatable-fieldset__move,
+  .a11y-repeatable-fieldset__duplicate,
+  .a11y-repeatable-fieldset__undo {
+    color: ButtonText;
+    background-color: ButtonFace;
+  }
+
+  .a11y-repeatable-fieldset__add:focus-visible,
+  .a11y-repeatable-fieldset__remove:focus-visible,
+  .a11y-repeatable-fieldset__move:focus-visible,
+  .a11y-repeatable-fieldset__duplicate:focus-visible,
+  .a11y-repeatable-fieldset__undo:focus-visible {
+    outline-color: Highlight;
+  }
+
+  .a11y-repeatable-fieldset__add:disabled,
+  .a11y-repeatable-fieldset__remove:disabled,
+  .a11y-repeatable-fieldset__duplicate:disabled,
+  .a11y-repeatable-fieldset__undo:disabled {
+    border-color: GrayText;
+    color: GrayText;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <title>Realistic Multi-Person Form | A11yRepeatableFieldset</title>
+    <meta name="description" content="Try the packaged Legend Sync addon with committed name updates, stable form identity, keyboard focus, and several completed household-member fieldsets.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/realistic-multi-person.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="A11yRepeatableFieldset">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Realistic Multi-Person Form | A11yRepeatableFieldset">
+    <meta property="og:description" content="Try the packaged Legend Sync addon with committed name updates, stable form identity, keyboard focus, and several completed household-member fieldsets.">
+    <meta property="og:url" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/realistic-multi-person.html">
+    <meta property="og:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta property="og:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Realistic Multi-Person Form | A11yRepeatableFieldset">
+    <meta name="twitter:description" content="Try the packaged Legend Sync addon with committed name updates, stable form identity, keyboard focus, and several completed household-member fieldsets.">
+    <meta name="twitter:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta name="twitter:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/realistic-multi-person.html#webpage",
+          "url": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/realistic-multi-person.html",
+          "name": "Realistic Multi-Person Form | A11yRepeatableFieldset",
+          "description": "Try the packaged Legend Sync addon with committed name updates, stable form identity, keyboard focus, and several completed household-member fieldsets.",
+          "mainEntity": {
+            "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/realistic-multi-person.html#software"
+          }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/realistic-multi-person.html#software",
+          "name": "A11yRepeatableFieldset",
+          "alternateName": "a11y-repeatable-fieldset",
+          "description": "Add, remove, duplicate, and reorder accessible form fieldsets with a dependency-free TypeScript plugin that preserves stable IDs and keyboard focus.",
+          "codeRepository": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset",
+          "programmingLanguage": [
+            "TypeScript",
+            "JavaScript"
+          ],
+          "runtimePlatform": "Browser",
+          "version": "1.0.0",
+          "license": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset/blob/main/LICENSE",
+          "keywords": [
+            "accessibility",
+            "a11y",
+            "fieldset",
+            "forms",
+            "progressive-enhancement",
+            "typescript"
+          ],
+          "author": {
+            "@id": "https://github.com/vmitsaras/#person"
+          },
+          "targetProduct": {
+            "@type": "SoftwareApplication",
+            "name": "A11yRepeatableFieldset",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Any",
+            "runtimePlatform": "Browser",
+            "softwareVersion": "1.0.0"
+          },
+          "sameAs": [
+            "https://github.com/vmitsaras/A11y-Repeatable-Fieldset"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://github.com/vmitsaras/#person",
+          "name": "Vasileios Mitsaras",
+          "url": "https://github.com/vmitsaras/",
+          "sameAs": [
+            "https://github.com/vmitsaras/",
+            "https://linkedin.com/in/vasilis-mitsaras"
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="./assets/docs.css">
+    <link rel="stylesheet" href="./assets/a11y-repeatable-fieldset.css">
+  </head>
+  <body class="docs-site">
+    <a class="docs-site__skip-link" href="#main-content">Skip to content</a>
+    <header class="docs-site__header">
+      <a class="docs-site__brand" href="./index.html" aria-label="A11yRepeatableFieldset home">A11yRepeatableFieldset</a>
+      <nav aria-label="Main navigation">
+        <ul class="docs-site__nav-list">
+          <li><a href="./index.html">Overview</a></li>
+          <li><a href="./index.html#examples">Examples</a></li>
+          <li><a href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">Install</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="docs-site__main" id="main-content">
+      <header>
+        <p>Implemented Legend Sync addon</p>
+        <h1>Review several household members without losing who is who</h1>
+        <p>This edit form starts with three completed people. Their stable keys and backend names stay unchanged while the packaged Legend Sync addon updates each legend after a full-name change is committed.</p>
+      </header>
+
+      <section class="docs-site__panel" aria-labelledby="people-scenario-heading">
+        <h2 id="people-scenario-heading">Scenario and user goal</h2>
+        <p>A benefits coordinator needs to review a household, correct one person’s details, add a missing member, and remove a duplicate without confusing visible order with saved identity.</p>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="people-try-heading">
+        <h2 id="people-try-heading">Try it</h2>
+        <ul>
+          <li>Navigate through all three fieldsets and compare the distinct legends with a one-item demo.</li>
+          <li>Edit a full name, move focus away to commit the change, and confirm only that item’s legend changes.</li>
+          <li>Add a person and confirm focus moves to the new full-name field.</li>
+          <li>Remove the middle person and confirm the remaining names and stable form-control names are not renumbered.</li>
+        </ul>
+      </section>
+
+      <section class="docs-site__panel docs-site__notice" aria-labelledby="legend-status-heading">
+        <h2 id="legend-status-heading">Implemented, opt-in addon</h2>
+        <p><strong>Legend Sync is packaged from an explicit subpath.</strong> This page imports <code>createLegendSyncAddon</code> from the copied <code>./assets/legend-sync.js</code> build. The addon is never enabled by the core entry and creates no additional live region.</p>
+      </section>
+
+      <section aria-labelledby="people-example-heading">
+        <h2 id="people-example-heading">Household member form</h2>
+        <form action="./realistic-multi-person.html" method="get">
+          <section
+            id="people-root"
+            class="a11y-repeatable-fieldset"
+            data-a11y-repeatable-fieldset
+            data-min-items="2"
+            data-max-items="5"
+            data-item-label="Person"
+            aria-describedby="people-limit"
+          >
+            <p id="people-limit" class="a11y-repeatable-fieldset__limit">Keep between two and five people. Saved keys stay stable even when visible positions change.</p>
+            <div class="a11y-repeatable-fieldset__items" data-a11y-repeatable-fieldset-items>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="person-amina">
+                <legend class="a11y-repeatable-fieldset__legend">Person <span class="a11y-repeatable-fieldset__position" data-a11y-repeatable-fieldset-position>1</span><span data-a11y-repeatable-fieldset-legend-value> — Amina Noor</span></legend>
+                <p class="docs-site__form-row">
+                  <label for="person-amina-name">Full name</label>
+                  <input id="person-amina-name" name="people[person-amina][name]" value="Amina Noor" autocomplete="name" data-a11y-repeatable-fieldset-legend-source>
+                </p>
+                <p class="docs-site__form-row">
+                  <label for="person-amina-relationship">Relationship</label>
+                  <select id="person-amina-relationship" name="people[person-amina][relationship]">
+                    <option selected>Primary applicant</option>
+                    <option>Partner</option>
+                    <option>Dependent</option>
+                  </select>
+                </p>
+                <p class="docs-site__form-row">
+                  <label for="person-amina-email">Email</label>
+                  <input id="person-amina-email" name="people[person-amina][email]" type="email" value="amina@example.com" autocomplete="email">
+                </p>
+                <div class="a11y-repeatable-fieldset__controls">
+                  <button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove person <span data-a11y-repeatable-fieldset-position>1</span></button>
+                </div>
+              </fieldset>
+
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="person-luca">
+                <legend class="a11y-repeatable-fieldset__legend">Person <span class="a11y-repeatable-fieldset__position" data-a11y-repeatable-fieldset-position>2</span><span data-a11y-repeatable-fieldset-legend-value> — Luca Martin</span></legend>
+                <p class="docs-site__form-row">
+                  <label for="person-luca-name">Full name</label>
+                  <input id="person-luca-name" name="people[person-luca][name]" value="Luca Martin" autocomplete="name" data-a11y-repeatable-fieldset-legend-source>
+                </p>
+                <p class="docs-site__form-row">
+                  <label for="person-luca-relationship">Relationship</label>
+                  <select id="person-luca-relationship" name="people[person-luca][relationship]">
+                    <option>Primary applicant</option>
+                    <option selected>Partner</option>
+                    <option>Dependent</option>
+                  </select>
+                </p>
+                <p class="docs-site__form-row">
+                  <label for="person-luca-email">Email</label>
+                  <input id="person-luca-email" name="people[person-luca][email]" type="email" value="luca@example.com" autocomplete="email">
+                </p>
+                <div class="a11y-repeatable-fieldset__controls">
+                  <button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove person <span data-a11y-repeatable-fieldset-position>2</span></button>
+                </div>
+              </fieldset>
+
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="person-priya">
+                <legend class="a11y-repeatable-fieldset__legend">Person <span class="a11y-repeatable-fieldset__position" data-a11y-repeatable-fieldset-position>3</span><span data-a11y-repeatable-fieldset-legend-value> — Priya Shah</span></legend>
+                <p class="docs-site__form-row">
+                  <label for="person-priya-name">Full name</label>
+                  <input id="person-priya-name" name="people[person-priya][name]" value="Priya Shah" autocomplete="name" data-a11y-repeatable-fieldset-legend-source>
+                </p>
+                <p class="docs-site__form-row">
+                  <label for="person-priya-relationship">Relationship</label>
+                  <select id="person-priya-relationship" name="people[person-priya][relationship]">
+                    <option>Primary applicant</option>
+                    <option>Partner</option>
+                    <option selected>Dependent</option>
+                  </select>
+                </p>
+                <p class="docs-site__form-row">
+                  <label for="person-priya-email">Email</label>
+                  <input id="person-priya-email" name="people[person-priya][email]" type="email" value="priya@example.com" autocomplete="email">
+                </p>
+                <div class="a11y-repeatable-fieldset__controls">
+                  <button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove person <span data-a11y-repeatable-fieldset-position>3</span></button>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="a11y-repeatable-fieldset__controls">
+              <button class="a11y-repeatable-fieldset__add" type="button" hidden data-a11y-repeatable-fieldset-add>Add another person</button>
+            </div>
+            <div class="a11y-repeatable-fieldset__status" data-a11y-repeatable-fieldset-status></div>
+
+            <template data-a11y-repeatable-fieldset-template>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="__A11Y_REPEATABLE_KEY__">
+                <legend class="a11y-repeatable-fieldset__legend">Person <span class="a11y-repeatable-fieldset__position" data-a11y-repeatable-fieldset-position></span><span data-a11y-repeatable-fieldset-legend-value> — name not entered</span></legend>
+                <p class="docs-site__form-row">
+                  <label for="person-__A11Y_REPEATABLE_KEY__-name">Full name</label>
+                  <input id="person-__A11Y_REPEATABLE_KEY__-name" name="people[__A11Y_REPEATABLE_KEY__][name]" autocomplete="name" data-a11y-repeatable-fieldset-focus data-a11y-repeatable-fieldset-legend-source>
+                </p>
+                <p class="docs-site__form-row">
+                  <label for="person-__A11Y_REPEATABLE_KEY__-relationship">Relationship</label>
+                  <select id="person-__A11Y_REPEATABLE_KEY__-relationship" name="people[__A11Y_REPEATABLE_KEY__][relationship]">
+                    <option>Primary applicant</option>
+                    <option>Partner</option>
+                    <option selected>Dependent</option>
+                  </select>
+                </p>
+                <p class="docs-site__form-row">
+                  <label for="person-__A11Y_REPEATABLE_KEY__-email">Email</label>
+                  <input id="person-__A11Y_REPEATABLE_KEY__-email" name="people[__A11Y_REPEATABLE_KEY__][email]" type="email" autocomplete="email">
+                </p>
+                <div class="a11y-repeatable-fieldset__controls">
+                  <button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove person <span data-a11y-repeatable-fieldset-position></span></button>
+                </div>
+              </fieldset>
+            </template>
+          </section>
+          <p><button type="submit">Submit household</button></p>
+        </form>
+      </section>
+
+      <div class="docs-site__grid">
+        <section class="docs-site__panel" aria-labelledby="people-accessibility-heading">
+          <h2 id="people-accessibility-heading">Accessibility notes</h2>
+          <ul>
+            <li>Each repeated group is a real fieldset with a distinct, non-empty legend.</li>
+            <li>Native Tab order follows the document; the component adds no composite-widget keyboard pattern.</li>
+            <li>Core owns focus after Add and Remove plus the single polite structural status region.</li>
+            <li>The name summary is not a live region. Assistive technologies may expose a changed legend differently, so test this concept in target browser and screen-reader combinations.</li>
+            <li>A full name can be personal data. Mark a source only after deciding that repeating its value in the visible and accessible legend is appropriate.</li>
+            <li>The page has no structural motion; reduced-motion preferences do not hide any state.</li>
+          </ul>
+        </section>
+
+        <section class="docs-site__panel" aria-labelledby="people-developer-heading">
+          <h2 id="people-developer-heading">Developer notes</h2>
+          <ul>
+            <li>The root, items, template, action, key, position, focus, and status selectors are the documented public data attributes.</li>
+            <li>The runtime and optional package CSS come from copied build assets under <code>./assets</code>.</li>
+            <li>The demo imports the explicit <code>./addons/legend-sync</code> build and passes it through <code>createRepeatableFieldset(root, { addons })</code>.</li>
+            <li>The addon listens only to <code>[data-a11y-repeatable-fieldset-legend-source]</code> on committed <code>change</code>, updates the dedicated <code>[data-a11y-repeatable-fieldset-legend-value]</code> suffix, and returns idempotent cleanup.</li>
+            <li>Visible positions change after removal; stable keys, IDs, and names do not.</li>
+          </ul>
+        </section>
+      </div>
+
+      <section class="docs-site__panel" aria-labelledby="people-limitations-heading">
+        <h2 id="people-limitations-heading">Evaluation limits</h2>
+        <p>Automated tests verify the marker contract, committed update timing, cleanup, privacy exclusions, and absence of a second status message. A 2026-08-31 VoiceOver + Safari recording produced a partial result: Add was announced, but a committed legend value and a surviving renumbered legend were later exposed with stale group context, and the middle-item Remove confirmation was not captured. Isolation reproduced the stale native fieldset name with Legend Sync enabled and disabled, so the addon is not established as the cause. This scenario remains open and is not recorded as passing. Long values are not truncated; applications must choose a concise source and appropriate length policy.</p>
+      </section>
+    </main>
+    <footer class="demo-footer" data-demo-footer>
+      <div class="demo-footer__inner">
+        <div class="demo-footer__brand">
+          <p class="demo-footer__eyebrow">Accessibility plugin demo</p>
+          <p class="demo-footer__credit"><span class="demo-footer__plugin">A11yRepeatableFieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span>Built by <a class="demo-footer__link" href="https://github.com/vmitsaras/">Vasileios Mitsaras</a><span class="demo-footer__separator" aria-hidden="true">&middot;</span><a class="demo-footer__link" href="https://linkedin.com/in/vasilis-mitsaras">LinkedIn profile</a></p>
+          <p class="demo-footer__meta"><span>a11y-repeatable-fieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span><span>MIT License</span></p>
+        </div>
+        <nav class="demo-footer__nav" aria-label="Project links">
+          <ul class="demo-footer__links">
+            <li class="demo-footer__item"><a class="demo-footer__link" href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">GitHub repository</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <script type="module" src="./assets/realistic-multi-person.js"></script>
+  </body>
+</html>

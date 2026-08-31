@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <title>Initialization Failure Recovery | A11yRepeatableFieldset</title>
+    <meta name="description" content="See transactional initialization fail safely when options are invalid, leaving server-rendered form data and hidden enhancement controls untouched.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/edge-cases.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="A11yRepeatableFieldset">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Initialization Failure Recovery | A11yRepeatableFieldset">
+    <meta property="og:description" content="See transactional initialization fail safely when options are invalid, leaving server-rendered form data and hidden enhancement controls untouched.">
+    <meta property="og:url" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/edge-cases.html">
+    <meta property="og:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta property="og:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Initialization Failure Recovery | A11yRepeatableFieldset">
+    <meta name="twitter:description" content="See transactional initialization fail safely when options are invalid, leaving server-rendered form data and hidden enhancement controls untouched.">
+    <meta name="twitter:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta name="twitter:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/edge-cases.html#webpage",
+          "url": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/edge-cases.html",
+          "name": "Initialization Failure Recovery | A11yRepeatableFieldset",
+          "description": "See transactional initialization fail safely when options are invalid, leaving server-rendered form data and hidden enhancement controls untouched.",
+          "mainEntity": {
+            "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/edge-cases.html#software"
+          }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/edge-cases.html#software",
+          "name": "A11yRepeatableFieldset",
+          "alternateName": "a11y-repeatable-fieldset",
+          "description": "Add, remove, duplicate, and reorder accessible form fieldsets with a dependency-free TypeScript plugin that preserves stable IDs and keyboard focus.",
+          "codeRepository": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset",
+          "programmingLanguage": [
+            "TypeScript",
+            "JavaScript"
+          ],
+          "runtimePlatform": "Browser",
+          "version": "1.0.0",
+          "license": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset/blob/main/LICENSE",
+          "keywords": [
+            "accessibility",
+            "a11y",
+            "fieldset",
+            "forms",
+            "progressive-enhancement",
+            "typescript"
+          ],
+          "author": {
+            "@id": "https://github.com/vmitsaras/#person"
+          },
+          "targetProduct": {
+            "@type": "SoftwareApplication",
+            "name": "A11yRepeatableFieldset",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Any",
+            "runtimePlatform": "Browser",
+            "softwareVersion": "1.0.0"
+          },
+          "sameAs": [
+            "https://github.com/vmitsaras/A11y-Repeatable-Fieldset"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://github.com/vmitsaras/#person",
+          "name": "Vasileios Mitsaras",
+          "url": "https://github.com/vmitsaras/",
+          "sameAs": [
+            "https://github.com/vmitsaras/",
+            "https://linkedin.com/in/vasilis-mitsaras"
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="./assets/docs.css">
+    <link rel="stylesheet" href="./assets/a11y-repeatable-fieldset.css">
+  </head>
+  <body class="docs-site">
+    <a class="docs-site__skip-link" href="#main-content">Skip to content</a>
+    <header class="docs-site__header">
+      <a class="docs-site__brand" href="./index.html" aria-label="A11yRepeatableFieldset home">A11yRepeatableFieldset</a>
+      <nav aria-label="Main navigation">
+        <ul class="docs-site__nav-list">
+          <li><a href="./index.html">Overview</a></li>
+          <li><a href="./index.html#examples">Examples</a></li>
+          <li><a href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">Install</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="docs-site__main" id="main-content">
+      <header>
+        <p>Deterministic failure and recovery demo</p>
+        <h1>Leave the author form usable when initialization fails</h1>
+        <p>This root deliberately starts with a maximum below its minimum. The public initializer rejects the options before revealing controls or changing server-rendered form data.</p>
+      </header>
+
+      <section class="docs-site__panel" aria-labelledby="recovery-scenario-heading">
+        <h2 id="recovery-scenario-heading">Scenario</h2>
+        <p>A configuration typo sets <code>data-min-items="1"</code> and <code>data-max-items="0"</code>. The page catches the typed public error, shows a safe diagnosis, and offers a deterministic correction and retry.</p>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="recovery-try-heading">
+        <h2 id="recovery-try-heading">Try it</h2>
+        <ul>
+          <li>Before repairing, edit the saved email and confirm the normal submit button remains available.</li>
+          <li>Confirm Add and Remove are still hidden and no lifecycle success event was dispatched.</li>
+          <li>Choose <strong>Correct maximum and retry</strong>; the script changes only the invalid option and calls the same public initializer again.</li>
+          <li>After recovery, add one subscriber and inspect the now-working enhancement.</li>
+        </ul>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="recovery-example-heading">
+        <h2 id="recovery-example-heading">Example</h2>
+        <p id="recovery-result" class="docs-site__result" role="status" aria-live="polite" aria-atomic="true">Attempting initialization.</p>
+        <p><button id="recovery-retry" type="button">Correct maximum and retry</button></p>
+
+        <form action="./edge-cases.html" method="get">
+          <section
+            id="recovery-root"
+            class="a11y-repeatable-fieldset"
+            data-a11y-repeatable-fieldset
+            data-min-items="1"
+            data-max-items="0"
+            data-item-label="Subscriber"
+            aria-describedby="recovery-hint"
+          >
+            <p id="recovery-hint" class="a11y-repeatable-fieldset__limit">The saved subscriber remains editable even while enhancement is unavailable.</p>
+            <div class="a11y-repeatable-fieldset__items" data-a11y-repeatable-fieldset-items>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="subscriber-saved">
+                <legend class="a11y-repeatable-fieldset__legend">Subscriber <span class="a11y-repeatable-fieldset__position" data-a11y-repeatable-fieldset-position>1</span></legend>
+                <p class="docs-site__form-row">
+                  <label for="subscriber-saved-email">Email</label>
+                  <input id="subscriber-saved-email" name="subscribers[subscriber-saved][email]" type="email" value="saved@example.com" autocomplete="email">
+                </p>
+                <div class="a11y-repeatable-fieldset__controls">
+                  <button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove subscriber</button>
+                </div>
+              </fieldset>
+            </div>
+            <div class="a11y-repeatable-fieldset__controls">
+              <button class="a11y-repeatable-fieldset__add" type="button" hidden data-a11y-repeatable-fieldset-add>Add another subscriber</button>
+            </div>
+            <div class="a11y-repeatable-fieldset__status" data-a11y-repeatable-fieldset-status></div>
+            <template data-a11y-repeatable-fieldset-template>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="__A11Y_REPEATABLE_KEY__">
+                <legend class="a11y-repeatable-fieldset__legend">Subscriber <span class="a11y-repeatable-fieldset__position" data-a11y-repeatable-fieldset-position></span></legend>
+                <p class="docs-site__form-row">
+                  <label for="subscriber-__A11Y_REPEATABLE_KEY__-email">Email</label>
+                  <input id="subscriber-__A11Y_REPEATABLE_KEY__-email" name="subscribers[__A11Y_REPEATABLE_KEY__][email]" type="email" autocomplete="email" data-a11y-repeatable-fieldset-focus>
+                </p>
+                <div class="a11y-repeatable-fieldset__controls">
+                  <button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove subscriber</button>
+                </div>
+              </fieldset>
+            </template>
+          </section>
+          <p><button type="submit">Submit current subscribers</button></p>
+        </form>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="recovery-evidence-heading">
+        <h2 id="recovery-evidence-heading">What the demo checks</h2>
+        <ul>
+          <li>The initializer reports the exported <code>invalid-options</code> code.</li>
+          <li>The existing input node, name, and value survive the failed attempt.</li>
+          <li>Enhancement controls retain their authored hidden state.</li>
+          <li>No <code>init</code>, <code>item-added</code>, <code>item-removed</code>, <code>item-moved</code>, or <code>destroy</code> event fires for the failure.</li>
+          <li>A corrected retry creates a clean active instance and dispatches its own single <code>init</code>.</li>
+        </ul>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="known-edges-heading">
+        <h2 id="known-edges-heading">Other known boundaries</h2>
+        <ul>
+          <li>Native form reset changes values of controls currently in the DOM but does not restore collection structure.</li>
+          <li>File-input values are never assigned, copied, or restored.</li>
+          <li>Untokenized external ID references remain author-owned.</li>
+          <li>Nested repeaters are excluded from the MVP.</li>
+          <li>Autofill, focus scrolling, and assistive-technology speech need real-browser evidence.</li>
+        </ul>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="recovery-developer-heading">
+        <h2 id="recovery-developer-heading">Developer notes</h2>
+        <p>The recovery code imports only <code>RepeatableFieldsetError</code>, <code>EVENTS</code>, and <code>createRepeatableFieldset</code>. It changes one known dataset value, never replaces serialized HTML, and does not expose private diagnostics.</p>
+      </section>
+    </main>
+    <footer class="demo-footer" data-demo-footer>
+      <div class="demo-footer__inner">
+        <div class="demo-footer__brand">
+          <p class="demo-footer__eyebrow">Accessibility plugin demo</p>
+          <p class="demo-footer__credit"><span class="demo-footer__plugin">A11yRepeatableFieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span>Built by <a class="demo-footer__link" href="https://github.com/vmitsaras/">Vasileios Mitsaras</a><span class="demo-footer__separator" aria-hidden="true">&middot;</span><a class="demo-footer__link" href="https://linkedin.com/in/vasilis-mitsaras">LinkedIn profile</a></p>
+          <p class="demo-footer__meta"><span>a11y-repeatable-fieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span><span>MIT License</span></p>
+        </div>
+        <nav class="demo-footer__nav" aria-label="Project links">
+          <ul class="demo-footer__links">
+            <li class="demo-footer__item"><a class="demo-footer__link" href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">GitHub repository</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <script type="module">
+      import {
+        EVENTS,
+        RepeatableFieldsetError,
+        createRepeatableFieldset
+      } from "./assets/a11y-repeatable-fieldset.js";
+
+      const root = document.querySelector("#recovery-root");
+      const result = document.querySelector("#recovery-result");
+      const retryButton = document.querySelector("#recovery-retry");
+      const savedInput = document.querySelector("#subscriber-saved-email");
+
+      if (
+        root instanceof HTMLElement &&
+        result instanceof HTMLElement &&
+        retryButton instanceof HTMLButtonElement &&
+        savedInput instanceof HTMLInputElement
+      ) {
+        const originalInput = savedInput;
+        const originalName = savedInput.name;
+        const initialValue = savedInput.value;
+        let lifecycleCount = 0;
+
+        for (const eventName of Object.values(EVENTS)) {
+          root.addEventListener(eventName, () => {
+            lifecycleCount += 1;
+          });
+        }
+
+        const attemptInitialization = (expectedValue) => {
+          try {
+            createRepeatableFieldset(root);
+            const preserved =
+              savedInput === originalInput &&
+              savedInput.name === originalName &&
+              savedInput.value === expectedValue;
+            result.textContent = `Recovery succeeded. Existing data preserved: ${preserved ? "yes" : "no"}. Lifecycle events observed: ${lifecycleCount}.`;
+            retryButton.disabled = true;
+          } catch (error) {
+            const code =
+              error instanceof RepeatableFieldsetError
+                ? error.code
+                : "unexpected-error";
+            const controlsStillHidden = Array.from(
+              root.querySelectorAll(
+                "[data-a11y-repeatable-fieldset-add], [data-a11y-repeatable-fieldset-remove]"
+              )
+            ).every((control) => control instanceof HTMLElement && control.hidden);
+            result.textContent = `Initialization safely stopped with ${code}. Existing input preserved: ${savedInput === originalInput ? "yes" : "no"}. Enhancement controls hidden: ${controlsStillHidden ? "yes" : "no"}. Lifecycle events observed: ${lifecycleCount}.`;
+          }
+        };
+
+        attemptInitialization(initialValue);
+
+        retryButton.addEventListener("click", () => {
+          const valueBeforeRetry = savedInput.value;
+          root.dataset.maxItems = "2";
+          attemptInitialization(valueBeforeRetry);
+        });
+      }
+    </script>
+  </body>
+</html>

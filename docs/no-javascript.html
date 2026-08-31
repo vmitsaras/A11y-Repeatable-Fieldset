@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <title>No-JavaScript Form Behavior | A11yRepeatableFieldset</title>
+    <meta name="description" content="Compare enhanced and baseline forms to see how semantic fieldsets, labels, values, and normal submission remain usable without JavaScript.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/no-javascript.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="A11yRepeatableFieldset">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="No-JavaScript Form Behavior | A11yRepeatableFieldset">
+    <meta property="og:description" content="Compare enhanced and baseline forms to see how semantic fieldsets, labels, values, and normal submission remain usable without JavaScript.">
+    <meta property="og:url" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/no-javascript.html">
+    <meta property="og:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta property="og:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="No-JavaScript Form Behavior | A11yRepeatableFieldset">
+    <meta name="twitter:description" content="Compare enhanced and baseline forms to see how semantic fieldsets, labels, values, and normal submission remain usable without JavaScript.">
+    <meta name="twitter:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta name="twitter:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/no-javascript.html#webpage",
+          "url": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/no-javascript.html",
+          "name": "No-JavaScript Form Behavior | A11yRepeatableFieldset",
+          "description": "Compare enhanced and baseline forms to see how semantic fieldsets, labels, values, and normal submission remain usable without JavaScript.",
+          "mainEntity": {
+            "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/no-javascript.html#software"
+          }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/no-javascript.html#software",
+          "name": "A11yRepeatableFieldset",
+          "alternateName": "a11y-repeatable-fieldset",
+          "description": "Add, remove, duplicate, and reorder accessible form fieldsets with a dependency-free TypeScript plugin that preserves stable IDs and keyboard focus.",
+          "codeRepository": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset",
+          "programmingLanguage": [
+            "TypeScript",
+            "JavaScript"
+          ],
+          "runtimePlatform": "Browser",
+          "version": "1.0.0",
+          "license": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset/blob/main/LICENSE",
+          "keywords": [
+            "accessibility",
+            "a11y",
+            "fieldset",
+            "forms",
+            "progressive-enhancement",
+            "typescript"
+          ],
+          "author": {
+            "@id": "https://github.com/vmitsaras/#person"
+          },
+          "targetProduct": {
+            "@type": "SoftwareApplication",
+            "name": "A11yRepeatableFieldset",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Any",
+            "runtimePlatform": "Browser",
+            "softwareVersion": "1.0.0"
+          },
+          "sameAs": [
+            "https://github.com/vmitsaras/A11y-Repeatable-Fieldset"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://github.com/vmitsaras/#person",
+          "name": "Vasileios Mitsaras",
+          "url": "https://github.com/vmitsaras/",
+          "sameAs": [
+            "https://github.com/vmitsaras/",
+            "https://linkedin.com/in/vasilis-mitsaras"
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="./assets/docs.css">
+    <link rel="stylesheet" href="./assets/a11y-repeatable-fieldset.css">
+  </head>
+  <body class="docs-site">
+    <a class="docs-site__skip-link" href="#main-content">Skip to content</a>
+    <header class="docs-site__header">
+      <a class="docs-site__brand" href="./index.html" aria-label="A11yRepeatableFieldset home">A11yRepeatableFieldset</a>
+      <nav aria-label="Main navigation">
+        <ul class="docs-site__nav-list">
+          <li><a href="./index.html">Overview</a></li>
+          <li><a href="./index.html#examples">Examples</a></li>
+          <li><a href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">Install</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="docs-site__main" id="main-content">
+      <header>
+        <p>Progressive-enhancement comparison</p>
+        <h1>Keep the server-rendered form useful when enhancement is unavailable</h1>
+        <p>The two forms start with the same semantic structure. This page initializes only the first root; the second remains a visible example of the baseline state.</p>
+      </header>
+
+      <noscript>
+        <p class="docs-site__panel docs-site__notice"><strong>JavaScript is currently disabled.</strong> Both forms remain usable and both enhancement-control sets remain hidden.</p>
+      </noscript>
+
+      <section class="docs-site__panel" aria-labelledby="nojs-try-heading">
+        <h2 id="nojs-try-heading">Try it</h2>
+        <ul>
+          <li>Compare the first form’s revealed Add/Remove controls with the second form’s server-only controls.</li>
+          <li>Tab through both forms; the uninitialized example contains no misleading enhancement action.</li>
+          <li>Submit either form and inspect its existing labeled control in the query string.</li>
+          <li>Disable JavaScript and reload; both existing fieldsets remain usable while both templates stay inert.</li>
+        </ul>
+      </section>
+
+      <div class="docs-site__grid">
+        <section class="docs-site__panel" aria-labelledby="enhanced-heading">
+          <h2 id="enhanced-heading">Enhanced after validation</h2>
+          <p>The copied runtime initializes this root explicitly.</p>
+          <form action="./no-javascript.html" method="get">
+            <section id="enhanced-example" class="a11y-repeatable-fieldset" data-a11y-repeatable-fieldset data-item-label="Reference" aria-describedby="enhanced-hint">
+              <p id="enhanced-hint" class="a11y-repeatable-fieldset__limit">Add or remove references after successful initialization.</p>
+              <div class="a11y-repeatable-fieldset__items" data-a11y-repeatable-fieldset-items>
+                <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="reference-enhanced">
+                  <legend class="a11y-repeatable-fieldset__legend">Reference <span class="a11y-repeatable-fieldset__position" data-a11y-repeatable-fieldset-position>1</span></legend>
+                  <p class="docs-site__form-row">
+                    <label for="reference-enhanced-email">Email</label>
+                    <input id="reference-enhanced-email" name="enhancedReferences[reference-enhanced][email]" type="email" value="person@example.com" autocomplete="email">
+                  </p>
+                  <div class="a11y-repeatable-fieldset__controls">
+                    <button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove reference</button>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="a11y-repeatable-fieldset__controls">
+                <button class="a11y-repeatable-fieldset__add" type="button" hidden data-a11y-repeatable-fieldset-add>Add another reference</button>
+              </div>
+              <div class="a11y-repeatable-fieldset__status" data-a11y-repeatable-fieldset-status></div>
+              <template data-a11y-repeatable-fieldset-template>
+                <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="__A11Y_REPEATABLE_KEY__">
+                  <legend class="a11y-repeatable-fieldset__legend">Reference <span class="a11y-repeatable-fieldset__position" data-a11y-repeatable-fieldset-position></span></legend>
+                  <p class="docs-site__form-row">
+                    <label for="enhanced-reference-__A11Y_REPEATABLE_KEY__-email">Email</label>
+                    <input id="enhanced-reference-__A11Y_REPEATABLE_KEY__-email" name="enhancedReferences[__A11Y_REPEATABLE_KEY__][email]" type="email" autocomplete="email" data-a11y-repeatable-fieldset-focus>
+                  </p>
+                  <div class="a11y-repeatable-fieldset__controls">
+                    <button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove reference</button>
+                  </div>
+                </fieldset>
+              </template>
+            </section>
+            <p><button type="submit">Submit enhanced form</button></p>
+          </form>
+        </section>
+
+        <section class="docs-site__panel" aria-labelledby="baseline-heading">
+          <h2 id="baseline-heading">Server-only baseline</h2>
+          <p>This valid root is intentionally not initialized. Its one existing item remains an ordinary form fieldset.</p>
+          <form action="./no-javascript.html" method="get">
+            <section id="baseline-example" class="a11y-repeatable-fieldset" data-a11y-repeatable-fieldset data-item-label="Reference" aria-describedby="baseline-hint">
+              <p id="baseline-hint" class="a11y-repeatable-fieldset__limit">The server-rendered reference can be edited and submitted without enhancement.</p>
+              <div class="a11y-repeatable-fieldset__items" data-a11y-repeatable-fieldset-items>
+                <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="reference-baseline">
+                  <legend class="a11y-repeatable-fieldset__legend">Reference <span class="a11y-repeatable-fieldset__position" data-a11y-repeatable-fieldset-position>1</span></legend>
+                  <p class="docs-site__form-row">
+                    <label for="reference-baseline-email">Email</label>
+                    <input id="reference-baseline-email" name="baselineReferences[reference-baseline][email]" type="email" value="person@example.com" autocomplete="email">
+                  </p>
+                  <div class="a11y-repeatable-fieldset__controls">
+                    <button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove reference</button>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="a11y-repeatable-fieldset__controls">
+                <button class="a11y-repeatable-fieldset__add" type="button" hidden data-a11y-repeatable-fieldset-add>Add another reference</button>
+              </div>
+              <template data-a11y-repeatable-fieldset-template>
+                <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="__A11Y_REPEATABLE_KEY__">
+                  <legend class="a11y-repeatable-fieldset__legend">Reference <span class="a11y-repeatable-fieldset__position" data-a11y-repeatable-fieldset-position></span></legend>
+                  <p class="docs-site__form-row">
+                    <label for="baseline-reference-__A11Y_REPEATABLE_KEY__-email">Email</label>
+                    <input id="baseline-reference-__A11Y_REPEATABLE_KEY__-email" name="baselineReferences[__A11Y_REPEATABLE_KEY__][email]" type="email" autocomplete="email">
+                  </p>
+                  <div class="a11y-repeatable-fieldset__controls">
+                    <button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove reference</button>
+                  </div>
+                </fieldset>
+              </template>
+            </section>
+            <p><button type="submit">Submit server-only form</button></p>
+          </form>
+        </section>
+      </div>
+
+      <section class="docs-site__panel" aria-labelledby="nojs-accessibility-heading">
+        <h2 id="nojs-accessibility-heading">Accessibility notes</h2>
+        <ul>
+          <li>Both initial items use native fieldsets, legends, labels, and named controls before any script runs.</li>
+          <li>Templates are inert and do not participate in focus order or form submission.</li>
+          <li>Enhancement-only buttons are authored with <code>hidden</code> and become available only after validation succeeds.</li>
+          <li>A no-JavaScript workflow that must change structure needs a separate server action outside this plugin.</li>
+          <li>No runtime behavior or optional CSS is required for the existing controls to submit normally.</li>
+        </ul>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="nojs-developer-heading">
+        <h2 id="nojs-developer-heading">Developer notes</h2>
+        <p>Importing the module does not auto-initialize either root. The page calls <code>createRepeatableFieldset</code> only for <code>#enhanced-example</code>, proving initialization remains an explicit application decision.</p>
+      </section>
+    </main>
+    <footer class="demo-footer" data-demo-footer>
+      <div class="demo-footer__inner">
+        <div class="demo-footer__brand">
+          <p class="demo-footer__eyebrow">Accessibility plugin demo</p>
+          <p class="demo-footer__credit"><span class="demo-footer__plugin">A11yRepeatableFieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span>Built by <a class="demo-footer__link" href="https://github.com/vmitsaras/">Vasileios Mitsaras</a><span class="demo-footer__separator" aria-hidden="true">&middot;</span><a class="demo-footer__link" href="https://linkedin.com/in/vasilis-mitsaras">LinkedIn profile</a></p>
+          <p class="demo-footer__meta"><span>a11y-repeatable-fieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span><span>MIT License</span></p>
+        </div>
+        <nav class="demo-footer__nav" aria-label="Project links">
+          <ul class="demo-footer__links">
+            <li class="demo-footer__item"><a class="demo-footer__link" href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">GitHub repository</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <script type="module">
+      import { createRepeatableFieldset } from "./assets/a11y-repeatable-fieldset.js";
+
+      const enhancedRoot = document.querySelector("#enhanced-example");
+
+      if (enhancedRoot instanceof HTMLElement) {
+        createRepeatableFieldset(enhancedRoot);
+      }
+    </script>
+  </body>
+</html>

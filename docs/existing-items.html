@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <title>Preserve Existing Form Items | A11yRepeatableFieldset</title>
+    <meta name="description" content="Edit saved contact fieldsets while preserving server keys, hidden record IDs, names, values, descriptions, and server validation messages.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/existing-items.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="A11yRepeatableFieldset">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Preserve Existing Form Items | A11yRepeatableFieldset">
+    <meta property="og:description" content="Edit saved contact fieldsets while preserving server keys, hidden record IDs, names, values, descriptions, and server validation messages.">
+    <meta property="og:url" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/existing-items.html">
+    <meta property="og:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta property="og:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Preserve Existing Form Items | A11yRepeatableFieldset">
+    <meta name="twitter:description" content="Edit saved contact fieldsets while preserving server keys, hidden record IDs, names, values, descriptions, and server validation messages.">
+    <meta name="twitter:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta name="twitter:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/existing-items.html#webpage",
+          "url": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/existing-items.html",
+          "name": "Preserve Existing Form Items | A11yRepeatableFieldset",
+          "description": "Edit saved contact fieldsets while preserving server keys, hidden record IDs, names, values, descriptions, and server validation messages.",
+          "mainEntity": {
+            "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/existing-items.html#software"
+          }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/existing-items.html#software",
+          "name": "A11yRepeatableFieldset",
+          "alternateName": "a11y-repeatable-fieldset",
+          "description": "Add, remove, duplicate, and reorder accessible form fieldsets with a dependency-free TypeScript plugin that preserves stable IDs and keyboard focus.",
+          "codeRepository": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset",
+          "programmingLanguage": [
+            "TypeScript",
+            "JavaScript"
+          ],
+          "runtimePlatform": "Browser",
+          "version": "1.0.0",
+          "license": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset/blob/main/LICENSE",
+          "keywords": [
+            "accessibility",
+            "a11y",
+            "fieldset",
+            "forms",
+            "progressive-enhancement",
+            "typescript"
+          ],
+          "author": {
+            "@id": "https://github.com/vmitsaras/#person"
+          },
+          "targetProduct": {
+            "@type": "SoftwareApplication",
+            "name": "A11yRepeatableFieldset",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Any",
+            "runtimePlatform": "Browser",
+            "softwareVersion": "1.0.0"
+          },
+          "sameAs": [
+            "https://github.com/vmitsaras/A11y-Repeatable-Fieldset"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://github.com/vmitsaras/#person",
+          "name": "Vasileios Mitsaras",
+          "url": "https://github.com/vmitsaras/",
+          "sameAs": [
+            "https://github.com/vmitsaras/",
+            "https://linkedin.com/in/vasilis-mitsaras"
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="./assets/docs.css">
+    <link rel="stylesheet" href="./assets/a11y-repeatable-fieldset.css">
+  </head>
+  <body class="docs-site">
+    <a class="docs-site__skip-link" href="#main-content">Skip to content</a>
+    <header class="docs-site__header">
+      <a class="docs-site__brand" href="./index.html" aria-label="A11yRepeatableFieldset home">A11yRepeatableFieldset</a>
+      <nav aria-label="Main navigation">
+        <ul class="docs-site__nav-list">
+          <li><a href="./index.html">Overview</a></li>
+          <li><a href="./index.html#examples">Examples</a></li>
+          <li><a href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">Install</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="docs-site__main" id="main-content">
+      <header>
+        <p>Server-rendered edit-form demo</p>
+        <h1>Edit saved contacts without replacing server state</h1>
+        <p>Two saved contacts arrive with persistent record identifiers, stable field names, values, descriptions, and one server validation message. Initialization discovers those fieldsets in place.</p>
+      </header>
+
+      <section class="docs-site__panel" aria-labelledby="existing-scenario-heading">
+        <h2 id="existing-scenario-heading">Scenario</h2>
+        <p>An account owner returns to correct an emergency-contact form. The component may add or remove groups, but it must not clear saved data, rename existing controls, remove the server error, or report the saved contacts as newly added.</p>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="existing-try-heading">
+        <h2 id="existing-try-heading">Try it</h2>
+        <ul>
+          <li>Confirm Ada and Grace keep their saved values and record identifiers after the page initializes.</li>
+          <li>Correct Grace’s telephone number; the plugin leaves the server message author-owned.</li>
+          <li>Add Contact 3 and compare its generated <code>item-N</code> name with the saved <code>contact-1042</code> and <code>contact-2088</code> names.</li>
+          <li>Submit with <strong>Preview submitted values</strong> and inspect the stable names in the URL query string.</li>
+        </ul>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="existing-example-heading">
+        <h2 id="existing-example-heading">Example</h2>
+        <p id="existing-event-summary" class="docs-site__result">Waiting for initialization.</p>
+        <form action="./existing-items.html" method="get">
+          <section
+            class="a11y-repeatable-fieldset"
+            data-a11y-repeatable-fieldset
+            aria-describedby="existing-contact-hint"
+          >
+            <p id="existing-contact-hint" class="a11y-repeatable-fieldset__limit">Saved keys and control names stay stable when visible positions change.</p>
+            <div class="a11y-repeatable-fieldset__items" data-a11y-repeatable-fieldset-items>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="contact-1042">
+                <legend class="a11y-repeatable-fieldset__legend">Contact <span class="a11y-repeatable-fieldset__position" data-a11y-repeatable-fieldset-position>1</span></legend>
+                <input type="hidden" name="contacts[contact-1042][recordId]" value="1042">
+                <p class="docs-site__form-row">
+                  <label for="contact-1042-name">Name</label>
+                  <input id="contact-1042-name" name="contacts[contact-1042][name]" value="Ada Lovelace" autocomplete="name">
+                </p>
+                <p class="docs-site__form-row">
+                  <label for="contact-1042-phone">Telephone</label>
+                  <input id="contact-1042-phone" name="contacts[contact-1042][phone]" value="+44 20 7946 0958" autocomplete="tel" inputmode="tel" aria-describedby="contact-1042-phone-hint">
+                  <span id="contact-1042-phone-hint">Include a country code when the contact lives abroad.</span>
+                </p>
+                <div class="a11y-repeatable-fieldset__controls">
+                  <button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove contact</button>
+                </div>
+              </fieldset>
+
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="contact-2088">
+                <legend class="a11y-repeatable-fieldset__legend">Contact <span class="a11y-repeatable-fieldset__position" data-a11y-repeatable-fieldset-position>2</span></legend>
+                <input type="hidden" name="contacts[contact-2088][recordId]" value="2088">
+                <p class="docs-site__form-row">
+                  <label for="contact-2088-name">Name</label>
+                  <input id="contact-2088-name" name="contacts[contact-2088][name]" value="Grace Hopper" autocomplete="name">
+                </p>
+                <p class="docs-site__form-row">
+                  <label for="contact-2088-phone">Telephone</label>
+                  <input id="contact-2088-phone" name="contacts[contact-2088][phone]" value="555" autocomplete="tel" inputmode="tel" aria-invalid="true" aria-describedby="contact-2088-phone-hint contact-2088-phone-error">
+                  <span id="contact-2088-phone-hint">Include a country code when the contact lives abroad.</span>
+                  <span id="contact-2088-phone-error" class="docs-site__error">Server message: enter a complete telephone number.</span>
+                </p>
+                <div class="a11y-repeatable-fieldset__controls">
+                  <button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove contact</button>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="a11y-repeatable-fieldset__controls">
+              <button class="a11y-repeatable-fieldset__add" type="button" hidden data-a11y-repeatable-fieldset-add>Add another contact</button>
+            </div>
+            <div class="a11y-repeatable-fieldset__status" data-a11y-repeatable-fieldset-status></div>
+
+            <template data-a11y-repeatable-fieldset-template>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="__A11Y_REPEATABLE_KEY__">
+                <legend class="a11y-repeatable-fieldset__legend">Contact <span class="a11y-repeatable-fieldset__position" data-a11y-repeatable-fieldset-position></span></legend>
+                <p class="docs-site__form-row">
+                  <label for="contact-__A11Y_REPEATABLE_KEY__-name">Name</label>
+                  <input id="contact-__A11Y_REPEATABLE_KEY__-name" name="contacts[__A11Y_REPEATABLE_KEY__][name]" autocomplete="name" data-a11y-repeatable-fieldset-focus>
+                </p>
+                <p class="docs-site__form-row">
+                  <label for="contact-__A11Y_REPEATABLE_KEY__-phone">Telephone</label>
+                  <input id="contact-__A11Y_REPEATABLE_KEY__-phone" name="contacts[__A11Y_REPEATABLE_KEY__][phone]" autocomplete="tel" inputmode="tel" aria-describedby="contact-__A11Y_REPEATABLE_KEY__-phone-hint">
+                  <span id="contact-__A11Y_REPEATABLE_KEY__-phone-hint">Include a country code when the contact lives abroad.</span>
+                </p>
+                <div class="a11y-repeatable-fieldset__controls">
+                  <button class="a11y-repeatable-fieldset__remove" type="button" hidden data-a11y-repeatable-fieldset-remove>Remove contact</button>
+                </div>
+              </fieldset>
+            </template>
+          </section>
+          <p><button type="submit">Preview submitted values</button></p>
+        </form>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="existing-accessibility-heading">
+        <h2 id="existing-accessibility-heading">Accessibility notes</h2>
+        <ul>
+          <li>Saved fieldsets, legends, labels, descriptions, and the server error exist before JavaScript runs.</li>
+          <li>The invalid telephone uses both visible error text and <code>aria-invalid</code>; the plugin does not validate or clear it.</li>
+          <li>Initialization emits one <code>init</code> observation and no <code>item-added</code> observation for saved items.</li>
+          <li>Generated contacts receive unique labels, IDs, descriptions, and names without rewriting saved controls.</li>
+          <li>Screen-reader phrasing and browser autofill behavior still require environment-specific manual evidence.</li>
+        </ul>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="existing-developer-heading">
+        <h2 id="existing-developer-heading">Developer notes</h2>
+        <p>The page listens with the exported <code>EVENTS</code> constants before calling <code>createRepeatableFieldset</code>. The summary stores only event counts. Saved names remain backend-controlled; only the inert template contains <code>__A11Y_REPEATABLE_KEY__</code>.</p>
+      </section>
+    </main>
+    <footer class="demo-footer" data-demo-footer>
+      <div class="demo-footer__inner">
+        <div class="demo-footer__brand">
+          <p class="demo-footer__eyebrow">Accessibility plugin demo</p>
+          <p class="demo-footer__credit"><span class="demo-footer__plugin">A11yRepeatableFieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span>Built by <a class="demo-footer__link" href="https://github.com/vmitsaras/">Vasileios Mitsaras</a><span class="demo-footer__separator" aria-hidden="true">&middot;</span><a class="demo-footer__link" href="https://linkedin.com/in/vasilis-mitsaras">LinkedIn profile</a></p>
+          <p class="demo-footer__meta"><span>a11y-repeatable-fieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span><span>MIT License</span></p>
+        </div>
+        <nav class="demo-footer__nav" aria-label="Project links">
+          <ul class="demo-footer__links">
+            <li class="demo-footer__item"><a class="demo-footer__link" href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">GitHub repository</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <script type="module">
+      import { EVENTS, createRepeatableFieldset } from "./assets/a11y-repeatable-fieldset.js";
+
+      const root = document.querySelector("[data-a11y-repeatable-fieldset]");
+      const summary = document.querySelector("#existing-event-summary");
+
+      if (root instanceof HTMLElement && summary instanceof HTMLElement) {
+        let initCount = 0;
+        let itemAddedCount = 0;
+
+        root.addEventListener(EVENTS.init, () => {
+          initCount += 1;
+        });
+        root.addEventListener(EVENTS.itemAdded, () => {
+          itemAddedCount += 1;
+          summary.textContent = `Initialization events: ${initCount}. Item-added events since initialization: ${itemAddedCount}.`;
+        });
+
+        createRepeatableFieldset(root, { itemLabel: "Contact" });
+        summary.textContent = `Initialization events: ${initCount}. Item-added events for the two saved contacts: ${itemAddedCount}.`;
+      }
+    </script>
+  </body>
+</html>

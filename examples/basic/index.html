@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Emergency Contacts Basic Example | A11yRepeatableFieldset</title>
+    <meta name="description" content="Try a progressively enhanced emergency-contact form with native Add and Remove buttons, stable field names, deterministic focus, and a no-JavaScript baseline.">
+    <link rel="stylesheet" href="../../dist/styles.css">
+  </head>
+  <body>
+    <main>
+      <h1>Add and remove emergency contacts</h1>
+      <p>
+        Start with one usable, server-rendered emergency contact. JavaScript
+        reveals Add and Remove only after successful initialization.
+      </p>
+
+      <section aria-labelledby="try-heading">
+        <h2 id="try-heading">Try it</h2>
+        <ul>
+          <li>
+            Use <kbd>Tab</kbd> to reach <strong>Add another contact</strong>,
+            then press <kbd>Enter</kbd> or <kbd>Space</kbd>.
+          </li>
+          <li>
+            Confirm focus moves to the Name field in the new Contact 2 group.
+          </li>
+          <li>
+            Remove Contact 2 and confirm focus returns to
+            <strong>Add another contact</strong>.
+          </li>
+          <li>
+            Reload without JavaScript and confirm Contact 1 can still be
+            edited and submitted.
+          </li>
+        </ul>
+      </section>
+
+      <form action="./index.html" method="post">
+        <section
+          class="a11y-repeatable-fieldset"
+          data-a11y-repeatable-fieldset
+          data-min-items="1"
+          data-max-items="3"
+          data-item-label="Contact"
+          aria-labelledby="contacts-heading"
+        >
+          <h2 id="contacts-heading">Emergency contacts</h2>
+          <p id="contacts-limit">
+            Add up to three contacts. At least one contact is required.
+          </p>
+
+          <div
+            class="a11y-repeatable-fieldset__items"
+            data-a11y-repeatable-fieldset-items
+          >
+            <fieldset
+              class="a11y-repeatable-fieldset__item"
+              data-a11y-repeatable-fieldset-item
+              data-a11y-repeatable-fieldset-key="server-primary"
+            >
+              <legend class="a11y-repeatable-fieldset__legend">
+                Contact
+                <span data-a11y-repeatable-fieldset-position>1</span>
+              </legend>
+
+              <label for="contact-server-primary-name">Name</label>
+              <input
+                id="contact-server-primary-name"
+                name="contacts[server-primary][name]"
+                autocomplete="name"
+              >
+
+              <button
+                class="a11y-repeatable-fieldset__remove"
+                data-a11y-repeatable-fieldset-remove
+                type="button"
+                hidden
+              >
+                Remove contact
+                <span data-a11y-repeatable-fieldset-position>1</span>
+              </button>
+            </fieldset>
+          </div>
+
+          <button
+            class="a11y-repeatable-fieldset__add"
+            data-a11y-repeatable-fieldset-add
+            type="button"
+            aria-describedby="contacts-limit"
+            hidden
+          >
+            Add another contact
+          </button>
+
+          <div
+            class="a11y-repeatable-fieldset__status"
+            data-a11y-repeatable-fieldset-status
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+          ></div>
+
+          <template data-a11y-repeatable-fieldset-template>
+            <fieldset
+              class="a11y-repeatable-fieldset__item"
+              data-a11y-repeatable-fieldset-item
+              data-a11y-repeatable-fieldset-key="__A11Y_REPEATABLE_KEY__"
+            >
+              <legend class="a11y-repeatable-fieldset__legend">
+                Contact
+                <span data-a11y-repeatable-fieldset-position></span>
+              </legend>
+
+              <label for="contact-__A11Y_REPEATABLE_KEY__-name">Name</label>
+              <input
+                id="contact-__A11Y_REPEATABLE_KEY__-name"
+                name="contacts[__A11Y_REPEATABLE_KEY__][name]"
+                autocomplete="name"
+                data-a11y-repeatable-fieldset-focus
+              >
+
+              <button
+                class="a11y-repeatable-fieldset__remove"
+                data-a11y-repeatable-fieldset-remove
+                type="button"
+                hidden
+              >
+                Remove contact
+                <span data-a11y-repeatable-fieldset-position></span>
+              </button>
+            </fieldset>
+          </template>
+        </section>
+
+        <button type="submit">Submit contacts</button>
+      </form>
+
+      <section aria-labelledby="accessibility-heading">
+        <h2 id="accessibility-heading">Accessibility notes</h2>
+        <ul>
+          <li>
+            Each contact is a native <code>fieldset</code> with a non-empty
+            <code>legend</code>, and the Name input has a visible label.
+          </li>
+          <li>
+            Add and Remove are native buttons; the template remains inert
+            until the plugin creates a new item.
+          </li>
+          <li>
+            Completed structural changes use one polite status region.
+          </li>
+          <li>
+            Automated checks do not replace manual testing of announcements,
+            focus scrolling, zoom and reflow, forced colors, or autofill in
+            the target environments.
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <script type="module">
+      import {
+        createRepeatableFieldset
+      } from "../../dist/index.js";
+
+      const root = document.querySelector(
+        "[data-a11y-repeatable-fieldset]"
+      );
+
+      if (!(root instanceof HTMLElement)) {
+        throw new Error("The repeatable-fieldset root is missing.");
+      }
+
+      createRepeatableFieldset(root);
+    </script>
+  </body>
+</html>

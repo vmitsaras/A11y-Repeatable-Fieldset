@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <title>Public API Reference | A11yRepeatableFieldset</title>
+    <meta name="description" content="Explore the ESM-only TypeScript API for initialization, Add, Remove, Duplicate, restoration, and Move results, queries, lifecycle events, options, and errors.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/api.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="A11yRepeatableFieldset">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Public API Reference | A11yRepeatableFieldset">
+    <meta property="og:description" content="Explore the ESM-only TypeScript API for initialization, Add, Remove, Duplicate, restoration, and Move results, queries, lifecycle events, options, and errors.">
+    <meta property="og:url" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/api.html">
+    <meta property="og:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta property="og:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Public API Reference | A11yRepeatableFieldset">
+    <meta name="twitter:description" content="Explore the ESM-only TypeScript API for initialization, Add, Remove, Duplicate, restoration, and Move results, queries, lifecycle events, options, and errors.">
+    <meta name="twitter:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta name="twitter:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/api.html#webpage",
+          "url": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/api.html",
+          "name": "Public API Reference | A11yRepeatableFieldset",
+          "description": "Explore the ESM-only TypeScript API for initialization, Add, Remove, Duplicate, restoration, and Move results, queries, lifecycle events, options, and errors.",
+          "mainEntity": {
+            "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/api.html#software"
+          }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/api.html#software",
+          "name": "A11yRepeatableFieldset",
+          "alternateName": "a11y-repeatable-fieldset",
+          "description": "Add, remove, duplicate, and reorder accessible form fieldsets with a dependency-free TypeScript plugin that preserves stable IDs and keyboard focus.",
+          "codeRepository": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset",
+          "programmingLanguage": [
+            "TypeScript",
+            "JavaScript"
+          ],
+          "runtimePlatform": "Browser",
+          "version": "1.0.0",
+          "license": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset/blob/main/LICENSE",
+          "keywords": [
+            "accessibility",
+            "a11y",
+            "fieldset",
+            "forms",
+            "progressive-enhancement",
+            "typescript"
+          ],
+          "author": {
+            "@id": "https://github.com/vmitsaras/#person"
+          },
+          "targetProduct": {
+            "@type": "SoftwareApplication",
+            "name": "A11yRepeatableFieldset",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Any",
+            "runtimePlatform": "Browser",
+            "softwareVersion": "1.0.0"
+          },
+          "sameAs": [
+            "https://github.com/vmitsaras/A11y-Repeatable-Fieldset"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://github.com/vmitsaras/#person",
+          "name": "Vasileios Mitsaras",
+          "url": "https://github.com/vmitsaras/",
+          "sameAs": [
+            "https://github.com/vmitsaras/",
+            "https://linkedin.com/in/vasilis-mitsaras"
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="./assets/docs.css">
+  </head>
+  <body class="docs-site">
+    <a class="docs-site__skip-link" href="#main-content">Skip to content</a>
+    <header class="docs-site__header">
+      <a class="docs-site__brand" href="./index.html" aria-label="A11yRepeatableFieldset home">A11yRepeatableFieldset</a>
+      <nav aria-label="Main navigation">
+        <ul class="docs-site__nav-list">
+          <li><a href="./index.html">Overview</a></li>
+          <li><a href="./index.html#examples">Examples</a></li>
+          <li><a href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">Install</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="docs-site__main" id="main-content">
+      <header>
+        <p>Package reference</p>
+        <h1>Public API</h1>
+        <p>These names match the ESM runtime and declaration output. There is no browser global, and importing the package does not initialize the document.</p>
+      </header>
+
+      <section class="docs-site__panel" aria-labelledby="creation-heading">
+        <h2 id="creation-heading">Creation and initialization</h2>
+        <table class="docs-site__table">
+          <thead><tr><th scope="col">Export</th><th scope="col">Purpose</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><code>new A11yRepeatableFieldset(root, options?)</code></th><td>Creates or reuses the active instance for one root and initializes it transactionally.</td></tr>
+            <tr><th scope="row"><code>createRepeatableFieldset(root, options?)</code></th><td>Factory equivalent for one root.</td></tr>
+            <tr><th scope="row"><code>initRepeatableFieldsetAll(scope, options?)</code></th><td>Explicitly initializes matching roots within a document or element scope.</td></tr>
+            <tr><th scope="row"><code>init()</code></th><td>Idempotently returns the active instance; a destroyed instance cannot be revived.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="options-heading">
+        <h2 id="options-heading">Options</h2>
+        <p>JavaScript options override datasets, which override frozen defaults.</p>
+        <table class="docs-site__table">
+          <thead><tr><th scope="col">Option</th><th scope="col">Dataset</th><th scope="col">Default</th><th scope="col">Rule</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><code>minimum</code></th><td><code>data-min-items</code></td><td><code>1</code></td><td>Non-negative safe integer.</td></tr>
+            <tr><th scope="row"><code>maximum</code></th><td><code>data-max-items</code></td><td><code>null</code></td><td>Non-negative safe integer at least equal to minimum, or unbounded.</td></tr>
+            <tr><th scope="row"><code>itemLabel</code></th><td><code>data-item-label</code></td><td><code>"Item"</code></td><td>Trimmed non-empty text used by structural messages.</td></tr>
+            <tr><th scope="row"><code>focusOnAdd</code></th><td><code>data-focus-on-add</code></td><td><code>true</code></td><td>Controls user-triggered Add focus; API Add remains opt-in.</td></tr>
+            <tr><th scope="row"><code>announceChanges</code></th><td><code>data-announce-changes</code></td><td><code>true</code></td><td>Enables the managed polite structural status region.</td></tr>
+            <tr><th scope="row"><code>keyFactory</code></th><td>JavaScript only</td><td>Monotonic <code>item-N</code></td><td>Must return a unique key matching the documented grammar.</td></tr>
+            <tr><th scope="row"><code>messageFormatters</code></th><td>JavaScript only</td><td>Frozen English callbacks</td><td>Partial map for added, removed, restored, duplicated, moved, Move-boundary, maximum, and minimum concepts.</td></tr>
+            <tr><th scope="row"><code>addons</code></th><td>JavaScript only</td><td>None</td><td>Readonly synchronous addon objects with unique IDs.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="methods-heading">
+        <h2 id="methods-heading">Instance methods</h2>
+        <table class="docs-site__table">
+          <thead><tr><th scope="col">Method</th><th scope="col">Result</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><code>add({ focus? })</code></th><td>Adds one template item or returns a frozen failure result. API focus defaults to false.</td></tr>
+            <tr><th scope="row"><code>remove(target, { focus? })</code></th><td>Removes by snapshot, fieldset, or stable key. Focus inside a removed item is always recovered.</td></tr>
+            <tr><th scope="row"><code>move(target, direction)</code></th><td>Moves the same owned fieldset one adjacent position up or down while preserving stable keys, names, IDs, values, and eligible focus.</td></tr>
+            <tr><th scope="row"><code>getItems()</code></th><td>Returns a new frozen array of frozen item snapshots.</td></tr>
+            <tr><th scope="row"><code>getCount()</code></th><td>Returns the active item count, or zero after destroy.</td></tr>
+            <tr><th scope="row"><code>canAdd()</code> / <code>canRemove()</code></th><td>Report current command availability using the same minimum/maximum state as native buttons.</td></tr>
+            <tr><th scope="row"><code>destroy()</code></th><td>Idempotently removes behavior and plugin-owned resources while retaining current fieldsets, identities, positions, and values.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="results-heading">
+        <h2 id="results-heading">Operation results</h2>
+        <p>Normal boundaries are discriminated results rather than exceptions.</p>
+        <ul>
+          <li>Add failures: <code>inactive</code>, <code>maximum</code>, <code>invalid-key</code>, <code>duplicate-key</code>, <code>invalid-template</code>, or <code>addon-error</code>.</li>
+          <li>Remove failures: <code>inactive</code>, <code>minimum</code>, <code>unowned-item</code>, or <code>addon-error</code>.</li>
+          <li>Move failures: <code>inactive</code>, <code>unowned-item</code>, typed <code>boundary</code> at <code>start</code>/<code>end</code>, or rollback-safe <code>move-error</code>.</li>
+          <li>Successful results contain a readonly item snapshot with <code>element</code>, stable <code>key</code>, zero-based <code>index</code>, and one-based <code>position</code>.</li>
+        </ul>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="remove-request-heading">
+        <h2 id="remove-request-heading">Control Remove requests</h2>
+        <p><code>RepeatableFieldsetAddonContext.onRemoveRequest(handler)</code> registers at most one component-level owner for Remove-button activation. The handler receives a frozen <code>RepeatableFieldsetRemoveRequest</code> with structural item metadata, the original button, and a single-use <code>request.remove()</code> command.</p>
+        <p>The approved command rechecks ownership and minimum state while preserving <code>source: "control"</code> and the original trigger. Public <code>instance.remove()</code> is already approved, remains immediate, and bypasses this route. No cancelable or additional lifecycle event is created.</p>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="errors-heading">
+        <h2 id="errors-heading">Initialization errors</h2>
+        <p><code>RepeatableFieldsetError</code> exposes a typed <code>code</code>, safe root and offending-element context, and an optional cause. Codes cover invalid roots/options, missing or multiple owned elements, invalid items/templates/focus/status, key and ID failures, and unresolved template tokens.</p>
+        <p>Initialization is transactional: a thrown error must not leave listeners, generated UI, changed control state, addon registration, or an active instance entry behind.</p>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="exports-heading">
+        <h2 id="exports-heading">Package exports</h2>
+        <ul>
+          <li><code>.</code> — readable ESM runtime and declarations.</li>
+          <li><code>./min</code> — minified ESM runtime with the same declarations.</li>
+          <li><code>./docs</code> — structured, side-effect-free documentation metadata.</li>
+          <li><code>./addons/validation-bridge</code> — dependency-free, opt-in item registration and cleanup adapter.</li>
+          <li><code>./addons/legend-sync</code> — dependency-free, opt-in committed legend suffix synchronization.</li>
+          <li><code>./addons/remove-guard</code> — dependency-free control-request policy and asynchronous confirmation routing.</li>
+          <li><code>./addons/accessible-reorder</code> — dependency-free native adjacent Move controls delegating to public <code>move()</code>.</li>
+          <li><code>./addons/duplicate-item</code> — dependency-free native Duplicate controls with explicit supported-control copy slots delegating to public <code>duplicate()</code>.</li>
+          <li><code>./addons/undo-remove</code> — dependency-free short-lived Undo UI and explicit safe-state retention delegating exact-key trusted-template restoration to core.</li>
+          <li><code>./addons/form-memory-bridge</code> — dependency-free two-phase structural draft adapter and initializer for application-owned form persistence.</li>
+          <li><code>./styles.css</code> — optional behavior-independent component CSS.</li>
+          <li><code>./package.json</code> — package metadata.</li>
+        </ul>
+        <p>The main entry exports generic addon, request-routing, removal-preparation/restoration, Move, and Duplicate types but does not re-export Validation Bridge, Legend Sync, Remove Guard, Accessible Reorder, Duplicate Item, Undo Remove, or Form Memory Bridge implementations. See <a href="./addons.html">addons and integrations</a> for their isolation, privacy, and lifecycle contracts.</p>
+      </section>
+    </main>
+    <footer class="demo-footer" data-demo-footer>
+      <div class="demo-footer__inner">
+        <div class="demo-footer__brand">
+          <p class="demo-footer__eyebrow">Accessibility plugin demo</p>
+          <p class="demo-footer__credit"><span class="demo-footer__plugin">A11yRepeatableFieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span>Built by <a class="demo-footer__link" href="https://github.com/vmitsaras/">Vasileios Mitsaras</a><span class="demo-footer__separator" aria-hidden="true">&middot;</span><a class="demo-footer__link" href="https://linkedin.com/in/vasilis-mitsaras">LinkedIn profile</a></p>
+          <p class="demo-footer__meta"><span>a11y-repeatable-fieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span><span>MIT License</span></p>
+        </div>
+        <nav class="demo-footer__nav" aria-label="Project links">
+          <ul class="demo-footer__links">
+            <li class="demo-footer__item"><a class="demo-footer__link" href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">GitHub repository</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <title>Duplicate Item Demo | A11yRepeatableFieldset</title>
+    <meta name="description" content="Try trusted-template item duplication with explicit native-control copy markers, fresh identity, safe defaults, focus, and sensitive-data exclusions.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/duplicate-item.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="A11yRepeatableFieldset">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Duplicate Item Demo | A11yRepeatableFieldset">
+    <meta property="og:description" content="Try trusted-template item duplication with explicit native-control copy markers, fresh identity, safe defaults, focus, and sensitive-data exclusions.">
+    <meta property="og:url" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/duplicate-item.html">
+    <meta property="og:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta property="og:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Duplicate Item Demo | A11yRepeatableFieldset">
+    <meta name="twitter:description" content="Try trusted-template item duplication with explicit native-control copy markers, fresh identity, safe defaults, focus, and sensitive-data exclusions.">
+    <meta name="twitter:image" content="https://vmitsaras.github.io/A11y-Repeatable-Fieldset/assets/social-preview.png">
+    <meta name="twitter:image:alt" content="A11yRepeatableFieldset: repeat form fieldsets without losing semantics, identity, or focus.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/duplicate-item.html#webpage",
+          "url": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/duplicate-item.html",
+          "name": "Duplicate Item Demo | A11yRepeatableFieldset",
+          "description": "Try trusted-template item duplication with explicit native-control copy markers, fresh identity, safe defaults, focus, and sensitive-data exclusions.",
+          "mainEntity": {
+            "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/duplicate-item.html#software"
+          }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://vmitsaras.github.io/A11y-Repeatable-Fieldset/duplicate-item.html#software",
+          "name": "A11yRepeatableFieldset",
+          "alternateName": "a11y-repeatable-fieldset",
+          "description": "Add, remove, duplicate, and reorder accessible form fieldsets with a dependency-free TypeScript plugin that preserves stable IDs and keyboard focus.",
+          "codeRepository": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset",
+          "programmingLanguage": [
+            "TypeScript",
+            "JavaScript"
+          ],
+          "runtimePlatform": "Browser",
+          "version": "1.0.0",
+          "license": "https://github.com/vmitsaras/A11y-Repeatable-Fieldset/blob/main/LICENSE",
+          "keywords": [
+            "accessibility",
+            "a11y",
+            "fieldset",
+            "forms",
+            "progressive-enhancement",
+            "typescript"
+          ],
+          "author": {
+            "@id": "https://github.com/vmitsaras/#person"
+          },
+          "targetProduct": {
+            "@type": "SoftwareApplication",
+            "name": "A11yRepeatableFieldset",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Any",
+            "runtimePlatform": "Browser",
+            "softwareVersion": "1.0.0"
+          },
+          "sameAs": [
+            "https://github.com/vmitsaras/A11y-Repeatable-Fieldset"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://github.com/vmitsaras/#person",
+          "name": "Vasileios Mitsaras",
+          "url": "https://github.com/vmitsaras/",
+          "sameAs": [
+            "https://github.com/vmitsaras/",
+            "https://linkedin.com/in/vasilis-mitsaras"
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="./assets/docs.css">
+    <link rel="stylesheet" href="./assets/a11y-repeatable-fieldset.css">
+  </head>
+  <body class="docs-site">
+    <a class="docs-site__skip-link" href="#main-content">Skip to content</a>
+    <header class="docs-site__header">
+      <a class="docs-site__brand" href="./index.html" aria-label="A11yRepeatableFieldset home">A11yRepeatableFieldset</a>
+      <nav aria-label="Main navigation">
+        <ul class="docs-site__nav-list">
+          <li><a href="./index.html">Overview</a></li>
+          <li><a href="./index.html#examples">Examples</a></li>
+          <li><a href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">Install</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="docs-site__main" id="main-content">
+      <header>
+        <p>Opt-in addon demo</p>
+        <h1>Duplicate an item without cloning its fieldset</h1>
+        <p>The Duplicate Item addon asks core to create a fresh-key item from the trusted template. Only deliberately marked supported current state is copied, while the candidate is still disconnected and before any new-item addon setup.</p>
+      </header>
+
+      <aside class="docs-site__panel docs-site__notice">
+        <p><strong>Privacy boundary:</strong> this example marks only Name, preferred contact, updates, and Notes. The hidden server ID, password, and file input remain unmarked and are never copied. Payment and credential autocomplete fields are rejected even if marked.</p>
+      </aside>
+
+      <section class="docs-site__panel" aria-labelledby="demo-heading">
+        <h2 id="demo-heading">Executable contact example</h2>
+        <p>Edit the saved contact, then choose <strong>Duplicate contact</strong>. The new fieldset is inserted immediately after its source, receives a fresh stable key, preserves template defaults, and receives focus through the normal Add decision order.</p>
+
+        <form id="duplicate-item-demo-form" action="./duplicate-item.html" method="post">
+          <section class="a11y-repeatable-fieldset" data-a11y-repeatable-fieldset data-min-items="1" data-max-items="3" data-item-label="Contact" aria-labelledby="contact-list-heading">
+            <h3 id="contact-list-heading">Contacts</h3>
+            <p id="duplicate-instructions">Keep up to three contacts. Duplicating a contact copies only the marked fields below.</p>
+
+            <div class="a11y-repeatable-fieldset__items" data-a11y-repeatable-fieldset-items>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="server-42">
+                <legend class="a11y-repeatable-fieldset__legend">Contact <span data-a11y-repeatable-fieldset-position>1</span></legend>
+
+                <input type="hidden" name="contacts[server-42][id]" value="42">
+
+                <div class="docs-site__form-row">
+                  <label for="duplicate-contact-server-42-name">Name <span>(copied when duplicating)</span></label>
+                  <input id="duplicate-contact-server-42-name" name="contacts[server-42][name]" value="Ada Lovelace" autocomplete="name" data-a11y-repeatable-fieldset-duplicate-copy="name">
+                </div>
+
+                <div class="docs-site__form-row">
+                  <label for="duplicate-contact-server-42-method">Preferred contact <span>(copied when duplicating)</span></label>
+                  <select id="duplicate-contact-server-42-method" name="contacts[server-42][method]" data-a11y-repeatable-fieldset-duplicate-copy="method">
+                    <option value="email" selected>Email</option>
+                    <option value="phone">Phone</option>
+                  </select>
+                </div>
+
+                <div class="docs-site__form-row">
+                  <label><input type="checkbox" name="contacts[server-42][updates]" checked data-a11y-repeatable-fieldset-duplicate-copy="updates"> Send updates <span>(copied when duplicating)</span></label>
+                </div>
+
+                <div class="docs-site__form-row">
+                  <label for="duplicate-contact-server-42-notes">Notes <span>(copied when duplicating)</span></label>
+                  <textarea id="duplicate-contact-server-42-notes" name="contacts[server-42][notes]" data-a11y-repeatable-fieldset-duplicate-copy="notes">Available mornings</textarea>
+                </div>
+
+                <div class="docs-site__form-row">
+                  <label for="duplicate-contact-server-42-password">Portal password <span>(not copied)</span></label>
+                  <input id="duplicate-contact-server-42-password" name="contacts[server-42][password]" type="password" autocomplete="new-password">
+                </div>
+
+                <div class="docs-site__form-row">
+                  <label for="duplicate-contact-server-42-file">Reference file <span>(not copied)</span></label>
+                  <input id="duplicate-contact-server-42-file" name="contacts[server-42][file]" type="file">
+                </div>
+
+                <div class="a11y-repeatable-fieldset__controls" data-a11y-repeatable-fieldset-duplicate-controls></div>
+                <button class="a11y-repeatable-fieldset__remove" type="button" data-a11y-repeatable-fieldset-remove hidden>Remove contact <span data-a11y-repeatable-fieldset-position>1</span></button>
+              </fieldset>
+            </div>
+
+            <button class="a11y-repeatable-fieldset__add" type="button" data-a11y-repeatable-fieldset-add aria-describedby="duplicate-instructions" hidden>Add blank contact</button>
+            <div class="a11y-repeatable-fieldset__status" data-a11y-repeatable-fieldset-status role="status" aria-live="polite" aria-atomic="true"></div>
+
+            <template data-a11y-repeatable-fieldset-template>
+              <fieldset class="a11y-repeatable-fieldset__item" data-a11y-repeatable-fieldset-item data-a11y-repeatable-fieldset-key="__A11Y_REPEATABLE_KEY__">
+                <legend class="a11y-repeatable-fieldset__legend">Contact <span data-a11y-repeatable-fieldset-position></span></legend>
+
+                <input type="hidden" name="contacts[__A11Y_REPEATABLE_KEY__][id]" value="">
+
+                <div class="docs-site__form-row">
+                  <label for="duplicate-contact-__A11Y_REPEATABLE_KEY__-name">Name <span>(copied when duplicating)</span></label>
+                  <input id="duplicate-contact-__A11Y_REPEATABLE_KEY__-name" name="contacts[__A11Y_REPEATABLE_KEY__][name]" autocomplete="name" data-a11y-repeatable-fieldset-duplicate-copy="name" data-a11y-repeatable-fieldset-focus>
+                </div>
+
+                <div class="docs-site__form-row">
+                  <label for="duplicate-contact-__A11Y_REPEATABLE_KEY__-method">Preferred contact <span>(copied when duplicating)</span></label>
+                  <select id="duplicate-contact-__A11Y_REPEATABLE_KEY__-method" name="contacts[__A11Y_REPEATABLE_KEY__][method]" data-a11y-repeatable-fieldset-duplicate-copy="method">
+                    <option value="email">Email</option>
+                    <option value="phone">Phone</option>
+                  </select>
+                </div>
+
+                <div class="docs-site__form-row">
+                  <label><input type="checkbox" name="contacts[__A11Y_REPEATABLE_KEY__][updates]" data-a11y-repeatable-fieldset-duplicate-copy="updates"> Send updates <span>(copied when duplicating)</span></label>
+                </div>
+
+                <div class="docs-site__form-row">
+                  <label for="duplicate-contact-__A11Y_REPEATABLE_KEY__-notes">Notes <span>(copied when duplicating)</span></label>
+                  <textarea id="duplicate-contact-__A11Y_REPEATABLE_KEY__-notes" name="contacts[__A11Y_REPEATABLE_KEY__][notes]" data-a11y-repeatable-fieldset-duplicate-copy="notes"></textarea>
+                </div>
+
+                <div class="docs-site__form-row">
+                  <label for="duplicate-contact-__A11Y_REPEATABLE_KEY__-password">Portal password <span>(not copied)</span></label>
+                  <input id="duplicate-contact-__A11Y_REPEATABLE_KEY__-password" name="contacts[__A11Y_REPEATABLE_KEY__][password]" type="password" autocomplete="new-password">
+                </div>
+
+                <div class="docs-site__form-row">
+                  <label for="duplicate-contact-__A11Y_REPEATABLE_KEY__-file">Reference file <span>(not copied)</span></label>
+                  <input id="duplicate-contact-__A11Y_REPEATABLE_KEY__-file" name="contacts[__A11Y_REPEATABLE_KEY__][file]" type="file">
+                </div>
+
+                <div class="a11y-repeatable-fieldset__controls" data-a11y-repeatable-fieldset-duplicate-controls></div>
+                <button class="a11y-repeatable-fieldset__remove" type="button" data-a11y-repeatable-fieldset-remove hidden>Remove contact <span data-a11y-repeatable-fieldset-position></span></button>
+              </fieldset>
+            </template>
+          </section>
+
+        </form>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="event-heading">
+        <h2 id="event-heading">Completed structural event</h2>
+        <p>The ordinary document output below shows only structural fields from the most recent <code>item-duplicated</code> event. It is deliberately not a live region and never includes control values.</p>
+        <pre id="duplicate-item-event-output" aria-live="off">No item has been duplicated.</pre>
+      </section>
+
+      <section class="docs-site__panel" aria-labelledby="matrix-heading">
+        <h2 id="matrix-heading">What the copier means</h2>
+        <ul>
+          <li>Text inputs and textareas copy their current value, not their default.</li>
+          <li>Checkboxes and radios copy checked state; transient indeterminate state does not copy.</li>
+          <li>Single and multiple selects match enabled option values against the trusted template.</li>
+          <li>Disabled, readonly, hidden, file, credential, payment, and custom controls cannot opt in.</li>
+          <li>Server errors, ARIA invalid/error state, custom validity, dirty/touched flags, and validator registrations are rebuilt rather than copied.</li>
+        </ul>
+        <p>Review the public <a href="./api.html">command API</a>, the completed <a href="./lifecycle-events.html">lifecycle event</a>, and the <a href="./addons.html">addon architecture</a>.</p>
+      </section>
+    </main>
+
+    <footer class="demo-footer" data-demo-footer>
+      <div class="demo-footer__inner">
+        <div class="demo-footer__brand">
+          <p class="demo-footer__eyebrow">Accessibility plugin demo</p>
+          <p class="demo-footer__credit"><span class="demo-footer__plugin">A11yRepeatableFieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span>Built by <a class="demo-footer__link" href="https://github.com/vmitsaras/">Vasileios Mitsaras</a><span class="demo-footer__separator" aria-hidden="true">&middot;</span><a class="demo-footer__link" href="https://linkedin.com/in/vasilis-mitsaras">LinkedIn profile</a></p>
+          <p class="demo-footer__meta"><span>a11y-repeatable-fieldset</span><span class="demo-footer__separator" aria-hidden="true">&middot;</span><span>MIT License</span></p>
+        </div>
+        <nav class="demo-footer__nav" aria-label="Project links">
+          <ul class="demo-footer__links">
+            <li class="demo-footer__item"><a class="demo-footer__link" href="https://github.com/vmitsaras/A11y-Repeatable-Fieldset">GitHub repository</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <script type="module" src="./assets/duplicate-item-demo.js"></script>
+  </body>
+</html>
